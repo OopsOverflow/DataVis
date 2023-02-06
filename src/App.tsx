@@ -1,6 +1,6 @@
 import React from 'react';
-import { GroupedBarChart } from './charts/GroupedBarChart';
-import { type IGroupedData } from './types';
+import { GroupedBarChart } from '@charts/GroupedBarChart';
+import { type IGroupedData } from './type';
 
 const GROUPED_BAR_CHART_DATA: IGroupedData[] = [
   { label: 'Apples', values: [60, 80, 100] },

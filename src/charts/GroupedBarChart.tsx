@@ -6,8 +6,8 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { type IGroupedData } from '../types';
 import '../styles/globals.css';
+import {type IGroupedData} from "@type/index";
 
 interface Props {
   data: IGroupedData[];
