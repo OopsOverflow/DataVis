@@ -1,5 +1,6 @@
 import React from 'react';
 import { GroupedBarChart } from '@charts/GroupedBarChart';
+import { CloudPieChart } from '@charts/CloudPieChart';
 import { type IGroupedData } from './type';
 
 const GROUPED_BAR_CHART_DATA: IGroupedData[] = [
@@ -23,6 +24,7 @@ function App(): React.ReactElement {
       </h1>
       <GroupedBarChart data={GROUPED_BAR_CHART_DATA} />
       <p>Hover over the bars to see the values</p>
+      <CloudPieChart  data={GROUPED_BAR_CHART_DATA} />
     </div>
   );
 }
