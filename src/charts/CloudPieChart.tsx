@@ -25,24 +25,26 @@ const getPie = (radius: number, angle: number = 0) => {
     .endAngle(angle ? angle : Math.PI / 3);
 };
 
-const addClipPath = (svg: any, angle: number, radius: number, color: string) => {
+const addClipPath = (svg: any, angle: number, radius: number, color: string, key: number) => {
   // only whatever parts of the shape inside the clipPath are visible
   const group = svg.append('g').attr('clip-path', 'url(#myClipV2)');
   const arc = getPie(radius);
 
   group
     .append('path')
-    .attr('class', 'arc')
+    .attr('class', `arc`)
+    .attr('id', `arc${key}`)
     .attr('d', arc)
     .attr('transform', `translate(${1000}, ${1000})rotate(${angle})`)
-    .attr('fill', color);
+    .attr('fill', color)
+    .on('mouseover', () => {
+      console.log('', key);
+      d3.select(`#arc${key}`).attr('fill', 'white');
+    }).
+    on('mouseleave', () => {
+      d3.select(`#arc${key}`).attr('fill', color);
+    });
 
-  // group
-  //   .append('path')
-  //   .attr('class', 'arc')
-  //   .attr('d', arc)
-  //   .attr('transform', `translate(${1000}, ${1000})rotate(${-45})`)
-  //   .attr('fill', 'green');
 };
 
 export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
@@ -60,8 +62,8 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
       .append('path')
       .attr('d', CloudPath);
 
-    addClipPath(svg, -90, 1000, 'red');
-    addClipPath(svg, -45, 1000, 'green');
+    addClipPath(svg, -90, 1000, 'red', 0);
+    addClipPath(svg, -45, 1000, 'green', 1);
 
   }, []);
 
