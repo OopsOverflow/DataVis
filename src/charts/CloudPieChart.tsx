@@ -1,10 +1,7 @@
 import * as d3 from 'd3';
 import React, {
-  type MouseEvent,
   type ReactElement,
   useEffect,
-  useRef,
-  useState,
 } from 'react';
 import '../styles/globals.css';
 import * as svg from './svgpath.json';
