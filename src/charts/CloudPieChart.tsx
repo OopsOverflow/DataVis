@@ -16,23 +16,42 @@ interface Props {
 
 const { CloudPath } = svg;
 
-const arc : any = d3
-  .arc()
-  .innerRadius(0)
-  .outerRadius(1000)
-  .startAngle(0)
-  .endAngle(Math.PI / 3);
+const getPie = (radius: number, angle: number = 0) => {
+  return d3
+    .arc()
+    .innerRadius(0)
+    .outerRadius(radius)
+    .startAngle(0)
+    .endAngle(angle ? angle : Math.PI / 3);
+};
 
+const addClipPath = (svg: any, angle: number, radius: number, color: string) => {
+  // only whatever parts of the shape inside the clipPath are visible
+  const group = svg.append('g').attr('clip-path', 'url(#myClipV2)');
+  const arc = getPie(radius);
 
+  group
+    .append('path')
+    .attr('class', 'arc')
+    .attr('d', arc)
+    .attr('transform', `translate(${1000}, ${1000})rotate(${angle})`)
+    .attr('fill', color);
+
+  // group
+  //   .append('path')
+  //   .attr('class', 'arc')
+  //   .attr('d', arc)
+  //   .attr('transform', `translate(${1000}, ${1000})rotate(${-45})`)
+  //   .attr('fill', 'green');
+};
 
 export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
   useEffect(() => {
-    const svg : any = d3
-    .select('#cloud-svg')
-    .attr('width', 500)
-    .attr('viewBox', '0 0 1000 1000');
-  
-  
+    const svg: any = d3
+      .select('#cloud-svg')
+      .attr('width', 500)
+      .attr('viewBox', '0 0 1000 1000');
+
     const defs = svg.append('defs');
     // the clipPath, whatever shape you want to be the mask
     defs
@@ -40,28 +59,17 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
       .attr('id', 'myClipV2')
       .append('path')
       .attr('d', CloudPath);
-  
-    // only whatever parts of the shape inside the clipPath are visible
-    const group = svg
-      .append('g')
-      .attr('clip-path', 'url(#myClipV2)')
-    
-    group.append('path')
-      .attr('class', 'arc')
-      .attr('d', arc)
-      .attr('transform', `translate(${1000}, ${1000})rotate(${-90})`)
-      .attr("fill", "red");
-    
-      group.append('path')
-      .attr('class', 'arc')
-      .attr('d', arc)
-      .attr('transform', `translate(${1000}, ${1000})rotate(${-45})`)
-      .attr("fill", "green");
+
+    addClipPath(svg, -90, 1000, 'red');
+    addClipPath(svg, -45, 1000, 'green');
+
   }, []);
 
-  return (<>
-  <div id="cloud">
-    <svg id="cloud-svg"></svg>
-  </div>
-  </>);
+  return (
+    <>
+      <div id="cloud">
+        <svg id="cloud-svg"></svg>
+      </div>
+    </>
+  );
 }
