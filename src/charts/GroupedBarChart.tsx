@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import '../styles/globals.css';
+import '@styles/globals.css';
 import {type IGroupedData} from "@type/index";
 
 interface Props {

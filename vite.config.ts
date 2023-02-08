@@ -9,6 +9,9 @@ export default defineConfig({
   resolve: {
     alias: {
         '@charts/': new URL('./src/charts/', import.meta.url).pathname,
+        '@components/': new URL('./src/components/', import.meta.url).pathname,
+        '@type/': new URL('./src/type/', import.meta.url).pathname,
+        '@styles/': new URL('./src/styles/', import.meta.url).pathname,
     },
 },
 })

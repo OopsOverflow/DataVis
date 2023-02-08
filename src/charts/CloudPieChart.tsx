@@ -3,7 +3,7 @@ import React, {
   type ReactElement,
   useEffect,
 } from 'react';
-import '../styles/globals.css';
+import '@styles/globals.css';
 import * as svg from './svgpath.json';
 import { type IGroupedData } from '@type/index';
 
@@ -13,13 +13,13 @@ interface Props {
 
 const { CloudPath } = svg;
 
-const getPie = (radius: number, angle: number = 0) => {
+const getPie = (radius: number, angle: number = 0): d3.Arc<unknown, d3.DefaultArcObject> => {
   return d3
     .arc()
     .innerRadius(0)
     .outerRadius(radius)
     .startAngle(0)
-    .endAngle(angle ? angle : Math.PI / 3);
+    .endAngle(angle || Math.PI / 3);
 };
 
 const addClipPath = (svg: any, angle: number, radius: number, color: string, key: number) => {
