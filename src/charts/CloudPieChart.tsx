@@ -1,8 +1,5 @@
 import * as d3 from 'd3';
-import React, {
-  type ReactElement,
-  useEffect,
-} from 'react';
+import React, { type ReactElement, useEffect } from 'react';
 import '@styles/globals.css';
 import * as svg from './svgpath.json';
 import { type IGroupedData } from '@type/index';
@@ -13,7 +10,10 @@ interface Props {
 
 const { CloudPath } = svg;
 
-const getPie = (radius: number, angle: number = 0): d3.Arc<unknown, d3.DefaultArcObject> => {
+const getPie = (
+  radius: number,
+  angle: number = 0,
+): d3.Arc<unknown, d3.DefaultArcObject> => {
   return d3
     .arc()
     .innerRadius(0)
@@ -22,7 +22,13 @@ const getPie = (radius: number, angle: number = 0): d3.Arc<unknown, d3.DefaultAr
     .endAngle(angle || Math.PI / 3);
 };
 
-const addClipPath = (svg: any, angle: number, radius: number, color: string, key: number) => {
+const addClipPath = (
+  svg: any,
+  angle: number,
+  radius: number,
+  color: string,
+  key: number,
+) => {
   // only whatever parts of the shape inside the clipPath are visible
   const group = svg.append('g').attr('clip-path', 'url(#myClipV2)');
   const arc = getPie(radius);
@@ -37,11 +43,10 @@ const addClipPath = (svg: any, angle: number, radius: number, color: string, key
     .on('mouseover', () => {
       console.log('', key);
       d3.select(`#arc${key}`).attr('fill', 'white');
-    }).
-    on('mouseleave', () => {
+    })
+    .on('mouseleave', () => {
       d3.select(`#arc${key}`).attr('fill', color);
     });
-
 };
 
 export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
@@ -61,12 +66,14 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
 
     addClipPath(svg, -90, 1000, 'red', 0);
     addClipPath(svg, -45, 1000, 'green', 1);
-
   }, []);
 
   return (
     <>
-      <div id="cloud">
+      <div
+        id="cloud"
+        className="flex max-w-2xl mx-auto p-4"
+      >
         <svg id="cloud-svg"></svg>
       </div>
     </>

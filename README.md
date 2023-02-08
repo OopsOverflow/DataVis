@@ -9,6 +9,7 @@ This project includes:
 - [x] React for rendering the UI and adding interactivity
 - [x] Eslint and prettier configs for code linting and formatting
 - [x] GitHub action for linting and formatting on push
+- [x] Tailwind CSS for styling
 
 ## Running the project
 1. Clone the repo
@@ -32,3 +33,5 @@ They are by no means required, but they will make your life easier.
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Vite](https://marketplace.visualstudio.com/items?itemName=antfu.vite)
+- [PostCSS Language Support](https://marketplace.visualstudio.com/items?itemName=csstools.postcss)
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
