@@ -9,7 +9,7 @@ import React, {
 import '@styles/globals.css';
 import { type IGroupedData } from '@type/index';
 
-//Cattle | Produced,Goat | Produced,Chicken | Produced,Turkey | Produced,Pig | Produced,Lamb and mutton | Produced,Meat, Total | tonnes,Game | tonnes,Duck | tonnes,Horse | tonnes,Camel | tonnes,Goose and guinea fowl | tonnes,Sheep and goat | tonnes,Beef and buffalo | tonnes,Pig | tonnes,Poultry | tonnes
+// Cattle | Produced,Goat | Produced,Chicken | Produced,Turkey | Produced,Pig | Produced,Lamb and mutton | Produced,Meat, Total | tonnes,Game | tonnes,Duck | tonnes,Horse | tonnes,Camel | tonnes,Goose and guinea fowl | tonnes,Sheep and goat | tonnes,Beef and buffalo | tonnes,Pig | tonnes,Poultry | tonnes
 
 interface Props {
   data: IGroupedData[];
@@ -67,13 +67,15 @@ export function GroupedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
   const axisBottomRef = useRef<SVGGElement>(null);
   const axisLeftRef = useRef<SVGGElement>(null);
 
-  const margin = { top: 10, right: 0, bottom: 20, left: 30 };
+  const margin = { top: 10, right: 0, bottom: 10, left: 30 };
   const width = 500 - margin.left - margin.right;
   const height = 300 - margin.top - margin.bottom;
 
   const labels = data.map(({ label }) => label);
   const sublabels = Object.keys(data[0].values);
-  const values = data.map(({ values }) =>  values.map(v => parseInt(v+''))).flat();
+  const values = data
+    .map(({ values }) => values.map((v) => parseInt(v.toString() + '')))
+    .flat();
 
   const scaleX = d3.scaleBand().domain(labels).range([0, width]).padding(0.2);
   const scaleY = d3
@@ -101,7 +103,9 @@ export function GroupedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
       <svg
         width={width + margin.left + margin.right + 100}
         height={width + margin.left + margin.right}
-        viewBox={`-100 0 ${width + margin.left + margin.right} ${width + margin.left + margin.right}`}
+        viewBox={`-100 0 ${width + margin.left + margin.right} ${
+          width + margin.left + margin.right
+        }`}
       >
         <g transform={`translate(${margin.left}, ${margin.top})`}>
           <g ref={axisBottomRef} transform={`translate(0, ${height})`} />

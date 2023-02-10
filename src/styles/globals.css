@@ -55,7 +55,7 @@ body {
 
 .down-arrow {
     position: absolute;
-    top: 65vh;
+    top: 85vh;
     left: calc(50% - 10px);
     width: 0;
     height: 30px;
