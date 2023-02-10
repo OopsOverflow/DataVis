@@ -3,10 +3,17 @@ import { GroupedBarChart } from '@charts/GroupedBarChart';
 import { CloudPieChart } from '@charts/CloudPieChart';
 import { type IGroupedData } from './type';
 
+// const GROUPED_BAR_CHART_DATA: IGroupedData[] = [
+//   { label: 'Apples', values: [60, 80, 100] },
+//   { label: 'Bananas', values: [160, 200, 120] },
+//   { label: 'Oranges', values: [60, 40, 10] },
+// ];
+
+// Mock Data
 const GROUPED_BAR_CHART_DATA: IGroupedData[] = [
-  { label: 'Apples', values: [60, 80, 100] },
-  { label: 'Bananas', values: [160, 200, 120] },
-  { label: 'Oranges', values: [60, 40, 10] },
+  { label: 'Chicken', values: [60, 80, 100] },
+  { label: 'Beef', values: [160, 200, 120] },
+  { label: 'Fish', values: [60, 40, 10] },
 ];
 
 interface Props {
@@ -90,9 +97,10 @@ function App(): React.ReactElement {
         <AnimatedCounter initialValue={0} factor={10} />
       </div>
       <div>
+      <CloudPieChart data={GROUPED_BAR_CHART_DATA} />
+
         <GroupedBarChart data={GROUPED_BAR_CHART_DATA} />
         <p>Hover over the bars to see the values</p>
-        <CloudPieChart data={GROUPED_BAR_CHART_DATA} />
       </div>
     </>
   );
