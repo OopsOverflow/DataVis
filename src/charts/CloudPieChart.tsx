@@ -29,7 +29,7 @@ const addClipPath = (
   radius: number,
   color: string,
   key: number,
-  callback: Function,
+  callback: (e: { x: number; y: number } | null) => void,
 ) => {
   // only whatever parts of the shape inside the clipPath are visible
   const group = svg.append('g').attr('clip-path', 'url(#myClipV2)');
@@ -42,13 +42,14 @@ const addClipPath = (
     .attr('d', arc)
     .attr('transform', `translate(${1200}, ${1000})rotate(${angle})`)
     .attr('fill', `${color}${0.7})`)
-    .on('mouseover', (event : any) => {
+    .on('mouseover', (event: any) => {
       console.log('', key);
       d3.select(`#arc${key}`).attr('fill', `${color} ${0})`);
+      // eslint-disable-next-line n/no-callback-literal
       callback({
         x: event.x,
         y: event.y,
-      })
+      });
     })
     .on('mouseleave', () => {
       d3.select(`#arc${key}`).attr('fill', `${color} ${0.7})`);
@@ -103,7 +104,7 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
         `rgba(${Math.random() * 30}, 0, 0, `,
         i,
         (obj: any) => {
-          setTooltip({...obj, label});
+          setTooltip({ ...obj, label });
         },
       );
       return (angle = angle + rotate);
@@ -130,8 +131,8 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
             </thead>
             <tbody>
               <tr>
-                {data.map((d) => (
-                  <td>{d.values[0]}</td>
+                {data.map((d, key) => (
+                  <td key={key}>{d.values[0]}</td>
                 ))}
               </tr>
             </tbody>
