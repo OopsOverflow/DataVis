@@ -25,13 +25,14 @@ const getPie = (
 const addClipPath = (
   svg: any,
   angle: number,
+  anglePie: number = 0,
   radius: number,
   color: string,
   key: number,
 ) => {
   // only whatever parts of the shape inside the clipPath are visible
   const group = svg.append('g').attr('clip-path', 'url(#myClipV2)');
-  const arc = getPie(radius);
+  const arc = getPie(radius, anglePie);
 
   group
     .append('path')
@@ -54,7 +55,7 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
     const svg: any = d3
       .select('#cloud-svg')
       .attr('width', 500)
-      .attr('viewBox', '0 0 1000 1000');
+      .attr('viewBox', `0 0 2800 2800`);
 
     const defs = svg.append('defs');
     // the clipPath, whatever shape you want to be the mask
@@ -62,10 +63,19 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
       .append('clipPath')
       .attr('id', 'myClipV2')
       .append('path')
+      .attr('width', '80%')
       .attr('d', CloudPath);
 
-    addClipPath(svg, -90, 1000, 'red', 0);
-    addClipPath(svg, -45, 1000, 'green', 1);
+    addClipPath(svg, -90, Math.PI/3, 1000, 'gray', 0);
+    addClipPath(svg, -30, Math.PI/3,1000, 'darkgray', 1);
+    addClipPath(svg, 0, Math.PI/3,2000, 'gray', 2);
+    addClipPath(svg, -145, Math.PI/3,1000, 'darkgray', 3);
+    addClipPath(svg, 50, Math.PI/3,2000, 'darkgray', 4);
+    addClipPath(svg, 110, Math.PI * 0.7, 2000, 'gray', 5);
+
+    // addClipPath(svg, 5, 1000, 'green', 4);
+
+
   }, []);
 
   return (
