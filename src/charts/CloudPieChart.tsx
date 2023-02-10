@@ -112,7 +112,6 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
 
   return (
     <>
-    <a>        Hover on cloud to view pollution details.</a>
       <div id="cloud" className="mx-auto flex max-w-2xl p-4">
         <svg id="cloud-svg">
           <div id="cloud-background"></div>

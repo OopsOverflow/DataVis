@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { GroupedBarChart } from '@charts/GroupedBarChart';
 import { CloudPieChart } from '@charts/CloudPieChart';
+import { Info } from '@charts/Info';
+import selectData from './mock_data.json';
 import { type IGroupedData } from './type';
 
-// const GROUPED_BAR_CHART_DATA: IGroupedData[] = [
-//   { label: 'Apples', values: [60, 80, 100] },
-//   { label: 'Bananas', values: [160, 200, 120] },
-//   { label: 'Oranges', values: [60, 40, 10] },
-// ];
-
+const GROUPED_BAR_CHART_DATA: IGroupedData[] = selectData;
+// console.log(selectData[0])
 // Mock Data
-const GROUPED_BAR_CHART_DATA: IGroupedData[] = [
-  { label: 'Chicken', values: [60, 80, 100] },
-  { label: 'Beef', values: [160, 200, 120] },
-  { label: 'Fish', values: [60, 40, 10] },
+const GROUPED_PIE_CHART_DATA: IGroupedData[] = [
+  { label: 'Chicken (per kg)', values: [39.72, 0.468,	2.37,	19.508] },
+  { label: 'Beef (per kg)', values: [99.48, 16.278,	1.878,	39.388  ] },
+  { label: 'Fish (per kg)', values: [13.63, 0.534, 0.819, 3.598] },
 ];
 
 interface Props {
@@ -96,8 +94,9 @@ function App(): React.ReactElement {
         </p>
         <AnimatedCounter initialValue={0} factor={10} />
       </div>
-      <div>
-      <CloudPieChart data={GROUPED_BAR_CHART_DATA} />
+      <div className='flex h-full w-full flex-col items-center  justify-center'>
+        <Info />
+        <CloudPieChart data={GROUPED_PIE_CHART_DATA} />
 
         <GroupedBarChart data={GROUPED_BAR_CHART_DATA} />
         <p>Hover over the bars to see the values</p>

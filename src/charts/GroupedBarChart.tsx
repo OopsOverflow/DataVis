@@ -9,6 +9,8 @@ import React, {
 import '@styles/globals.css';
 import { type IGroupedData } from '@type/index';
 
+//Cattle | Produced,Goat | Produced,Chicken | Produced,Turkey | Produced,Pig | Produced,Lamb and mutton | Produced,Meat, Total | tonnes,Game | tonnes,Duck | tonnes,Horse | tonnes,Camel | tonnes,Goose and guinea fowl | tonnes,Sheep and goat | tonnes,Beef and buffalo | tonnes,Pig | tonnes,Poultry | tonnes
+
 interface Props {
   data: IGroupedData[];
 }
@@ -71,7 +73,7 @@ export function GroupedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
 
   const labels = data.map(({ label }) => label);
   const sublabels = Object.keys(data[0].values);
-  const values = data.map(({ values }) => values).flat();
+  const values = data.map(({ values }) =>  values.map(v => parseInt(v+''))).flat();
 
   const scaleX = d3.scaleBand().domain(labels).range([0, width]).padding(0.2);
   const scaleY = d3
@@ -97,8 +99,9 @@ export function GroupedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
   return (
     <>
       <svg
-        width={width + margin.left + margin.right}
-        height={height + margin.top + margin.bottom}
+        width={width + margin.left + margin.right + 100}
+        height={width + margin.left + margin.right}
+        viewBox={`-100 0 ${width + margin.left + margin.right} ${width + margin.left + margin.right}`}
       >
         <g transform={`translate(${margin.left}, ${margin.top})`}>
           <g ref={axisBottomRef} transform={`translate(0, ${height})`} />
@@ -138,9 +141,9 @@ export function GroupedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
           <table className="tooltip__table">
             <thead>
               <tr>
-                <td>Value 1</td>
-                <td>Value 2</td>
-                <td>Value 3</td>
+                <td>Cattle</td>
+                <td>Goat</td>
+                <td>Chicken</td>
               </tr>
             </thead>
             <tbody>
