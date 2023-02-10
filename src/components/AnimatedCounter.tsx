@@ -1,26 +1,38 @@
 import React, { useEffect, useState } from 'react';
 
 interface Props {
-  initialValue: number;
-  factor: number;
+  target: number;
+  time?: number;
+  start?: number;
 }
 
-const AnimatedCounter: React.FC<Props> = ({ initialValue, factor }) => {
-  const [count, setCount] = useState(initialValue);
+const AnimatedCounter: React.FC<Props> = ({
+  target,
+  time = 200,
+  start = 0,
+}) => {
+  const [current, setCurrent] = useState(start);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCount((prevCount) => prevCount + factor);
-    }, 1000);
+    const increment = (target - start) / time;
+    const handle = setInterval(() => {
+      if (current < target) {
+        setCurrent(current + increment);
+      } else {
+        clearInterval(handle);
+        setCurrent(target);
+      }
+    }, 1);
+
     return () => {
-      clearInterval(intervalId);
+      clearInterval(handle);
     };
-  }, [factor]);
+  }, [current, target, start, time]);
 
   return (
-    <h1 className="mt-3 animate-pulse font-mono text-4xl text-red-500">
-      {count}
-    </h1>
+    <h4 className="mb-0 flex-grow text-3xl font-bold">
+      {current.toLocaleString()}
+    </h4>
   );
 };
 
