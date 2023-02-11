@@ -12,7 +12,7 @@
 import type { ReactElement } from 'react';
 
 function Info(): ReactElement<HTMLElement> {
-  return (
+ return (
     <header>
       <div className="m-5 max-w-4xl text-lg">
       <p>
@@ -20,23 +20,27 @@ function Info(): ReactElement<HTMLElement> {
 
       </p>
       <p>
-      Reading the visualisation goes as listed:
+      Reading the visualisation goes as listed below:
 
       </p>
       <p>
-        Main Visualization:
+        - Bar Chart Visualization:
 
       </p>
-      <p>X axis: Countries </p>
-      <p>Y axis: tonnes of meat production per country</p>
+      <p>&nbsp; - X axis: Countries </p>
+      <p>&nbsp; - Y axis: tonnes of meat production per country</p>
       <p>
-      On hover over one bar: Cloud pie chart: the different types of meat produced most in the country (poultry, beef, mouton etc.)  
-      </p>
+      &nbsp;&nbsp; On hover over one bar: The different types of meat produced most in the country (poultry, beef, mouton etc.)
       
       <p>
-      Pie chart cloud on hover: composed of all animals and how their production pollutes the specific country by percentage.
+      - Pie chart Vizualisation:
+             <p>
+             &nbsp;&nbsp;Cloud on hover: All animals and the type of pollution caused by their production.   
+              </p> 
+                </p>
 
       </p>
+
       </div>
 
     </header>
