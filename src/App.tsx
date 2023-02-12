@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { GroupedBarChart } from '@charts/GroupedBarChart';
 import { CloudPieChart } from '@charts/CloudPieChart';
 import { Info } from '@charts/Info';
@@ -7,8 +7,10 @@ import { type IGroupedData } from './type';
 import Hero from '@components/Hero';
 import StatsBlock from '@components/StatsBlock';
 import LiveCounter from '@components/LiveCounter';
+import {loadData, fetchData} from './loadData';
 
-const GROUPED_BAR_CHART_DATA: IGroupedData[] = selectData;
+
+let GROUPED_BAR_CHART_DATA: IGroupedData[] = selectData;
 // console.log(selectData[0])
 // Mock Data
 const GROUPED_PIE_CHART_DATA: IGroupedData[] = [
@@ -36,6 +38,18 @@ const stats = [
 ];
 
 function App(): React.ReactElement {
+
+  const [barChartData, setBarChart] = useState<IGroupedData[]>([]);
+
+  useEffect(() => {
+    loadData();
+    (async()=> {
+      const UK : IGroupedData = await fetchData('countryProdData', 'United Kingdom');
+      setBarChart([UK, UK, UK]);
+    })()
+
+  }, [])
+
   return (
     <>
       <Hero />
@@ -61,8 +75,9 @@ function App(): React.ReactElement {
       <div className="flex h-full w-full flex-col items-center  justify-center">
         <Info />
         <CloudPieChart data={GROUPED_PIE_CHART_DATA} />
-
         <GroupedBarChart data={GROUPED_BAR_CHART_DATA} />
+
+        {/* <GroupedBarChart data={ barChartData.length > 0 ? barChartData : GROUPED_BAR_CHART_DATA} /> */}
         <p>Hover over the bars to see the values</p>
       </div>
     </>
