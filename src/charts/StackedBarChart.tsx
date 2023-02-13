@@ -28,9 +28,8 @@ interface BarProps {
 interface Tooltip {
   x: number;
   y: number;
-  index: number;
+  info: any;
 }
-
 function Bar({
   x,
   y,
@@ -40,7 +39,7 @@ function Bar({
   onMouseEnter,
   onMouseLeave,
 }: BarProps): ReactElement<SVGPathElement> {
-  const radius = height === 0 ? 0 : width * 0.15;
+  const radius = 0;
 
   return (
     <path
@@ -64,31 +63,63 @@ function Bar({
 
 export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
+  const [mouseBar, setMouseBar] = useState<number>(-1);
   const axisBottomRef = useRef<SVGGElement>(null);
   const axisLeftRef = useRef<SVGGElement>(null);
+
+  data = data.map(({ label, values }) => {
+    return {
+      label,
+      values: values.filter(
+        (v: any) =>
+          v.label !== 'Meat, Total | tonnes' &&
+          v.label !== 'Game | tonnes' &&
+          v.label !== 'Horse | tonnes' &&
+          v.label !== 'Goose and guinea fowl | tonnes' &&
+          v.label !== 'Duck | tonnes' &&
+          v.label !== 'Camel | tonnes',
+      ),
+    };
+  });
+
+  // console.log(data)
 
   const margin = { top: 10, right: 0, bottom: 10, left: 30 };
   const width = 500 - margin.left - margin.right;
   const height = 300 - margin.top - margin.bottom;
 
   const labels = data.map(({ label }) => label);
-  const sublabels = Object.keys(data[0].values);
-  const values = data
-    .map(({ values }) => values.map((v) => parseInt(v.toString() + '')))
-    .flat();
+  // const sublabels = data[0].values.map(({ label }: any) => label);
+  const subvalues = data.map(({ values }) =>
+    values.filter(
+      (v: any) =>
+        v.label !== 'Meat, Total | tonnes' &&
+        v.label !== 'Game | tonnes' &&
+        v.label !== 'Horse | tonnes' &&
+        v.label !== 'Goose and guinea fowl | tonnes' &&
+        v.label !== 'Duck | tonnes',
+    ),
+  );
+
+  // const values = Object.values(subvalues).flat().map(({value} : any) => value);
+  const sums = subvalues.map((values) =>
+    values.reduce((value: number, cur: any) => (value += cur.value ), 0),
+  );
 
   const scaleX = d3.scaleBand().domain(labels).range([0, width]).padding(0.2);
   const scaleY = d3
     .scaleLinear()
-    .domain([0, Math.max(...values)])
+    .domain([0, Math.max(...sums)])
     .range([height, 0]);
-  const subscaleX = d3
-    .scaleBand()
-    .domain(sublabels)
-    .range([0, scaleX.bandwidth()])
-    .padding(0.05);
 
-  // const subscaleY = (height)=> d3.scaleLinear().domain([height, ])
+  function calcY(index: number, values: any[]) {
+    values.splice(index, values.length - index);
+    const y = scaleY(
+      values.reduce((sum: number, cur: any) => (sum += cur.value ), 0),
+    );
+    return y;
+  }
+
   useEffect(() => {
     if (axisBottomRef.current != null) {
       d3.select(axisBottomRef.current).call(d3.axisBottom(scaleX));
@@ -97,6 +128,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
     if (axisLeftRef.current != null) {
       d3.select(axisLeftRef.current).call(d3.axisLeft(scaleY));
     }
+    // const stacks = chartRoot.selectAll(".layer").data(stackedData);
   }, [scaleX, scaleY]);
 
   return (
@@ -116,22 +148,29 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
               key={`rect-group-${groupIndex}`}
               transform={`translate(${scaleX(label)}, 0)`}
             >
-              {values.map((value, barIndex) => (
+
+              {values.map((tup: any, barIndex) => (
                 <Bar
                   key={`rect-${barIndex}`}
                   x={0}
-                  y={scaleY(value)}
-                  width={subscaleX.bandwidth()}
-                  height={height - scaleY(value)}
-                  color="teal"
+                  // need to accumulate
+                  y={height - calcY(barIndex, [...values])}
+                  width={scaleX.bandwidth()}
+                  height={height - scaleY(tup.value )}
+                  color={`rgb(${
+                    tup.value === mouseBar ? 255 : barIndex * 30
+                  }, 0, 0)`}
                   onMouseEnter={(event) => {
+                    setMouseBar(tup.value);
                     setTooltip({
                       x: event.clientX,
                       y: event.clientY,
-                      index: groupIndex,
+                      info: tup,
                     });
                   }}
                   onMouseLeave={() => {
+                    setMouseBar(-1);
+
                     setTooltip(null);
                   }}
                 />
@@ -142,21 +181,17 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
       </svg>
       {tooltip !== null ? (
         <div className="tooltip" style={{ top: tooltip.y, left: tooltip.x }}>
-          <span className="tooltip__title">{labels[tooltip.index]}</span>
+          {/* <span className="tooltip__title">{tooltip.label}</span> */}
           <table className="tooltip__table">
             <thead>
               <tr>
-                <td>Cattle</td>
-                <td>Goat</td>
-                <td>Chicken</td>
+                <td>{tooltip.info.label}</td>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>{data[tooltip.index].values[0]}</td>
-                <td>{data[tooltip.index].values[1]}</td>
-                <td>{data[tooltip.index].values[2]}</td>
-              </tr>
+              {tooltip.info.value}
+            </tr>
             </tbody>
           </table>
         </div>

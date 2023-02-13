@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { IGroupedData } from './type';
+import { type IGroupedData } from './type';
 
 async function loadData() {
   // Open the database
@@ -22,7 +22,7 @@ async function loadData() {
       keys.forEach((k, i) => {
         dataset[c] = { ...dataset[c], [k]: values[i][c] };
       });
-    });
+    })
 
     // load the production data in on request success
     request.onsuccess = (event: Event) => {
@@ -30,12 +30,12 @@ async function loadData() {
       const transaction = db.transaction(['jsonData'], 'readwrite');
       const objectStore = transaction.objectStore('jsonData');
 
-      for (let ind in countries) {
-        const c = countries[ind];
+      for (const c of countries) {
+        // const c = countries[ind];
         objectStore.add({ id: c, data: dataset[c] });
       }
     };
-  });
+  }).catch(err => { alert(err); });
 
   const requestFood = window.indexedDB.open('foodEmiData', 1);
 
@@ -52,15 +52,19 @@ async function loadData() {
       const transaction = db.transaction(['jsonData'], 'readwrite');
       const objectStore = transaction.objectStore('jsonData');
 
-      for (let ind in data) {
-        objectStore.add({ id: data[ind]['Food product'], ...data[ind] });
+      for (const d of data) {
+        objectStore.add({ id: d['Food product'], ...d });
       }
     };
-  });
+  }).catch(err => { alert(err); });
 }
 
-function fetchData(dbname: string, id: string): Promise<IGroupedData> {
-  return new Promise((resolve) => {
+async function fetchData(
+  dbname: string,
+  id: string,
+  cols: string[] =[],
+): Promise<IGroupedData> {
+  return await new Promise((resolve, reject) => {
     const request = window.indexedDB.open(dbname, 1);
     request.onsuccess = (event: Event) => {
       const db = (event.target as IDBOpenDBRequest).result;
@@ -71,11 +75,18 @@ function fetchData(dbname: string, id: string): Promise<IGroupedData> {
 
       // fetch the required on request success
       countryReq.onsuccess = () => {
+        // console.log(countryReq.result)
+        if (!countryReq.result) reject(new Error());
         resolve({
           label: id,
-          values: Object.values(countryReq.result.data).filter(
-            (d) => d != null,
-          ) as number[],
+          values: Object.keys(countryReq.result.data).reduce(
+            (arr: any[], k: string) => {
+              if(k.includes('tonnes') && countryReq.result.data[k])
+                arr.push({label: k, value: countryReq.result.data[k]})
+              return arr;
+            },
+            [],
+          ),
         });
       };
     };
