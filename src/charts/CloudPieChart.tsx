@@ -73,7 +73,7 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
     const svg: any = d3
       .select('#cloud-svg')
       .attr('width', 500)
-      .attr('filter', 'url(#filter-map)')
+      // .attr('filter', 'url(#filter-map)')
       .attr('viewBox', `0 0 2800 1800`);
 
     const defs = d3.select('#defs');
@@ -107,7 +107,7 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
         angle,
         radius,
         2000,
-        `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, `,
+        `rgba(${Math.random() * 255}, 0, 0, `,
         i,
         (obj: any) => {
           setTooltip({ ...obj, label });
@@ -122,54 +122,7 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
       <div id="cloud" className="mx-auto flex max-w-2xl p-4">
         <svg id="cloud-svg">
           <defs id="defs">
-            <filter
-              id="filter-map"
-              x="-0.15000001"
-              y="-0.15000001"
-              width="1.3"
-              height="1.3"
-              colorInterpolationFilters="sRGB"
-            >
-              <feGaussianBlur
-                stdDeviation="4"
-                in="SourceGraphic"
-                result="result1"
-                id="feGaussianBlur4202"
-              />
-              <feTurbulence
-                type="fractalNoise"
-                baseFrequency="0.05"
-                numOctaves="4"
-                result="result0"
-                id="feTurbulence4204"
-              />
-              <feDisplacementMap
-                in2="result0"
-                scale="20"
-                xChannelSelector="R"
-                yChannelSelector="G"
-                in="result1"
-                result="result2"
-                id="feDisplacementMap4206"
-              />
-              <feGaussianBlur
-                stdDeviation="3"
-                in="SourceGraphic"
-                result="result4"
-                id="feGaussianBlur4208"
-              />
-              <feComposite
-                in2="result2"
-                operator="arithmetic"
-                k1="1.5"
-                k2="-0.25"
-                k3="0.5"
-                k4="0"
-                in="result4"
-                result="result5"
-                id="feComposite4210"
-              />
-            </filter>
+
           </defs>
           {/* <div id="cloud-background"></div> */}
         </svg>

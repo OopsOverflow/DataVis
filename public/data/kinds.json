@@ -1,11 +1,9 @@
 
 {
   "Beef (beef herd)" : ["Cattle | Produced", "Beef and buffalo | tonnes"],
-  "Beef (dairy herd)" :["Cattle | Produced", "Beef and buffalo | tonnes"],
-  "Eggs" :[],
   "Fish (farmed)" :[],
   "Lamb & Mutton" : ["Lamb and mutton | Produced", "Sheep and goat | tonnes"],
   "Pig Meat" : ["Pig | Produced", "Pig | tonnes"],
-  "Poultry Meat" : ["Chicken | Produced", "Poultry | tonnes", "Duck | tonnes", "Goose and guinea fowl | tonnes"],
+  "Poultry Meat" : ["Poultry | tonnes", "Duck | tonnes", "Goose and guinea fowl | tonnes"],
   "Shrimps (farmed)" : []
 }

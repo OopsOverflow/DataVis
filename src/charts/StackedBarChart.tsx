@@ -62,7 +62,7 @@ function Bar({
   );
 }
 
-export function GroupedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
+export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
   const axisBottomRef = useRef<SVGGElement>(null);
   const axisLeftRef = useRef<SVGGElement>(null);
@@ -88,6 +88,7 @@ export function GroupedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
     .range([0, scaleX.bandwidth()])
     .padding(0.05);
 
+  // const subscaleY = (height)=> d3.scaleLinear().domain([height, ])
   useEffect(() => {
     if (axisBottomRef.current != null) {
       d3.select(axisBottomRef.current).call(d3.axisBottom(scaleX));
@@ -118,7 +119,7 @@ export function GroupedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
               {values.map((value, barIndex) => (
                 <Bar
                   key={`rect-${barIndex}`}
-                  x={subscaleX(String(barIndex)) ?? 0}
+                  x={0}
                   y={scaleY(value)}
                   width={subscaleX.bandwidth()}
                   height={height - scaleY(value)}

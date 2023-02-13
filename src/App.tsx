@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GroupedBarChart } from '@charts/GroupedBarChart';
+import { StackedBarChart } from './charts/StackedBarChart';
 import { CloudPieChart } from '@charts/CloudPieChart';
 import { Info } from '@charts/Info';
 import selectData from './mock_data.json';
@@ -45,7 +46,11 @@ function App(): React.ReactElement {
     loadData();
     (async()=> {
       const UK : IGroupedData = await fetchData('countryProdData', 'United Kingdom');
-      setBarChart([UK, UK, UK]);
+      const US : IGroupedData = await fetchData('countryProdData', 'United Stated');
+      const FR : IGroupedData = await fetchData('countryProdData', 'France');
+      const CN : IGroupedData = await fetchData('countryProdData', 'China');
+
+      setBarChart([UK, US, FR, CN]);
     })()
 
   }, [])
@@ -75,7 +80,7 @@ function App(): React.ReactElement {
       <div className="flex h-full w-full flex-col items-center  justify-center">
         <Info />
         <CloudPieChart data={GROUPED_PIE_CHART_DATA} />
-        <GroupedBarChart data={GROUPED_BAR_CHART_DATA} />
+        <StackedBarChart data={GROUPED_BAR_CHART_DATA} />
 
         {/* <GroupedBarChart data={ barChartData.length > 0 ? barChartData : GROUPED_BAR_CHART_DATA} /> */}
         <p>Hover over the bars to see the values</p>
@@ -85,3 +90,11 @@ function App(): React.ReactElement {
 }
 
 export default App;
+
+
+
+// {
+//   "China":
+//   {2019: {data},
+// 2018: {data}}
+// }
