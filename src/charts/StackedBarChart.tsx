@@ -103,7 +103,10 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
 
   // const values = Object.values(subvalues).flat().map(({value} : any) => value);
   const sums = subvalues.map((values) =>
-    values.reduce((value: number, cur: any) => (value += cur.value ), 0),
+    values.reduce(
+      (value: number, cur: any) => (value += cur.value as number),
+      0,
+    ),
   );
 
   const scaleX = d3.scaleBand().domain(labels).range([0, width]).padding(0.2);
@@ -115,7 +118,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
   function calcY(index: number, values: any[]) {
     values.splice(index, values.length - index);
     const y = scaleY(
-      values.reduce((sum: number, cur: any) => (sum += cur.value ), 0),
+      values.reduce((sum: number, cur: any) => (sum += cur.value as number), 0),
     );
     return y;
   }
@@ -148,7 +151,6 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
               key={`rect-group-${groupIndex}`}
               transform={`translate(${scaleX(label)}, 0)`}
             >
-
               {values.map((tup: any, barIndex) => (
                 <Bar
                   key={`rect-${barIndex}`}
@@ -156,7 +158,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
                   // need to accumulate
                   y={height - calcY(barIndex, [...values])}
                   width={scaleX.bandwidth()}
-                  height={height - scaleY(tup.value )}
+                  height={height - scaleY(tup.value)}
                   color={`rgb(${
                     tup.value === mouseBar ? 255 : barIndex * 30
                   }, 0, 0)`}
@@ -189,9 +191,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
               </tr>
             </thead>
             <tbody>
-              <tr>
-              {tooltip.info.value}
-            </tr>
+              <tr>{tooltip.info.value}</tr>
             </tbody>
           </table>
         </div>
