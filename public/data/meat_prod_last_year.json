@@ -1,0 +1,1530 @@
+{
+    "Afghanistan": {
+        "Cattle | Produced": 651350.0,
+        "Goat | Produced": 3593831.0,
+        "Chicken | Produced": 35041000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 5235662.0,
+        "Meat, Total | Produced": 44523862.0
+    },
+    "Africa": {
+        "Cattle | Produced": 39835532.0,
+        "Goat | Produced": 130001610.0,
+        "Chicken | Produced": 4971427000.0,
+        "Pig | Produced": 38353919.0,
+        "Lamb and mutton | Produced": 127620391.0,
+        "Meat, Total | Produced": 5307240471.0
+    },
+    "Albania": {
+        "Cattle | Produced": 310796.0,
+        "Goat | Produced": 769849.0,
+        "Chicken | Produced": 10256000.0,
+        "Pig | Produced": 206967.0,
+        "Lamb and mutton | Produced": 1326594.0,
+        "Meat, Total | Produced": 12872225.0
+    },
+    "Algeria": {
+        "Cattle | Produced": 662163.0,
+        "Goat | Produced": 1855761.0,
+        "Chicken | Produced": 260222000.0,
+        "Pig | Produced": 2802.0,
+        "Lamb and mutton | Produced": 16950170.0,
+        "Meat, Total | Produced": 279694915.0
+    },
+    "Angola": {
+        "Cattle | Produced": 628753.0,
+        "Goat | Produced": 1335867.0,
+        "Chicken | Produced": 54446000.0,
+        "Pig | Produced": 1955705.0,
+        "Lamb and mutton | Produced": 289798.0,
+        "Meat, Total | Produced": 58658142.0
+    },
+    "Antigua and Barbuda": {
+        "Cattle | Produced": 376.0,
+        "Goat | Produced": 170.0,
+        "Chicken | Produced": 13000.0,
+        "Pig | Produced": 1280.0,
+        "Lamb and mutton | Produced": 249.0,
+        "Meat, Total | Produced": 17094.0
+    },
+    "Argentina": {
+        "Cattle | Produced": 13924936.0,
+        "Goat | Produced": 1070229.0,
+        "Chicken | Produced": 756949000.0,
+        "Pig | Produced": 6854854.0,
+        "Lamb and mutton | Produced": 2700000.0,
+        "Meat, Total | Produced": 781501038.0
+    },
+    "Armenia": {
+        "Cattle | Produced": 532555.0,
+        "Goat | Produced": 2307.0,
+        "Chicken | Produced": 11836000.0,
+        "Pig | Produced": 203907.0,
+        "Lamb and mutton | Produced": 625873.0,
+        "Meat, Total | Produced": 13202661.0
+    },
+    "Asia": {
+        "Cattle | Produced": 93738457.0,
+        "Goat | Produced": 336710155.0,
+        "Chicken | Produced": 32701524000.0,
+        "Pig | Produced": 716634303.0,
+        "Lamb and mutton | Produced": 302962961.0,
+        "Meat, Total | Produced": 34151571895.0
+    },
+    "Australia": {
+        "Cattle | Produced": 8704000.0,
+        "Goat | Produced": 1456352.0,
+        "Chicken | Produced": 652754000.0,
+        "Pig | Produced": 5316000.0,
+        "Lamb and mutton | Produced": 31816000.0,
+        "Meat, Total | Produced": 700048371.0
+    },
+    "Austria": {
+        "Cattle | Produced": 680530.0,
+        "Goat | Produced": 67600.0,
+        "Chicken | Produced": 90702000.0,
+        "Pig | Produced": 5085870.0,
+        "Lamb and mutton | Produced": 310000.0,
+        "Meat, Total | Produced": 96848019.0
+    },
+    "Azerbaijan": {
+        "Cattle | Produced": 1233500.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 94911000.0,
+        "Pig | Produced": 9534.0,
+        "Lamb and mutton | Produced": 5842386.0,
+        "Meat, Total | Produced": 101998439.0
+    },
+    "Bahamas": {
+        "Cattle | Produced": 110.0,
+        "Goat | Produced": 6215.0,
+        "Chicken | Produced": 5350000.0,
+        "Pig | Produced": 7153.0,
+        "Lamb and mutton | Produced": 2111.0,
+        "Meat, Total | Produced": 5367608.0
+    },
+    "Bangladesh": {
+        "Cattle | Produced": 2683600.0,
+        "Goat | Produced": 31097337.0,
+        "Chicken | Produced": 291146000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 702383.0,
+        "Meat, Total | Produced": 325631339.0
+    },
+    "Barbados": {
+        "Cattle | Produced": 829.0,
+        "Goat | Produced": 2127.0,
+        "Chicken | Produced": 9998000.0,
+        "Pig | Produced": 35908.0,
+        "Lamb and mutton | Produced": 2621.0,
+        "Meat, Total | Produced": 10041504.0
+    },
+    "Belarus": {
+        "Cattle | Produced": 1501470.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 440558000.0,
+        "Pig | Produced": 5005322.0,
+        "Lamb and mutton | Produced": 76878.0,
+        "Meat, Total | Produced": 447143689.0
+    },
+    "Belgium": {
+        "Cattle | Produced": 837890.0,
+        "Goat | Produced": 18220.0,
+        "Chicken | Produced": 295393000.0,
+        "Pig | Produced": 10720290.0,
+        "Lamb and mutton | Produced": 122380.0,
+        "Meat, Total | Produced": 307093799.0
+    },
+    "Belize": {
+        "Cattle | Produced": 8539.0,
+        "Goat | Produced": 79.0,
+        "Chicken | Produced": 12019000.0,
+        "Pig | Produced": 37852.0,
+        "Lamb and mutton | Produced": 1655.0,
+        "Meat, Total | Produced": 12069144.0
+    },
+    "Benin": {
+        "Cattle | Produced": 202667.0,
+        "Goat | Produced": 606663.0,
+        "Chicken | Produced": 27322000.0,
+        "Pig | Produced": 227376.0,
+        "Lamb and mutton | Produced": 339330.0,
+        "Meat, Total | Produced": 28700055.0
+    },
+    "Bolivia": {
+        "Cattle | Produced": 1344995.0,
+        "Goat | Produced": 345164.0,
+        "Chicken | Produced": 175841000.0,
+        "Pig | Produced": 2040766.0,
+        "Lamb and mutton | Produced": 1379530.0,
+        "Meat, Total | Produced": 180953474.0
+    },
+    "Bosnia and Herzegovina": {
+        "Cattle | Produced": 53605.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 42615000.0,
+        "Pig | Produced": 107967.0,
+        "Lamb and mutton | Produced": 91406.0,
+        "Meat, Total | Produced": 42869997.0
+    },
+    "Botswana": {
+        "Cattle | Produced": 170000.0,
+        "Goat | Produced": 346258.0,
+        "Chicken | Produced": 4629000.0,
+        "Pig | Produced": 9740.0,
+        "Lamb and mutton | Produced": 103815.0,
+        "Meat, Total | Produced": 5260832.0
+    },
+    "Brazil": {
+        "Cattle | Produced": 32445850.0,
+        "Goat | Produced": 3183909.0,
+        "Chicken | Produced": 5805315000.0,
+        "Pig | Produced": 46356359.0,
+        "Lamb and mutton | Produced": 6173211.0,
+        "Meat, Total | Produced": 5893476348.0
+    },
+    "Bulgaria": {
+        "Cattle | Produced": 119090.0,
+        "Goat | Produced": 151590.0,
+        "Chicken | Produced": 51510000.0,
+        "Pig | Produced": 1235150.0,
+        "Lamb and mutton | Produced": 628660.0,
+        "Meat, Total | Produced": 53646509.0
+    },
+    "Burkina Faso": {
+        "Cattle | Produced": 1205991.0,
+        "Goat | Produced": 4988683.0,
+        "Chicken | Produced": 55178000.0,
+        "Pig | Produced": 1348979.0,
+        "Lamb and mutton | Produced": 2862437.0,
+        "Meat, Total | Produced": 65586109.0
+    },
+    "Burundi": {
+        "Cattle | Produced": 74594.0,
+        "Goat | Produced": 784703.0,
+        "Chicken | Produced": 7283000.0,
+        "Pig | Produced": 134837.0,
+        "Lamb and mutton | Produced": 54225.0,
+        "Meat, Total | Produced": 8333378.0
+    },
+    "Cambodia": {
+        "Cattle | Produced": 455642.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 17710000.0,
+        "Pig | Produced": 2043599.0,
+        "Lamb and mutton | Produced": 0.0,
+        "Meat, Total | Produced": 20211260.0
+    },
+    "Cameroon": {
+        "Cattle | Produced": 836751.0,
+        "Goat | Produced": 1899204.0,
+        "Chicken | Produced": 106139000.0,
+        "Pig | Produced": 1078719.0,
+        "Lamb and mutton | Produced": 1445629.0,
+        "Meat, Total | Produced": 111401322.0
+    },
+    "Canada": {
+        "Cattle | Produced": 3600700.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 772689000.0,
+        "Pig | Produced": 21841300.0,
+        "Lamb and mutton | Produced": 721300.0,
+        "Meat, Total | Produced": 798854319.0
+    },
+    "Cape Verde": {
+        "Cattle | Produced": 4434.0,
+        "Goat | Produced": 33210.0,
+        "Chicken | Produced": 600000.0,
+        "Pig | Produced": 46225.0,
+        "Lamb and mutton | Produced": 3683.0,
+        "Meat, Total | Produced": 689571.0
+    },
+    "Central African Republic": {
+        "Cattle | Produced": 606074.0,
+        "Goat | Produced": 1222598.0,
+        "Chicken | Produced": 7341000.0,
+        "Pig | Produced": 610224.0,
+        "Lamb and mutton | Produced": 163603.0,
+        "Meat, Total | Produced": 9945518.0
+    },
+    "Chad": {
+        "Cattle | Produced": 3787305.0,
+        "Goat | Produced": 10447980.0,
+        "Chicken | Produced": 7983000.0,
+        "Pig | Produced": 85409.0,
+        "Lamb and mutton | Produced": 9830796.0,
+        "Meat, Total | Produced": 32136509.0
+    },
+    "Chile": {
+        "Cattle | Produced": 796183.0,
+        "Goat | Produced": 247792.0,
+        "Chicken | Produced": 302867000.0,
+        "Pig | Produced": 5260016.0,
+        "Lamb and mutton | Produced": 573438.0,
+        "Meat, Total | Produced": 309746448.0
+    },
+    "China": {
+        "Cattle | Produced": 40790633.0,
+        "Goat | Produced": 151414501.0,
+        "Chicken | Produced": 10660781000.0,
+        "Pig | Produced": 544192108.0,
+        "Lamb and mutton | Produced": 165574518.0,
+        "Meat, Total | Produced": 11562754779.0
+    },
+    "Colombia": {
+        "Cattle | Produced": 3410107.0,
+        "Goat | Produced": 42967.0,
+        "Chicken | Produced": 969202000.0,
+        "Pig | Produced": 4827077.0,
+        "Lamb and mutton | Produced": 65944.0,
+        "Meat, Total | Produced": 977550114.0
+    },
+    "Comoros": {
+        "Cattle | Produced": 11036.0,
+        "Goat | Produced": 37853.0,
+        "Chicken | Produced": 729000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 6388.0,
+        "Meat, Total | Produced": 786296.0
+    },
+    "Congo": {
+        "Cattle | Produced": 37447.0,
+        "Goat | Produced": 101478.0,
+        "Chicken | Produced": 6783000.0,
+        "Pig | Produced": 36700.0,
+        "Lamb and mutton | Produced": 44383.0,
+        "Meat, Total | Produced": 7005027.0
+    },
+    "Costa Rica": {
+        "Cattle | Produced": 385197.0,
+        "Goat | Produced": 1685.0,
+        "Chicken | Produced": 71522000.0,
+        "Pig | Produced": 1077040.0,
+        "Lamb and mutton | Produced": 983.0,
+        "Meat, Total | Produced": 72988924.0
+    },
+    "Cote d'Ivoire": {
+        "Cattle | Produced": 203385.0,
+        "Goat | Produced": 807365.0,
+        "Chicken | Produced": 72789000.0,
+        "Pig | Produced": 271628.0,
+        "Lamb and mutton | Produced": 609349.0,
+        "Meat, Total | Produced": 74682746.0
+    },
+    "Croatia": {
+        "Cattle | Produced": 183200.0,
+        "Goat | Produced": 47900.0,
+        "Chicken | Produced": 36908000.0,
+        "Pig | Produced": 1604800.0,
+        "Lamb and mutton | Produced": 464200.0,
+        "Meat, Total | Produced": 39210119.0
+    },
+    "Cuba": {
+        "Cattle | Produced": 475000.0,
+        "Goat | Produced": 161080.0,
+        "Chicken | Produced": 18750000.0,
+        "Pig | Produced": 3945800.0,
+        "Lamb and mutton | Produced": 594383.0,
+        "Meat, Total | Produced": 23928282.0
+    },
+    "Cyprus": {
+        "Cattle | Produced": 17250.0,
+        "Goat | Produced": 115860.0,
+        "Chicken | Produced": 13326000.0,
+        "Pig | Produced": 583020.0,
+        "Lamb and mutton | Produced": 175110.0,
+        "Meat, Total | Produced": 14219259.0
+    },
+    "Czechia": {
+        "Cattle | Produced": 244100.0,
+        "Goat | Produced": 34180.0,
+        "Chicken | Produced": 119335000.0,
+        "Pig | Produced": 2402590.0,
+        "Lamb and mutton | Produced": 163810.0,
+        "Meat, Total | Produced": 122181699.0
+    },
+    "Democratic Republic of Congo": {
+        "Cattle | Produced": 109072.0,
+        "Goat | Produced": 1603596.0,
+        "Chicken | Produced": 16517000.0,
+        "Pig | Produced": 577439.0,
+        "Lamb and mutton | Produced": 282966.0,
+        "Meat, Total | Produced": 19092092.0
+    },
+    "Denmark": {
+        "Cattle | Produced": 466900.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 104182000.0,
+        "Pig | Produced": 16862700.0,
+        "Lamb and mutton | Produced": 70900.0,
+        "Meat, Total | Produced": 121584519.0
+    },
+    "Djibouti": {
+        "Cattle | Produced": 55316.0,
+        "Goat | Produced": 183857.0,
+        "Chicken | Produced": 0.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 214224.0,
+        "Meat, Total | Produced": 455416.0
+    },
+    "Dominica": {
+        "Cattle | Produced": 3109.0,
+        "Goat | Produced": 3417.0,
+        "Chicken | Produced": 364000.0,
+        "Pig | Produced": 7092.0,
+        "Lamb and mutton | Produced": 1793.0,
+        "Meat, Total | Produced": 381430.0
+    },
+    "Dominican Republic": {
+        "Cattle | Produced": 498711.0,
+        "Goat | Produced": 76627.0,
+        "Chicken | Produced": 208265000.0,
+        "Pig | Produced": 1124613.0,
+        "Lamb and mutton | Produced": 74368.0,
+        "Meat, Total | Produced": 210041338.0
+    },
+    "Ecuador": {
+        "Cattle | Produced": 1092186.0,
+        "Goat | Produced": 9969.0,
+        "Chicken | Produced": 156259000.0,
+        "Pig | Produced": 2265688.0,
+        "Lamb and mutton | Produced": 348198.0,
+        "Meat, Total | Produced": 159977060.0
+    },
+    "Egypt": {
+        "Cattle | Produced": 1386000.0,
+        "Goat | Produced": 489000.0,
+        "Chicken | Produced": 1243942000.0,
+        "Pig | Produced": 31000.0,
+        "Lamb and mutton | Produced": 1041000.0,
+        "Meat, Total | Produced": 1246891019.0
+    },
+    "El Salvador": {
+        "Cattle | Produced": 111854.0,
+        "Goat | Produced": 5632.0,
+        "Chicken | Produced": 119977000.0,
+        "Pig | Produced": 143457.0,
+        "Lamb and mutton | Produced": 2433.0,
+        "Meat, Total | Produced": 120242395.0
+    },
+    "Estonia": {
+        "Cattle | Produced": 36970.0,
+        "Goat | Produced": 1090.0,
+        "Chicken | Produced": 0.0,
+        "Pig | Produced": 558580.0,
+        "Lamb and mutton | Produced": 25250.0,
+        "Meat, Total | Produced": 623909.0
+    },
+    "Eswatini": {
+        "Cattle | Produced": 73228.0,
+        "Goat | Produced": 93279.0,
+        "Chicken | Produced": 6056000.0,
+        "Pig | Produced": 27355.0,
+        "Lamb and mutton | Produced": 34470.0,
+        "Meat, Total | Produced": 6286351.0
+    },
+    "Ethiopia": {
+        "Cattle | Produced": 3764649.0,
+        "Goat | Produced": 16782397.0,
+        "Chicken | Produced": 73095000.0,
+        "Pig | Produced": 41341.0,
+        "Lamb and mutton | Produced": 12790560.0,
+        "Meat, Total | Produced": 106475966.0
+    },
+    "Europe": {
+        "Cattle | Produced": 39846190.0,
+        "Goat | Produced": 8576162.0,
+        "Chicken | Produced": 11552469000.0,
+        "Pig | Produced": 326094270.0,
+        "Lamb and mutton | Produced": 69111227.0,
+        "Meat, Total | Produced": 11996098868.0
+    },
+    "Fiji": {
+        "Cattle | Produced": 22900.0,
+        "Goat | Produced": 26227.0,
+        "Chicken | Produced": 12256000.0,
+        "Pig | Produced": 90677.0,
+        "Lamb and mutton | Produced": 6330.0,
+        "Meat, Total | Produced": 12404153.0
+    },
+    "Finland": {
+        "Cattle | Produced": 272380.0,
+        "Goat | Produced": 770.0,
+        "Chicken | Produced": 78325000.0,
+        "Pig | Produced": 1816400.0,
+        "Lamb and mutton | Produced": 71750.0,
+        "Meat, Total | Produced": 80488319.0
+    },
+    "France": {
+        "Cattle | Produced": 4545970.0,
+        "Goat | Produced": 681670.0,
+        "Chicken | Produced": 772443000.0,
+        "Pig | Produced": 23538780.0,
+        "Lamb and mutton | Produced": 4182430.0,
+        "Meat, Total | Produced": 805393869.0
+    },
+    "French Polynesia": {
+        "Cattle | Produced": 801.0,
+        "Goat | Produced": 4790.0,
+        "Chicken | Produced": 695000.0,
+        "Pig | Produced": 27370.0,
+        "Lamb and mutton | Produced": 202.0,
+        "Meat, Total | Produced": 730182.0
+    },
+    "Gabon": {
+        "Cattle | Produced": 7871.0,
+        "Goat | Produced": 34010.0,
+        "Chicken | Produced": 4965000.0,
+        "Pig | Produced": 118581.0,
+        "Lamb and mutton | Produced": 67876.0,
+        "Meat, Total | Produced": 5195357.0
+    },
+    "Gambia": {
+        "Cattle | Produced": 35271.0,
+        "Goat | Produced": 83591.0,
+        "Chicken | Produced": 1649000.0,
+        "Pig | Produced": 13359.0,
+        "Lamb and mutton | Produced": 29000.0,
+        "Meat, Total | Produced": 1812240.0
+    },
+    "Georgia": {
+        "Cattle | Produced": 306927.0,
+        "Goat | Produced": 1122.0,
+        "Chicken | Produced": 13263000.0,
+        "Pig | Produced": 413727.0,
+        "Lamb and mutton | Produced": 221250.0,
+        "Meat, Total | Produced": 14208045.0
+    },
+    "Germany": {
+        "Cattle | Produced": 3403000.0,
+        "Goat | Produced": 23000.0,
+        "Chicken | Produced": 620568000.0,
+        "Pig | Produced": 55196000.0,
+        "Lamb and mutton | Produced": 1614000.0,
+        "Meat, Total | Produced": 680806019.0
+    },
+    "Ghana": {
+        "Cattle | Produced": 156818.0,
+        "Goat | Produced": 1989481.0,
+        "Chicken | Produced": 97752000.0,
+        "Pig | Produced": 604645.0,
+        "Lamb and mutton | Produced": 1364818.0,
+        "Meat, Total | Produced": 101869781.0
+    },
+    "Greece": {
+        "Cattle | Produced": 144450.0,
+        "Goat | Produced": 2367770.0,
+        "Chicken | Produced": 135550000.0,
+        "Pig | Produced": 1272810.0,
+        "Lamb and mutton | Produced": 5600070.0,
+        "Meat, Total | Produced": 144937119.0
+    },
+    "Grenada": {
+        "Cattle | Produced": 867.0,
+        "Goat | Produced": 2188.0,
+        "Chicken | Produced": 550000.0,
+        "Pig | Produced": 3624.0,
+        "Lamb and mutton | Produced": 4553.0,
+        "Meat, Total | Produced": 563251.0
+    },
+    "Guatemala": {
+        "Cattle | Produced": 1125710.0,
+        "Goat | Produced": 14614.0,
+        "Chicken | Produced": 140154000.0,
+        "Pig | Produced": 1283311.0,
+        "Lamb and mutton | Produced": 136816.0,
+        "Meat, Total | Produced": 142716470.0
+    },
+    "Guinea": {
+        "Cattle | Produced": 722063.0,
+        "Goat | Produced": 1096414.0,
+        "Chicken | Produced": 8673000.0,
+        "Pig | Produced": 83733.0,
+        "Lamb and mutton | Produced": 881367.0,
+        "Meat, Total | Produced": 11458596.0
+    },
+    "Guinea-Bissau": {
+        "Cattle | Produced": 62667.0,
+        "Goat | Produced": 124315.0,
+        "Chicken | Produced": 3591000.0,
+        "Pig | Produced": 345286.0,
+        "Lamb and mutton | Produced": 132627.0,
+        "Meat, Total | Produced": 4257914.0
+    },
+    "Guyana": {
+        "Cattle | Produced": 14892.0,
+        "Goat | Produced": 27384.0,
+        "Chicken | Produced": 31747000.0,
+        "Pig | Produced": 14881.0,
+        "Lamb and mutton | Produced": 55899.0,
+        "Meat, Total | Produced": 31862075.0
+    },
+    "Haiti": {
+        "Cattle | Produced": 305907.0,
+        "Goat | Produced": 316856.0,
+        "Chicken | Produced": 9615000.0,
+        "Pig | Produced": 531766.0,
+        "Lamb and mutton | Produced": 84448.0,
+        "Meat, Total | Produced": 10855996.0
+    },
+    "High-income countries": {
+        "Cattle | Produced": 84062360.0,
+        "Goat | Produced": 15235628.0,
+        "Chicken | Produced": 22152916000.0,
+        "Pig | Produced": 464730881.0,
+        "Lamb and mutton | Produced": 118095578.0,
+        "Meat, Total | Produced": 22835042466.0
+    },
+    "Honduras": {
+        "Cattle | Produced": 343178.0,
+        "Goat | Produced": 10294.0,
+        "Chicken | Produced": 110416000.0,
+        "Pig | Produced": 162671.0,
+        "Lamb and mutton | Produced": 6560.0,
+        "Meat, Total | Produced": 110940722.0
+    },
+    "Hong Kong": {
+        "Cattle | Produced": 22156.0,
+        "Goat | Produced": 7517.0,
+        "Chicken | Produced": 15350000.0,
+        "Pig | Produced": 1500000.0,
+        "Lamb and mutton | Produced": 13.0,
+        "Meat, Total | Produced": 16881705.0
+    },
+    "Hungary": {
+        "Cattle | Produced": 117670.0,
+        "Goat | Produced": 17630.0,
+        "Chicken | Produced": 174269000.0,
+        "Pig | Produced": 4853580.0,
+        "Lamb and mutton | Produced": 88100.0,
+        "Meat, Total | Produced": 179347999.0
+    },
+    "Iceland": {
+        "Cattle | Produced": 22728.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 5809000.0,
+        "Pig | Produced": 79046.0,
+        "Lamb and mutton | Produced": 559596.0,
+        "Meat, Total | Produced": 6472389.0
+    },
+    "India": {
+        "Cattle | Produced": 8889697.0,
+        "Goat | Produced": 55026858.0,
+        "Chicken | Produced": 2738174000.0,
+        "Pig | Produced": 10234917.0,
+        "Lamb and mutton | Produced": 23014357.0,
+        "Meat, Total | Produced": 2835341848.0
+    },
+    "Indonesia": {
+        "Cattle | Produced": 1683668.0,
+        "Goat | Produced": 6966245.0,
+        "Chicken | Produced": 4916187000.0,
+        "Pig | Produced": 10945544.0,
+        "Lamb and mutton | Produced": 7558353.0,
+        "Meat, Total | Produced": 4943342829.0
+    },
+    "Iran": {
+        "Cattle | Produced": 820259.0,
+        "Goat | Produced": 1599187.0,
+        "Chicken | Produced": 1779614000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 5867576.0,
+        "Meat, Total | Produced": 1787903041.0
+    },
+    "Iraq": {
+        "Cattle | Produced": 153878.0,
+        "Goat | Produced": 590967.0,
+        "Chicken | Produced": 111662000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 1893687.0,
+        "Meat, Total | Produced": 114302551.0
+    },
+    "Ireland": {
+        "Cattle | Produced": 1852510.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 96247000.0,
+        "Pig | Produced": 3457210.0,
+        "Lamb and mutton | Produced": 3050200.0,
+        "Meat, Total | Produced": 104608939.0
+    },
+    "Israel": {
+        "Cattle | Produced": 447434.0,
+        "Goat | Produced": 319849.0,
+        "Chicken | Produced": 505458000.0,
+        "Pig | Produced": 166000.0,
+        "Lamb and mutton | Produced": 441845.0,
+        "Meat, Total | Produced": 506835147.0
+    },
+    "Italy": {
+        "Cattle | Produced": 2729600.0,
+        "Goat | Produced": 152940.0,
+        "Chicken | Produced": 569767000.0,
+        "Pig | Produced": 11642620.0,
+        "Lamb and mutton | Produced": 2814860.0,
+        "Meat, Total | Produced": 587109039.0
+    },
+    "Jamaica": {
+        "Cattle | Produced": 26566.0,
+        "Goat | Produced": 41965.0,
+        "Chicken | Produced": 81492000.0,
+        "Pig | Produced": 121999.0,
+        "Lamb and mutton | Produced": 243.0,
+        "Meat, Total | Produced": 81684792.0
+    },
+    "Japan": {
+        "Cattle | Produced": 1046484.0,
+        "Goat | Produced": 2493.0,
+        "Chicken | Produced": 802588000.0,
+        "Pig | Produced": 16319598.0,
+        "Lamb and mutton | Produced": 6344.0,
+        "Meat, Total | Produced": 819964938.0
+    },
+    "Jordan": {
+        "Cattle | Produced": 123032.0,
+        "Goat | Produced": 423770.0,
+        "Chicken | Produced": 261120000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 1847207.0,
+        "Meat, Total | Produced": 263516028.0
+    },
+    "Kazakhstan": {
+        "Cattle | Produced": 2857735.0,
+        "Goat | Produced": 1076147.0,
+        "Chicken | Produced": 129514000.0,
+        "Pig | Produced": 1176218.0,
+        "Lamb and mutton | Produced": 7653554.0,
+        "Meat, Total | Produced": 142279673.0
+    },
+    "Kenya": {
+        "Cattle | Produced": 3080832.0,
+        "Goat | Produced": 7346748.0,
+        "Chicken | Produced": 38551000.0,
+        "Pig | Produced": 413483.0,
+        "Lamb and mutton | Produced": 3955941.0,
+        "Meat, Total | Produced": 53350023.0
+    },
+    "Kiribati": {
+        "Cattle | Produced": 0.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 1062000.0,
+        "Pig | Produced": 24877.0,
+        "Lamb and mutton | Produced": 0.0,
+        "Meat, Total | Produced": 1088896.0
+    },
+    "Kuwait": {
+        "Cattle | Produced": 10322.0,
+        "Goat | Produced": 41943.0,
+        "Chicken | Produced": 45486000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 3069858.0,
+        "Meat, Total | Produced": 48610142.0
+    },
+    "Kyrgyzstan": {
+        "Cattle | Produced": 611473.0,
+        "Goat | Produced": 376643.0,
+        "Chicken | Produced": 5240000.0,
+        "Pig | Produced": 187567.0,
+        "Lamb and mutton | Produced": 2772507.0,
+        "Meat, Total | Produced": 9190209.0
+    },
+    "Laos": {
+        "Cattle | Produced": 283446.0,
+        "Goat | Produced": 182742.0,
+        "Chicken | Produced": 41452000.0,
+        "Pig | Produced": 3351066.0,
+        "Lamb and mutton | Produced": 0.0,
+        "Meat, Total | Produced": 45271273.0
+    },
+    "Latvia": {
+        "Cattle | Produced": 83650.0,
+        "Goat | Produced": 3950.0,
+        "Chicken | Produced": 20616000.0,
+        "Pig | Produced": 496380.0,
+        "Lamb and mutton | Produced": 57880.0,
+        "Meat, Total | Produced": 21259879.0
+    },
+    "Lebanon": {
+        "Cattle | Produced": 230641.0,
+        "Goat | Produced": 168461.0,
+        "Chicken | Produced": 64626000.0,
+        "Pig | Produced": 13985.0,
+        "Lamb and mutton | Produced": 173998.0,
+        "Meat, Total | Produced": 65215104.0
+    },
+    "Lesotho": {
+        "Cattle | Produced": 9280.0,
+        "Goat | Produced": 27699.0,
+        "Chicken | Produced": 1921000.0,
+        "Pig | Produced": 13036.0,
+        "Lamb and mutton | Produced": 46050.0,
+        "Meat, Total | Produced": 2019084.0
+    },
+    "Liberia": {
+        "Cattle | Produced": 9347.0,
+        "Goat | Produced": 124208.0,
+        "Chicken | Produced": 17067000.0,
+        "Pig | Produced": 287506.0,
+        "Lamb and mutton | Produced": 91987.0,
+        "Meat, Total | Produced": 17582067.0
+    },
+    "Libya": {
+        "Cattle | Produced": 35754.0,
+        "Goat | Produced": 836368.0,
+        "Chicken | Produced": 106524000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 2088514.0,
+        "Meat, Total | Produced": 109486655.0
+    },
+    "Lithuania": {
+        "Cattle | Produced": 170360.0,
+        "Goat | Produced": 6500.0,
+        "Chicken | Produced": 54518000.0,
+        "Pig | Produced": 967360.0,
+        "Lamb and mutton | Produced": 81000.0,
+        "Meat, Total | Produced": 55745239.0
+    },
+    "Low-income countries": {
+        "Cattle | Produced": 21432815.0,
+        "Goat | Produced": 83137146.0,
+        "Chicken | Produced": 973120000.0,
+        "Pig | Produced": 24239769.0,
+        "Lamb and mutton | Produced": 64989041.0,
+        "Meat, Total | Produced": 1166920790.0
+    },
+    "Lower-middle-income countries": {
+        "Cattle | Produced": 59204035.0,
+        "Goat | Produced": 219710766.0,
+        "Chicken | Produced": 18745454000.0,
+        "Pig | Produced": 136234689.0,
+        "Lamb and mutton | Produced": 150927289.0,
+        "Meat, Total | Produced": 19311532798.0
+    },
+    "Luxembourg": {
+        "Cattle | Produced": 28210.0,
+        "Goat | Produced": 240.0,
+        "Chicken | Produced": 0.0,
+        "Pig | Produced": 157950.0,
+        "Lamb and mutton | Produced": 2400.0,
+        "Meat, Total | Produced": 190819.0
+    },
+    "Macao": {
+        "Cattle | Produced": 2029.0,
+        "Goat | Produced": 3200.0,
+        "Chicken | Produced": 3773000.0,
+        "Pig | Produced": 63039.0,
+        "Lamb and mutton | Produced": 0.0,
+        "Meat, Total | Produced": 3843287.0
+    },
+    "Madagascar": {
+        "Cattle | Produced": 299280.0,
+        "Goat | Produced": 190050.0,
+        "Chicken | Produced": 63089000.0,
+        "Pig | Produced": 381030.0,
+        "Lamb and mutton | Produced": 72770.0,
+        "Meat, Total | Produced": 64034149.0
+    },
+    "Malawi": {
+        "Cattle | Produced": 509748.0,
+        "Goat | Produced": 6427795.0,
+        "Chicken | Produced": 41577000.0,
+        "Pig | Produced": 13582215.0,
+        "Lamb and mutton | Produced": 152286.0,
+        "Meat, Total | Produced": 62251063.0
+    },
+    "Malaysia": {
+        "Cattle | Produced": 87179.0,
+        "Goat | Produced": 62029.0,
+        "Chicken | Produced": 622459000.0,
+        "Pig | Produced": 2012398.0,
+        "Lamb and mutton | Produced": 40580.0,
+        "Meat, Total | Produced": 624663205.0
+    },
+    "Mali": {
+        "Cattle | Produced": 472113.0,
+        "Goat | Produced": 801390.0,
+        "Chicken | Produced": 72257000.0,
+        "Pig | Produced": 20225.0,
+        "Lamb and mutton | Produced": 463614.0,
+        "Meat, Total | Produced": 74016361.0
+    },
+    "Malta": {
+        "Cattle | Produced": 3700.0,
+        "Goat | Produced": 1420.0,
+        "Chicken | Produced": 2338000.0,
+        "Pig | Produced": 51580.0,
+        "Lamb and mutton | Produced": 6290.0,
+        "Meat, Total | Produced": 2403009.0
+    },
+    "Mauritania": {
+        "Cattle | Produced": 232124.0,
+        "Goat | Produced": 1253967.0,
+        "Chicken | Produced": 6058000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 2385637.0,
+        "Meat, Total | Produced": 9931747.0
+    },
+    "Mauritius": {
+        "Cattle | Produced": 7303.0,
+        "Goat | Produced": 1550.0,
+        "Chicken | Produced": 48417000.0,
+        "Pig | Produced": 8865.0,
+        "Lamb and mutton | Produced": 1002.0,
+        "Meat, Total | Produced": 48437739.0
+    },
+    "Melanesia": {
+        "Cattle | Produced": 74011.0,
+        "Goat | Produced": 30335.0,
+        "Chicken | Produced": 21096000.0,
+        "Pig | Produced": 2231071.0,
+        "Lamb and mutton | Produced": 9328.0,
+        "Meat, Total | Produced": 23442764.0
+    },
+    "Mexico": {
+        "Cattle | Produced": 8243901.0,
+        "Goat | Produced": 2194600.0,
+        "Chicken | Produced": 1914917000.0,
+        "Pig | Produced": 19649546.0,
+        "Lamb and mutton | Produced": 3115253.0,
+        "Meat, Total | Produced": 1948122319.0
+    },
+    "Moldova": {
+        "Cattle | Produced": 48805.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 36748000.0,
+        "Pig | Produced": 905032.0,
+        "Lamb and mutton | Produced": 103800.0,
+        "Meat, Total | Produced": 37807656.0
+    },
+    "Mongolia": {
+        "Cattle | Produced": 943746.0,
+        "Goat | Produced": 6671021.0,
+        "Chicken | Produced": 187000.0,
+        "Pig | Produced": 6492.0,
+        "Lamb and mutton | Produced": 9653315.0,
+        "Meat, Total | Produced": 17463593.0
+    },
+    "Montenegro": {
+        "Cattle | Produced": 26624.0,
+        "Goat | Produced": 7621.0,
+        "Chicken | Produced": 2995000.0,
+        "Pig | Produced": 27683.0,
+        "Lamb and mutton | Produced": 32352.0,
+        "Meat, Total | Produced": 3091299.0
+    },
+    "Morocco": {
+        "Cattle | Produced": 1301409.0,
+        "Goat | Produced": 2319372.0,
+        "Chicken | Produced": 654354000.0,
+        "Pig | Produced": 12568.0,
+        "Lamb and mutton | Produced": 12399206.0,
+        "Meat, Total | Produced": 670388574.0
+    },
+    "Mozambique": {
+        "Cattle | Produced": 105206.0,
+        "Goat | Produced": 132836.0,
+        "Chicken | Produced": 39370000.0,
+        "Pig | Produced": 1202215.0,
+        "Lamb and mutton | Produced": 76516.0,
+        "Meat, Total | Produced": 40888792.0
+    },
+    "Myanmar": {
+        "Cattle | Produced": 1789272.0,
+        "Goat | Produced": 6454217.0,
+        "Chicken | Produced": 1209393000.0,
+        "Pig | Produced": 12542244.0,
+        "Lamb and mutton | Produced": 1170713.0,
+        "Meat, Total | Produced": 1231351465.0
+    },
+    "Namibia": {
+        "Cattle | Produced": 128787.0,
+        "Goat | Produced": 299931.0,
+        "Chicken | Produced": 13478000.0,
+        "Pig | Produced": 119826.0,
+        "Lamb and mutton | Produced": 509848.0,
+        "Meat, Total | Produced": 14538411.0
+    },
+    "Nepal": {
+        "Cattle | Produced": 585263.0,
+        "Goat | Produced": 6253619.0,
+        "Chicken | Produced": 83627000.0,
+        "Pig | Produced": 756651.0,
+        "Lamb and mutton | Produced": 300631.0,
+        "Meat, Total | Produced": 91525183.0
+    },
+    "Netherlands": {
+        "Cattle | Produced": 2123270.0,
+        "Goat | Produced": 173500.0,
+        "Chicken | Produced": 622624000.0,
+        "Pig | Produced": 16583820.0,
+        "Lamb and mutton | Produced": 566470.0,
+        "Meat, Total | Produced": 642073079.0
+    },
+    "New Caledonia": {
+        "Cattle | Produced": 15627.0,
+        "Goat | Produced": 186.0,
+        "Chicken | Produced": 467000.0,
+        "Pig | Produced": 32126.0,
+        "Lamb and mutton | Produced": 800.0,
+        "Meat, Total | Produced": 517758.0
+    },
+    "New Zealand": {
+        "Cattle | Produced": 4404231.0,
+        "Goat | Produced": 169361.0,
+        "Chicken | Produced": 124620000.0,
+        "Pig | Produced": 624284.0,
+        "Lamb and mutton | Produced": 22228133.0,
+        "Meat, Total | Produced": 152048028.0
+    },
+    "Nicaragua": {
+        "Cattle | Produced": 834942.0,
+        "Goat | Produced": 2276.0,
+        "Chicken | Produced": 64134000.0,
+        "Pig | Produced": 259427.0,
+        "Lamb and mutton | Produced": 2035.0,
+        "Meat, Total | Produced": 65234699.0
+    },
+    "Niger": {
+        "Cattle | Produced": 196885.0,
+        "Goat | Produced": 1288969.0,
+        "Chicken | Produced": 24612000.0,
+        "Pig | Produced": 33739.0,
+        "Lamb and mutton | Produced": 618307.0,
+        "Meat, Total | Produced": 26751919.0
+    },
+    "Nigeria": {
+        "Cattle | Produced": 3163520.0,
+        "Goat | Produced": 27514250.0,
+        "Chicken | Produced": 240030000.0,
+        "Pig | Produced": 6676718.0,
+        "Lamb and mutton | Produced": 19108879.0,
+        "Meat, Total | Produced": 296495386.0
+    },
+    "North America": {
+        "Cattle | Produced": 50605842.0,
+        "Goat | Produced": 3526494.0,
+        "Chicken | Produced": 13069467000.0,
+        "Pig | Produced": 180869775.0,
+        "Lamb and mutton | Produced": 7186426.0,
+        "Meat, Total | Produced": 13311657556.0
+    },
+    "North Korea": {
+        "Cattle | Produced": 138905.0,
+        "Goat | Produced": 918510.0,
+        "Chicken | Produced": 27419000.0,
+        "Pig | Produced": 2351895.0,
+        "Lamb and mutton | Produced": 68075.0,
+        "Meat, Total | Produced": 30898404.0
+    },
+    "North Macedonia": {
+        "Cattle | Produced": 20000.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 1959000.0,
+        "Pig | Produced": 149000.0,
+        "Lamb and mutton | Produced": 156000.0,
+        "Meat, Total | Produced": 2286019.0
+    },
+    "Norway": {
+        "Cattle | Produced": 306075.0,
+        "Goat | Produced": 27722.0,
+        "Chicken | Produced": 68936000.0,
+        "Pig | Produced": 1625295.0,
+        "Lamb and mutton | Produced": 1208744.0,
+        "Meat, Total | Produced": 72105855.0
+    },
+    "Oceania": {
+        "Cattle | Produced": 13189229.0,
+        "Goat | Produced": 1663965.0,
+        "Chicken | Produced": 801303000.0,
+        "Pig | Produced": 8355503.0,
+        "Lamb and mutton | Produced": 54053663.0,
+        "Meat, Total | Produced": 878567379.0
+    },
+    "Oman": {
+        "Cattle | Produced": 115635.0,
+        "Goat | Produced": 698710.0,
+        "Chicken | Produced": 8127000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 1039155.0,
+        "Meat, Total | Produced": 9982519.0
+    },
+    "Pakistan": {
+        "Cattle | Produced": 8728000.0,
+        "Goat | Produced": 41915000.0,
+        "Chicken | Produced": 1278000000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 14810000.0,
+        "Meat, Total | Produced": 1343455019.0
+    },
+    "Panama": {
+        "Cattle | Produced": 331349.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 133532000.0,
+        "Pig | Produced": 539750.0,
+        "Lamb and mutton | Produced": 0.0,
+        "Meat, Total | Produced": 134405118.0
+    },
+    "Papua New Guinea": {
+        "Cattle | Produced": 20744.0,
+        "Goat | Produced": 667.0,
+        "Chicken | Produced": 7313000.0,
+        "Pig | Produced": 1977966.0,
+        "Lamb and mutton | Produced": 2198.0,
+        "Meat, Total | Produced": 9316594.0
+    },
+    "Paraguay": {
+        "Cattle | Produced": 1997314.0,
+        "Goat | Produced": 86077.0,
+        "Chicken | Produced": 74105000.0,
+        "Pig | Produced": 581578.0,
+        "Lamb and mutton | Produced": 115044.0,
+        "Meat, Total | Produced": 76887032.0
+    },
+    "Peru": {
+        "Cattle | Produced": 1357067.0,
+        "Goat | Produced": 411263.0,
+        "Chicken | Produced": 786550000.0,
+        "Pig | Produced": 3284606.0,
+        "Lamb and mutton | Produced": 2682837.0,
+        "Meat, Total | Produced": 794287792.0
+    },
+    "Philippines": {
+        "Cattle | Produced": 881212.0,
+        "Goat | Produced": 3266631.0,
+        "Chicken | Produced": 1199326000.0,
+        "Pig | Produced": 27167256.0,
+        "Lamb and mutton | Produced": 8973.0,
+        "Meat, Total | Produced": 1230652091.0
+    },
+    "Poland": {
+        "Cattle | Produced": 1854880.0,
+        "Goat | Produced": 1290.0,
+        "Chicken | Produced": 1147406000.0,
+        "Pig | Produced": 21443710.0,
+        "Lamb and mutton | Produced": 67340.0,
+        "Meat, Total | Produced": 1170775239.0
+    },
+    "Polynesia": {
+        "Cattle | Produced": 5158.0,
+        "Goat | Produced": 6694.0,
+        "Chicken | Produced": 1565000.0,
+        "Pig | Produced": 122589.0,
+        "Lamb and mutton | Produced": 202.0,
+        "Meat, Total | Produced": 1701662.0
+    },
+    "Portugal": {
+        "Cattle | Produced": 369260.0,
+        "Goat | Produced": 175320.0,
+        "Chicken | Produced": 204042000.0,
+        "Pig | Produced": 5891850.0,
+        "Lamb and mutton | Produced": 1372910.0,
+        "Meat, Total | Produced": 211853359.0
+    },
+    "Romania": {
+        "Cattle | Produced": 428250.0,
+        "Goat | Produced": 637330.0,
+        "Chicken | Produced": 296382000.0,
+        "Pig | Produced": 4409470.0,
+        "Lamb and mutton | Produced": 5125740.0,
+        "Meat, Total | Produced": 306984809.0
+    },
+    "Russia": {
+        "Cattle | Produced": 7877284.0,
+        "Goat | Produced": 1065192.0,
+        "Chicken | Produced": 2557284000.0,
+        "Pig | Produced": 43328496.0,
+        "Lamb and mutton | Produced": 11297289.0,
+        "Meat, Total | Produced": 2620854280.0
+    },
+    "Rwanda": {
+        "Cattle | Produced": 392558.0,
+        "Goat | Produced": 600098.0,
+        "Chicken | Produced": 6355000.0,
+        "Pig | Produced": 389570.0,
+        "Lamb and mutton | Produced": 114767.0,
+        "Meat, Total | Produced": 7854012.0
+    },
+    "Saint Kitts and Nevis": {
+        "Cattle | Produced": 306.0,
+        "Goat | Produced": 643.0,
+        "Chicken | Produced": 0.0,
+        "Pig | Produced": 1392.0,
+        "Lamb and mutton | Produced": 706.0,
+        "Meat, Total | Produced": 5066.0
+    },
+    "Saint Lucia": {
+        "Cattle | Produced": 2286.0,
+        "Goat | Produced": 4183.0,
+        "Chicken | Produced": 1150000.0,
+        "Pig | Produced": 5001.0,
+        "Lamb and mutton | Produced": 4971.0,
+        "Meat, Total | Produced": 1168460.0
+    },
+    "Saint Vincent and the Grenadines": {
+        "Cattle | Produced": 935.0,
+        "Goat | Produced": 2776.0,
+        "Chicken | Produced": 455000.0,
+        "Pig | Produced": 6624.0,
+        "Lamb and mutton | Produced": 3793.0,
+        "Meat, Total | Produced": 471147.0
+    },
+    "Samoa": {
+        "Cattle | Produced": 2509.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 380000.0,
+        "Pig | Produced": 39475.0,
+        "Lamb and mutton | Produced": 0.0,
+        "Meat, Total | Produced": 424003.0
+    },
+    "Sao Tome and Principe": {
+        "Cattle | Produced": 1069.0,
+        "Goat | Produced": 1320.0,
+        "Chicken | Produced": 915000.0,
+        "Pig | Produced": 9678.0,
+        "Lamb and mutton | Produced": 463.0,
+        "Meat, Total | Produced": 929549.0
+    },
+    "Saudi Arabia": {
+        "Cattle | Produced": 294912.0,
+        "Goat | Produced": 2281040.0,
+        "Chicken | Produced": 632376000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 4368306.0,
+        "Meat, Total | Produced": 639322277.0
+    },
+    "Senegal": {
+        "Cattle | Produced": 485358.0,
+        "Goat | Produced": 2087850.0,
+        "Chicken | Produced": 80851000.0,
+        "Pig | Produced": 348694.0,
+        "Lamb and mutton | Produced": 2472966.0,
+        "Meat, Total | Produced": 86247887.0
+    },
+    "Serbia": {
+        "Cattle | Produced": 288524.0,
+        "Goat | Produced": 238591.0,
+        "Chicken | Produced": 72375000.0,
+        "Pig | Produced": 5538210.0,
+        "Lamb and mutton | Produced": 1517031.0,
+        "Meat, Total | Produced": 79959375.0
+    },
+    "Seychelles": {
+        "Cattle | Produced": 54.0,
+        "Goat | Produced": 1996.0,
+        "Chicken | Produced": 350000.0,
+        "Pig | Produced": 5519.0,
+        "Lamb and mutton | Produced": 0.0,
+        "Meat, Total | Produced": 359588.0
+    },
+    "Sierra Leone": {
+        "Cattle | Produced": 40266.0,
+        "Goat | Produced": 204015.0,
+        "Chicken | Produced": 20644000.0,
+        "Pig | Produced": 25135.0,
+        "Lamb and mutton | Produced": 179746.0,
+        "Meat, Total | Produced": 21095181.0
+    },
+    "Slovakia": {
+        "Cattle | Produced": 38120.0,
+        "Goat | Produced": 27860.0,
+        "Chicken | Produced": 46559000.0,
+        "Pig | Produced": 780110.0,
+        "Lamb and mutton | Produced": 28790.0,
+        "Meat, Total | Produced": 47435899.0
+    },
+    "Slovenia": {
+        "Cattle | Produced": 116300.0,
+        "Goat | Produced": 24060.0,
+        "Chicken | Produced": 38325000.0,
+        "Pig | Produced": 331540.0,
+        "Lamb and mutton | Produced": 97840.0,
+        "Meat, Total | Produced": 38896759.0
+    },
+    "Solomon Islands": {
+        "Cattle | Produced": 4159.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 350000.0,
+        "Pig | Produced": 64038.0,
+        "Lamb and mutton | Produced": 0.0,
+        "Meat, Total | Produced": 420216.0
+    },
+    "South Africa": {
+        "Cattle | Produced": 3089000.0,
+        "Goat | Produced": 706968.0,
+        "Chicken | Produced": 966126000.0,
+        "Pig | Produced": 3238000.0,
+        "Lamb and mutton | Produced": 5429259.0,
+        "Meat, Total | Produced": 978591246.0
+    },
+    "South America": {
+        "Cattle | Produced": 60278842.0,
+        "Goat | Produced": 5954823.0,
+        "Chicken | Produced": 9344430000.0,
+        "Pig | Produced": 73369243.0,
+        "Lamb and mutton | Produced": 15154153.0,
+        "Meat, Total | Produced": 9499189080.0
+    },
+    "South Korea": {
+        "Cattle | Produced": 887000.0,
+        "Goat | Produced": 124386.0,
+        "Chicken | Produced": 1026388000.0,
+        "Pig | Produced": 17825000.0,
+        "Lamb and mutton | Produced": 327.0,
+        "Meat, Total | Produced": 1045226732.0
+    },
+    "Spain": {
+        "Cattle | Produced": 2510770.0,
+        "Goat | Produced": 1303400.0,
+        "Chicken | Produced": 716259000.0,
+        "Pig | Produced": 52982310.0,
+        "Lamb and mutton | Produced": 10060050.0,
+        "Meat, Total | Produced": 783117549.0
+    },
+    "Sri Lanka": {
+        "Cattle | Produced": 158723.0,
+        "Goat | Produced": 48316.0,
+        "Chicken | Produced": 147256000.0,
+        "Pig | Produced": 18074.0,
+        "Lamb and mutton | Produced": 6073.0,
+        "Meat, Total | Produced": 147489205.0
+    },
+    "Sudan": {
+        "Cattle | Produced": 3562000.0,
+        "Goat | Produced": 13444000.0,
+        "Chicken | Produced": 33510000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 15400000.0,
+        "Meat, Total | Produced": 65918019.0
+    },
+    "Suriname": {
+        "Cattle | Produced": 8318.0,
+        "Goat | Produced": 579.0,
+        "Chicken | Produced": 6671000.0,
+        "Pig | Produced": 31747.0,
+        "Lamb and mutton | Produced": 1157.0,
+        "Meat, Total | Produced": 6714820.0
+    },
+    "Sweden": {
+        "Cattle | Produced": 441780.0,
+        "Goat | Produced": 1390.0,
+        "Chicken | Produced": 103451000.0,
+        "Pig | Produced": 2586030.0,
+        "Lamb and mutton | Produced": 270620.0,
+        "Meat, Total | Produced": 106752839.0
+    },
+    "Switzerland": {
+        "Cattle | Produced": 615963.0,
+        "Goat | Produced": 41307.0,
+        "Chicken | Produced": 76343000.0,
+        "Pig | Produced": 2461742.0,
+        "Lamb and mutton | Produced": 243962.0,
+        "Meat, Total | Produced": 79707993.0
+    },
+    "Syria": {
+        "Cattle | Produced": 450618.0,
+        "Goat | Produced": 435661.0,
+        "Chicken | Produced": 96726000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 4044280.0,
+        "Meat, Total | Produced": 101658578.0
+    },
+    "Taiwan": {
+        "Cattle | Produced": 33986.0,
+        "Goat | Produced": 67037.0,
+        "Chicken | Produced": 370644000.0,
+        "Pig | Produced": 7979588.0,
+        "Lamb and mutton | Produced": 0.0,
+        "Meat, Total | Produced": 378726630.0
+    },
+    "Tajikistan": {
+        "Cattle | Produced": 950594.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 3474000.0,
+        "Pig | Produced": 7530.0,
+        "Lamb and mutton | Produced": 5960455.0,
+        "Meat, Total | Produced": 10394598.0
+    },
+    "Tanzania": {
+        "Cattle | Produced": 3276750.0,
+        "Goat | Produced": 3493803.0,
+        "Chicken | Produced": 109137000.0,
+        "Pig | Produced": 372932.0,
+        "Lamb and mutton | Produced": 2000165.0,
+        "Meat, Total | Produced": 118282669.0
+    },
+    "Thailand": {
+        "Cattle | Produced": 898098.0,
+        "Goat | Produced": 122262.0,
+        "Chicken | Produced": 1298517000.0,
+        "Pig | Produced": 12196582.0,
+        "Lamb and mutton | Produced": 12122.0,
+        "Meat, Total | Produced": 1311748083.0
+    },
+    "Timor": {
+        "Cattle | Produced": 17109.0,
+        "Goat | Produced": 51839.0,
+        "Chicken | Produced": 1416000.0,
+        "Pig | Produced": 323272.0,
+        "Lamb and mutton | Produced": 4015.0,
+        "Meat, Total | Produced": 1814254.0
+    },
+    "Togo": {
+        "Cattle | Produced": 45970.0,
+        "Goat | Produced": 952429.0,
+        "Chicken | Produced": 47965000.0,
+        "Pig | Produced": 651290.0,
+        "Lamb and mutton | Produced": 367842.0,
+        "Meat, Total | Produced": 49984550.0
+    },
+    "Trinidad and Tobago": {
+        "Cattle | Produced": 6361.0,
+        "Goat | Produced": 3021.0,
+        "Chicken | Produced": 32291000.0,
+        "Pig | Produced": 39798.0,
+        "Lamb and mutton | Produced": 10392.0,
+        "Meat, Total | Produced": 32352591.0
+    },
+    "Tunisia": {
+        "Cattle | Produced": 237134.0,
+        "Goat | Produced": 709378.0,
+        "Chicken | Produced": 86620000.0,
+        "Pig | Produced": 2445.0,
+        "Lamb and mutton | Produced": 3109130.0,
+        "Meat, Total | Produced": 90680106.0
+    },
+    "Turkey": {
+        "Cattle | Produced": 3633730.0,
+        "Goat | Produced": 836376.0,
+        "Chicken | Produced": 1207088000.0,
+        "Pig | Produced": 87.0,
+        "Lamb and mutton | Produced": 5057026.0,
+        "Meat, Total | Produced": 1216617238.0
+    },
+    "Turkmenistan": {
+        "Cattle | Produced": 809337.0,
+        "Goat | Produced": 658889.0,
+        "Chicken | Produced": 16127000.0,
+        "Pig | Produced": 4500.0,
+        "Lamb and mutton | Produced": 8281500.0,
+        "Meat, Total | Produced": 25883245.0
+    },
+    "Uganda": {
+        "Cattle | Produced": 1169442.0,
+        "Goat | Produced": 3035840.0,
+        "Chicken | Produced": 50070000.0,
+        "Pig | Produced": 2072248.0,
+        "Lamb and mutton | Produced": 688799.0,
+        "Meat, Total | Produced": 57038348.0
+    },
+    "Ukraine": {
+        "Cattle | Produced": 2127500.0,
+        "Goat | Produced": 389400.0,
+        "Chicken | Produced": 717546000.0,
+        "Pig | Produced": 8040000.0,
+        "Lamb and mutton | Produced": 475800.0,
+        "Meat, Total | Produced": 728580719.0
+    },
+    "United Arab Emirates": {
+        "Cattle | Produced": 72757.0,
+        "Goat | Produced": 3698952.0,
+        "Chicken | Produced": 41757000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 233670.0,
+        "Meat, Total | Produced": 45764398.0
+    },
+    "United Kingdom": {
+        "Cattle | Produced": 2826000.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 1108000000.0,
+        "Pig | Produced": 11107000.0,
+        "Lamb and mutton | Produced": 14852000.0,
+        "Meat, Total | Produced": 1136787019.0
+    },
+    "United States": {
+        "Cattle | Produced": 34264800.0,
+        "Goat | Produced": 675200.0,
+        "Chicken | Produced": 9339249000.0,
+        "Pig | Produced": 129990000.0,
+        "Lamb and mutton | Produced": 2413200.0,
+        "Meat, Total | Produced": 9506594219.0
+    },
+    "Upper-middle-income countries": {
+        "Cattle | Produced": 131139848.0,
+        "Goat | Produced": 167820082.0,
+        "Chicken | Produced": 30319687000.0,
+        "Pig | Produced": 716747590.0,
+        "Lamb and mutton | Produced": 241875135.0,
+        "Meat, Total | Produced": 31577271674.0
+    },
+    "Uruguay": {
+        "Cattle | Produced": 2231997.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 29535000.0,
+        "Pig | Produced": 142761.0,
+        "Lamb and mutton | Produced": 857117.0,
+        "Meat, Total | Produced": 32768894.0
+    },
+    "Uzbekistan": {
+        "Cattle | Produced": 5269439.0,
+        "Goat | Produced": 0.0,
+        "Chicken | Produced": 28294000.0,
+        "Pig | Produced": 49463.0,
+        "Lamb and mutton | Produced": 8822140.0,
+        "Meat, Total | Produced": 42437061.0
+    },
+    "Vanuatu": {
+        "Cattle | Produced": 10581.0,
+        "Goat | Produced": 3255.0,
+        "Chicken | Produced": 710000.0,
+        "Pig | Produced": 66264.0,
+        "Lamb and mutton | Produced": 0.0,
+        "Meat, Total | Produced": 792119.0
+    },
+    "Venezuela": {
+        "Cattle | Produced": 1654997.0,
+        "Goat | Produced": 529490.0,
+        "Chicken | Produced": 249389000.0,
+        "Pig | Produced": 1708910.0,
+        "Lamb and mutton | Produced": 201778.0,
+        "Meat, Total | Produced": 253486194.0
+    },
+    "Vietnam": {
+        "Cattle | Produced": 1794421.0,
+        "Goat | Produced": 1399055.0,
+        "Chicken | Produced": 551069000.0,
+        "Pig | Produced": 42192969.0,
+        "Lamb and mutton | Produced": 0.0,
+        "Meat, Total | Produced": 596457464.0
+    },
+    "World": {
+        "Cattle | Produced": 297494092.0,
+        "Goat | Produced": 486433209.0,
+        "Chicken | Produced": 72452120000.0,
+        "Pig | Produced": 1343677013.0,
+        "Lamb and mutton | Produced": 576088821.0,
+        "Meat, Total | Produced": 75155815154.0
+    },
+    "Yemen": {
+        "Cattle | Produced": 1260039.0,
+        "Goat | Produced": 7531075.0,
+        "Chicken | Produced": 189455000.0,
+        "Pig | Produced": 0.0,
+        "Lamb and mutton | Produced": 4151645.0,
+        "Meat, Total | Produced": 202399778.0
+    },
+    "Zambia": {
+        "Cattle | Produced": 1183931.0,
+        "Goat | Produced": 864231.0,
+        "Chicken | Produced": 48588000.0,
+        "Pig | Produced": 636187.0,
+        "Lamb and mutton | Produced": 67541.0,
+        "Meat, Total | Produced": 51341909.0
+    },
+    "Zimbabwe": {
+        "Cattle | Produced": 235027.0,
+        "Goat | Produced": 2060377.0,
+        "Chicken | Produced": 58333000.0,
+        "Pig | Produced": 193820.0,
+        "Lamb and mutton | Produced": 31884.0,
+        "Meat, Total | Produced": 60856127.0
+    }
+}
