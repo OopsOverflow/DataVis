@@ -1,6 +1,19 @@
 import * as d3 from 'd3';
 import { type IGroupedData } from './type';
 
+
+function addMultiple(db: any, datas: any[], callback: () => void) {
+  const tx = db.transaction(["jsonData"], "readwrite");
+
+  datas.forEach(data => {
+      let request = tx.objectStore("jsonData").add(data);
+  })
+
+  tx.oncomplete = function() {
+      callback();
+  }
+};
+
 async function loadData() {
   // Open the database
   const request = window.indexedDB.open('countryProdData', 1);
@@ -37,6 +50,42 @@ async function loadData() {
     };
   }).catch(err => { alert(err); });
 
+
+    // // Open the database
+    // const request = window.indexedDB.open('countryMeatData', 1);
+
+    // // Create the database if it doesn't exist
+    // request.onupgradeneeded = (event: IDBVersionChangeEvent) => {
+    //   const db = (event.target as IDBOpenDBRequest).result;
+    //   db.createObjectStore('jsonData', { keyPath: 'id' });
+    // };
+    
+  
+    // // load the production emission in on request success
+    // request.onsuccess = (event: Event) => {
+    //   const db = (event.target as IDBOpenDBRequest).result;
+    //   const transaction = db.transaction(['jsonData'], 'readwrite');
+    //   const objectStore = transaction.objectStore('jsonData');
+  
+    //   const countRequest = objectStore.count();
+    //   countRequest.onsuccess = () => {
+    //     if(countRequest.result <= 0) {
+    //       d3.csv('./data/Datasets/meat_prod.csv').then((data: any) => {
+    //         transaction.oncomplete = () => {
+    //           console.log('Data added successfully!');
+    //         };
+    //         transaction.onerror = (event : any) => {
+    //           console.log('Error adding data:', event.target.error);
+    //         };
+  
+    //         for (const ind in data) {
+    //           objectStore.add({ id: data[ind]['Entity'] && 'null', ...data[ind] });
+    //         }
+    //       }).catch(err => { console.log(err); });
+    //     }
+    //   };
+    // }
+
   const requestFood = window.indexedDB.open('foodEmiData', 1);
 
   // Create the database if it doesn't exist
@@ -45,18 +94,25 @@ async function loadData() {
     db.createObjectStore('jsonData', { keyPath: 'id' });
   };
 
-  d3.csv('./data/Datasets/Food_Product_Emissions.csv').then((data: any) => {
     // load the production emission in on request success
-    requestFood.onsuccess = (event: Event) => {
-      const db = (event.target as IDBOpenDBRequest).result;
-      const transaction = db.transaction(['jsonData'], 'readwrite');
-      const objectStore = transaction.objectStore('jsonData');
+  requestFood.onsuccess = (event: Event) => {
+    const db = (event.target as IDBOpenDBRequest).result;
+    const transaction = db.transaction(['jsonData'], 'readwrite');
+    const objectStore = transaction.objectStore('jsonData');
 
-      for (const d of data) {
-        objectStore.add({ id: d['Food product'], ...d });
+    const countRequest = objectStore.count();
+    countRequest.onsuccess = () => {
+      if(countRequest.result <= 0) {
+        d3.csv('./data/Datasets/Food_Product_Emissions.csv').then((data: any) => {
+
+          for (const ind in data) {
+            objectStore.add({ id: data[ind]['Food product'] && 'null', ...data[ind] });
+          }
+          }).catch(err => { alert(err); });
       }
     };
-  }).catch(err => { alert(err); });
+  };
+
 }
 
 async function fetchData(

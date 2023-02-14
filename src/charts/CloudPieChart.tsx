@@ -73,7 +73,6 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
     const svg: any = d3
       .select('#cloud-svg')
       .attr('width', 500)
-      // .attr('filter', 'url(#filter-map)')
       .attr('viewBox', `0 0 2800 1800`);
 
     const defs = d3.select('#defs');
@@ -83,17 +82,14 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
       .attr('id', 'myClipV2')
       .append('path')
       .attr('width', '80%')
-      // .attr('filter', 'url(#filter-map)')
       .attr('d', CloudPath);
 
     svg
       .append('image')
       .attr('xlink:href', './pollution.png')
       .attr('width', '100%')
-      // .attr('filter', 'url(#filter-map)')
       .attr('clip-path', 'url(#myClipV2)');
 
-    // .attr('style', 'background-image: url(./pollution.png)')
 
     const total = data.reduce((i, d) => (i += d.values[0]), 0);
     const temp = [...data];

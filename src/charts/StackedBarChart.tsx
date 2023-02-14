@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useRef,
   useState,
+  useSyncExternalStore
 } from 'react';
 import '@styles/globals.css';
 import { type IGroupedData } from '@type/index';
@@ -61,43 +62,41 @@ function Bar({
   );
 }
 
-export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
-  const [tooltip, setTooltip] = useState<Tooltip | null>(null);
-  const [mouseBar, setMouseBar] = useState<number>(-1);
-  const axisBottomRef = useRef<SVGGElement>(null);
-  const axisLeftRef = useRef<SVGGElement>(null);
-
-  data = data.map(({ label, values }) => {
+const parseData = (data : IGroupedData[]) => {
+  return data.map(({ label, values }) => {
     return {
       label,
       values: values.filter(
         (v: any) =>
           v.label !== 'Meat, Total | tonnes' &&
-          v.label !== 'Game | tonnes' &&
           v.label !== 'Horse | tonnes' &&
-          v.label !== 'Goose and guinea fowl | tonnes' &&
-          v.label !== 'Duck | tonnes' &&
           v.label !== 'Camel | tonnes',
       ),
     };
-  });
+  })
+}
+
+export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
+
+  const [tooltip, setTooltip] = useState<Tooltip | null>(null);
+  const [curData, setCur] = useState(data);
+  const [mouseBar, setMouseBar] = useState<number>(-1);
+  const axisBottomRef = useRef<SVGGElement>(null);
+  const axisLeftRef = useRef<SVGGElement>(null);
 
   // console.log(data)
 
   const margin = { top: 10, right: 0, bottom: 10, left: 30 };
   const width = 500 - margin.left - margin.right;
-  const height = 300 - margin.top - margin.bottom;
+  const height = 500 - margin.top - margin.bottom;
 
-  const labels = data.map(({ label }) => label);
+  const labels = curData.map(({ label }) => label);
   // const sublabels = data[0].values.map(({ label }: any) => label);
-  const subvalues = data.map(({ values }) =>
+  const subvalues = curData.map(({ values }) =>
     values.filter(
       (v: any) =>
         v.label !== 'Meat, Total | tonnes' &&
-        v.label !== 'Game | tonnes' &&
-        v.label !== 'Horse | tonnes' &&
-        v.label !== 'Goose and guinea fowl | tonnes' &&
-        v.label !== 'Duck | tonnes',
+        v.label !== 'Horse | tonnes'
     ),
   );
 
@@ -123,6 +122,10 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
     return y;
   }
 
+  useEffect (() => {
+    setCur(parseData(data));
+  },[])
+
   useEffect(() => {
     if (axisBottomRef.current != null) {
       d3.select(axisBottomRef.current).call(d3.axisBottom(scaleX));
@@ -134,8 +137,13 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
     // const stacks = chartRoot.selectAll(".layer").data(stackedData);
   }, [scaleX, scaleY]);
 
+  useEffect(() => {
+    setCur(parseData(data));
+    console.log(data)
+  }, [data])
+
   return (
-    <>
+    <div>
       <svg
         width={width + margin.left + margin.right + 100}
         height={width + margin.left + margin.right}
@@ -146,7 +154,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
         <g transform={`translate(${margin.left}, ${margin.top})`}>
           <g ref={axisBottomRef} transform={`translate(0, ${height})`} />
           <g ref={axisLeftRef} />
-          {data.map(({ label, values }, groupIndex) => (
+          {curData.map(({ label, values }, groupIndex) => (
             <g
               key={`rect-group-${groupIndex}`}
               transform={`translate(${scaleX(label)}, 0)`}
@@ -156,7 +164,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
                   key={`rect-${barIndex}`}
                   x={0}
                   // need to accumulate
-                  y={height - calcY(barIndex, [...values])}
+                  y={height - calcY(barIndex, [...values]) + (1 - sums[groupIndex]/Math.max(...sums)) * height}
                   width={scaleX.bandwidth()}
                   height={height - scaleY(tup.value)}
                   color={`rgb(${
@@ -196,6 +204,6 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
           </table>
         </div>
       ) : null}
-    </>
+    </div>
   );
 }

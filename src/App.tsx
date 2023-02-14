@@ -2,17 +2,22 @@ import React, { useEffect, useState } from 'react';
 // import { GroupedBarChart } from '@charts/GroupedBarChart';
 import { StackedBarChart } from './charts/StackedBarChart';
 import { CloudPieChart } from '@charts/CloudPieChart';
+import { WorldMap } from '@charts/WorldMap';
 import { Info } from '@charts/Info';
 import selectData from './mock_data.json';
 import { type IGroupedData } from './type';
 import Hero from '@components/Hero';
 import StatsBlock from '@components/StatsBlock';
-import { fetchData, loadData } from './loadData';
 import AnimalsKilledList from '@components/AnimalsKilledList';
+import LiveCounter from '@components/LiveCounter';
+import {loadData, fetchData} from './loadData';
+import { getCountryName } from './helpers';
+
 
 // const GROUPED_BAR_CHART_DATA: IGroupedData[] = selectData;
 // console.log(selectData[0])
 // Mock Data
+
 const GROUPED_PIE_CHART_DATA: IGroupedData[] = [
   { label: 'Chicken (per kg)', values: [39.72, 0.468, 2.37, 19.508] },
   { label: 'Beef (per kg)', values: [99.48, 16.278, 1.878, 39.388] },
@@ -38,25 +43,28 @@ const stats = [
 ];
 
 function App(): React.ReactElement {
-  const [barChartData, setBarChart] = useState<IGroupedData[]>(selectData);
 
-  useEffect(() => {
-    void (async function () {
-      await loadData();
-      const UK: IGroupedData = await fetchData(
-        'countryProdData',
-        'United Kingdom',
-      );
-      const US: IGroupedData = await fetchData(
-        'countryProdData',
-        'United States',
-      );
-      const FR: IGroupedData = await fetchData('countryProdData', 'France');
-      const CN: IGroupedData = await fetchData('countryProdData', 'China');
+  const [barChartData, setBarChart] = useState<IGroupedData[]>([]);
 
-      setBarChart([UK, US, FR, CN]);
-    })();
-  }, []);
+  useEffect(()=> {
+    window.countries = ['GBR', 'USA', 'FRA', 'CHN'];
+    const { countries } = window;
+
+    const temp : IGroupedData[] = [];
+    
+    (async() => {
+    
+      for(const c of countries) {
+        const d : IGroupedData = await fetchData('countryProdData', getCountryName(c));
+        temp.push(d);
+      }
+      setBarChart([...temp])
+      console.log(barChartData)
+
+    })()
+
+    
+  }, [])
 
   return (
     <>
@@ -79,8 +87,7 @@ function App(): React.ReactElement {
         <Info />
         <CloudPieChart data={GROUPED_PIE_CHART_DATA} />
         <StackedBarChart data={barChartData} />
-
-        {/* <GroupedBarChart data={ barChartData.length > 0 ? barChartData : GROUPED_BAR_CHART_DATA} /> */}
+        <WorldMap />
         <p>Hover over the bars to see the values</p>
       </div>
 
