@@ -5,7 +5,6 @@ import React, {
   useEffect,
   useRef,
   useState,
-  useSyncExternalStore
 } from 'react';
 import '@styles/globals.css';
 import { type IGroupedData } from '@type/index';

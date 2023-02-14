@@ -2,18 +2,6 @@ import * as d3 from 'd3';
 import { type IGroupedData } from './type';
 
 
-function addMultiple(db: any, datas: any[], callback: () => void) {
-  const tx = db.transaction(["jsonData"], "readwrite");
-
-  datas.forEach(data => {
-      let request = tx.objectStore("jsonData").add(data);
-  })
-
-  tx.oncomplete = function() {
-      callback();
-  }
-};
-
 async function loadData() {
   // Open the database
   const request = window.indexedDB.open('countryProdData', 1);

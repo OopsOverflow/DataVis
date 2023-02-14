@@ -4,7 +4,6 @@ import { StackedBarChart } from './charts/StackedBarChart';
 import { CloudPieChart } from '@charts/CloudPieChart';
 import { WorldMap } from '@charts/WorldMap';
 import { Info } from '@charts/Info';
-import selectData from './mock_data.json';
 import { type IGroupedData } from './type';
 import Hero from '@components/Hero';
 import StatsBlock from '@components/StatsBlock';
@@ -47,12 +46,14 @@ function App(): React.ReactElement {
   const [barChartData, setBarChart] = useState<IGroupedData[]>([]);
 
   useEffect(()=> {
+    
     window.countries = ['GBR', 'USA', 'FRA', 'CHN'];
     const { countries } = window;
 
     const temp : IGroupedData[] = [];
     
     (async() => {
+      await loadData();
     
       for(const c of countries) {
         const d : IGroupedData = await fetchData('countryProdData', getCountryName(c));

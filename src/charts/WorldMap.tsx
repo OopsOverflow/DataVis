@@ -6,7 +6,6 @@ import React, {
 import { geoMercator, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 
-let { countries }= window;
 
 export function WorldMap(): ReactElement<SVGSVGElement> {
 
@@ -26,7 +25,7 @@ export function WorldMap(): ReactElement<SVGSVGElement> {
       }).then((data : any) => {
         // console.log(data)
         setWorldData(feature(data, data.objects.countries1).features);
-      });
+      }).catch(err => { console.log(err); });
 
   }, []);
 
