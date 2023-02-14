@@ -7,9 +7,8 @@ import selectData from './mock_data.json';
 import { type IGroupedData } from './type';
 import Hero from '@components/Hero';
 import StatsBlock from '@components/StatsBlock';
-import LiveCounter from '@components/LiveCounter';
-import {loadData, fetchData} from './loadData';
-
+import { fetchData, loadData } from './loadData';
+import AnimalsKilledList from '@components/AnimalsKilledList';
 
 // const GROUPED_BAR_CHART_DATA: IGroupedData[] = selectData;
 // console.log(selectData[0])
@@ -39,22 +38,25 @@ const stats = [
 ];
 
 function App(): React.ReactElement {
-
   const [barChartData, setBarChart] = useState<IGroupedData[]>(selectData);
 
   useEffect(() => {
-    
-    (async function(){
+    void (async function () {
       await loadData();
-      const UK : IGroupedData = await fetchData('countryProdData', 'United Kingdom');
-      const US : IGroupedData = await fetchData('countryProdData', 'United States');
-      const FR : IGroupedData = await fetchData('countryProdData', 'France');
-      const CN : IGroupedData = await fetchData('countryProdData', 'China');
+      const UK: IGroupedData = await fetchData(
+        'countryProdData',
+        'United Kingdom',
+      );
+      const US: IGroupedData = await fetchData(
+        'countryProdData',
+        'United States',
+      );
+      const FR: IGroupedData = await fetchData('countryProdData', 'France');
+      const CN: IGroupedData = await fetchData('countryProdData', 'China');
 
       setBarChart([UK, US, FR, CN]);
-    })()
-
-  }, [])
+    })();
+  }, []);
 
   return (
     <>
@@ -72,11 +74,6 @@ function App(): React.ReactElement {
           the period from 2019 to 2021, with an average of 69.5 kilograms of
           retail weight per person.
         </p>
-        <div>
-          <LiveCounter />
-          Cattle were <span className="text-accent">slaughtered</span> since you
-          started reading this page
-        </div>
       </div>
       <div className="flex h-full w-full flex-col items-center  justify-center">
         <Info />
@@ -86,13 +83,15 @@ function App(): React.ReactElement {
         {/* <GroupedBarChart data={ barChartData.length > 0 ? barChartData : GROUPED_BAR_CHART_DATA} /> */}
         <p>Hover over the bars to see the values</p>
       </div>
+
+      <div className="flex h-full w-full flex-col items-center justify-center bg-base-200 p-10 text-center md:p-20">
+        <AnimalsKilledList />
+      </div>
     </>
   );
 }
 
 export default App;
-
-
 
 // {
 //   "China":

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-const LiveCounter = () => {
+const LiveCounter = ({ classes, rate }: { classes?: string; rate: number }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCount((prevCount) => prevCount + 60.4);
+      setCount((prevCount) => prevCount + rate);
     }, 300 + Math.random() * 100);
 
     return () => {
@@ -20,7 +20,7 @@ const LiveCounter = () => {
 
   return (
     <div>
-      <h4 className="mb-0 flex-grow text-3xl font-bold text-accent">
+      <h4 className={`mb-0 flex-grow font-bold ${classes}`}>
         {formattedCount}
       </h4>
     </div>
