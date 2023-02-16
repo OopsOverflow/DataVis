@@ -23,7 +23,7 @@ module.exports = {
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/triple-slash-reference": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
-    "@typescript-eslint/explicit-function-return-type": "warn",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/ban-ts-comment": "warn",
     "@typescript-eslint/prefer-ts-expect-error": "warn",
   }

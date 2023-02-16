@@ -40,7 +40,7 @@ const BackCard = ({
       <div
         className="border-1 radial-progress absolute left-1.5 border-primary border-primary bg-base-200 text-primary"
         style={{
-          // @ts-ignore
+          // @ts-expect-error
           '--value': lifePercent,
           '--size': '5.3rem',
           '--thickness': '0.5rem',

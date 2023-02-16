@@ -8,10 +8,8 @@ import { type IGroupedData } from './type';
 import Hero from '@components/Hero';
 import StatsBlock from '@components/StatsBlock';
 import AnimalsKilledList from '@components/AnimalsKilledList';
-import LiveCounter from '@components/LiveCounter';
-import {loadData, fetchData} from './loadData';
+import { fetchData, loadData } from './loadData';
 import { getCountryName } from './helpers';
-
 
 // const GROUPED_BAR_CHART_DATA: IGroupedData[] = selectData;
 // console.log(selectData[0])
@@ -42,30 +40,28 @@ const stats = [
 ];
 
 function App(): React.ReactElement {
-
   const [barChartData, setBarChart] = useState<IGroupedData[]>([]);
 
-  useEffect(()=> {
-    
+  useEffect(() => {
     window.countries = ['GBR', 'USA', 'FRA', 'CHN'];
     const { countries } = window;
 
-    const temp : IGroupedData[] = [];
-    
-    (async() => {
+    const temp: IGroupedData[] = [];
+
+    void (async () => {
       await loadData();
-    
-      for(const c of countries) {
-        const d : IGroupedData = await fetchData('countryProdData', getCountryName(c));
+
+      for (const c of countries) {
+        const d: IGroupedData = await fetchData(
+          'countryProdData',
+          getCountryName(c),
+        );
         temp.push(d);
       }
-      setBarChart([...temp])
-      console.log(barChartData)
-
-    })()
-
-    
-  }, [])
+      setBarChart([...temp]);
+      console.log(barChartData);
+    })();
+  }, []);
 
   return (
     <>
