@@ -25,6 +25,10 @@ async function loadData() {
 
 };
 
+function checkDataLoaded(id: string) {
+  return localStorage.getItem(id);
+}
+
 async function fetchData(
   id: string,
   year: string,
@@ -50,4 +54,4 @@ async function fetchData(
   });
 }
 
-export { loadData, fetchData };
+export { loadData, fetchData, checkDataLoaded};

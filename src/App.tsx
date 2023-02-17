@@ -8,7 +8,7 @@ import { type IGroupedData } from './type';
 import Hero from '@components/Hero';
 import StatsBlock from '@components/StatsBlock';
 import AnimalsKilledList from '@components/AnimalsKilledList';
-import { fetchData, loadData } from './loadDataRaw';
+import { fetchData, loadData, checkDataLoaded } from './loadDataRaw';
 import { getCountryName } from './helpers';
 
 // const GROUPED_BAR_CHART_DATA: IGroupedData[] = selectData;
@@ -41,16 +41,33 @@ const stats = [
 
 function App(): React.ReactElement {
   const [barChartData, setBarChart] = useState<IGroupedData[]>([]);
+  const [dataLoaded, setDataLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     window.countries = ['GBR', 'USA', 'FRA', 'CHN','TCD', 'AUS', 'RUS'];
+
+
+    void (async () => {
+      console.log("loading data...")
+      await loadData();
+    })();
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if(checkDataLoaded('meat_prod')) setDataLoaded(true);
+    }, 1000);
+  
+    return () => { clearInterval(interval)};
+  })
+
+  useEffect(() => {
+    console.log("fetching data...")
     const { countries } = window;
 
     const temp: IGroupedData[] = [];
-
     void (async () => {
-      await loadData();
-
+      
       for (const c of countries) {
         const d: IGroupedData = await fetchData(
           getCountryName(c),
@@ -60,8 +77,11 @@ function App(): React.ReactElement {
       }
       setBarChart([...temp]);
       console.log(barChartData);
+
     })();
-  }, []);
+
+
+  }, [dataLoaded]);
 
   return (
     <>
