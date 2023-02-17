@@ -5,16 +5,15 @@ import { type IGroupedData } from './type';
 async function loadData() {
   // Open the database
 
-
+  if(!localStorage.getItem('meat_prod')) {
     d3.json('./data/meat_tonnes_10_last_years.json').then((data: any) => {
-
-
       localStorage.setItem("meat_prod", JSON.stringify(data));
 
     }).catch(err => { alert(err); });
 
+  }
 
-
+  if(!localStorage.getItem('food_emission')) {
     // console.log(objectStore.getAll())
     d3.csv('./data/Datasets/Food_Product_Emissions.csv').then((data: any) => {
 
@@ -22,8 +21,9 @@ async function loadData() {
 
     }).catch(err => { alert(err); });
 
-  
-  };
+  }
+
+};
 
 async function fetchData(
   id: string,
