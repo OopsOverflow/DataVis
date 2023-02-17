@@ -4,7 +4,7 @@ import { feature } from 'topojson-client';
 
 interface Props {
   countries: string[];
-  onChange: Function;
+  onChange: any;
 }
 
 export function WorldMap({ countries, onChange} : Props): ReactElement<SVGSVGElement> {
