@@ -35,23 +35,15 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          primary: '#b91c1c',
-
-          secondary: '#9f1239',
-
-          accent: '#b91c1c',
-
-          neutral: '#3D4451',
-
-          'base-100': '#FFFFFF',
-
-          info: '#9f1239',
-
-          success: '#f87171',
-
-          warning: '#f97316',
-
-          error: '#7f1d1d',
+          "primary": "#f43f5e",
+          "secondary": "#fb7185",
+          "accent": "#ef4444",
+          "neutral": "#fecdd3",
+          "base-100": "#f3f4f6",
+          "info": "#e11d48",
+          "success": "#f87171",
+          "warning": "#b91c1c",
+          "error": "#dc2626",
         },
       },
     ],
