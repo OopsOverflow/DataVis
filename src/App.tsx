@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import { GroupedBarChart } from '@charts/GroupedBarChart';
 import { StackedBarChart } from './charts/StackedBarChart';
 import { CloudPieChart } from '@charts/CloudPieChart';
 import { WorldMap } from '@charts/WorldMap';
@@ -8,18 +7,13 @@ import { type IGroupedData } from './type';
 import Hero from '@components/Hero';
 import StatsBlock from '@components/StatsBlock';
 import AnimalsKilledList from '@components/AnimalsKilledList';
-import { fetchData, loadData, checkDataLoaded } from './loadDataRaw';
+import { fetchData, fetchPieData, loadData, checkDataLoaded } from './loadDataRaw';
 import { getCountryName } from './helpers';
 
 // const GROUPED_BAR_CHART_DATA: IGroupedData[] = selectData;
 // console.log(selectData[0])
 // Mock Data
 
-const GROUPED_PIE_CHART_DATA: IGroupedData[] = [
-  { label: 'Chicken (per kg)', values: [39.72, 0.468, 2.37, 19.508] },
-  { label: 'Beef (per kg)', values: [99.48, 16.278, 1.878, 39.388] },
-  { label: 'Fish (per kg)', values: [13.63, 0.534, 0.819, 3.598] },
-];
 
 const stats = [
   {
@@ -41,6 +35,7 @@ const stats = [
 
 function App(): React.ReactElement {
   const [barChartData, setBarChart] = useState<IGroupedData[]>([]);
+  const [pieChartData, setPieChart] = useState<IGroupedData[]>([]);
   const [year, setYear] = useState<string>('2019');
   const [dataLoaded, setDataLoaded] = useState<boolean>(false);
   const [countries, setCountries] = useState<string[]>([
@@ -87,6 +82,16 @@ function App(): React.ReactElement {
     })();
   }, [dataLoaded, countries, year]);
 
+
+  useEffect(() => {
+
+    console.log(fetchPieData())
+
+    setPieChart([...fetchPieData()]);
+    console.log("set pie")
+
+  }, [dataLoaded])
+
   const HandleCountryChange = (changed: string[]) => {
     setCountries([...changed]);
   };
@@ -111,7 +116,7 @@ function App(): React.ReactElement {
       <div className="flex h-full w-full flex-col items-center  justify-center">
         <div className="flex flex-row">
           <Info />
-          <CloudPieChart data={GROUPED_PIE_CHART_DATA} />
+          <CloudPieChart data={pieChartData} />
         </div>
 
         <div className="flex h-full w-full flex-col items-center justify-center p-10 text-center md:p-20">

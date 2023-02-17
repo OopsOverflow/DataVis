@@ -32,10 +32,8 @@ const addClipPath = (
   callback: (e: { x: number; y: number } | null) => void,
 ) => {
   // only whatever parts of the shape inside the clipPath are visible
-  const group = svg
-    .append('g')
-    .attr('clip-path', 'url(#myClipV2)')
-    // .attr('filter', 'url(#filter-map)');
+  const group = svg.append('g').attr('clip-path', 'url(#myClipV2)');
+  // .attr('filter', 'url(#filter-map)');
   const arc = getPie(radius, anglePie);
 
   group
@@ -64,6 +62,7 @@ interface Tooltip {
   x: number;
   y: number;
   label: string;
+  values: number[];
 }
 
 export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
@@ -90,11 +89,11 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
       .attr('width', '100%')
       .attr('clip-path', 'url(#myClipV2)');
 
-
     const total = data.reduce((i, d) => (i += d.values[0]), 0);
     const temp = [...data];
+    // console.log(temp)
     temp.reduce((angle, d, i) => {
-      // console.log(angle);
+      console.log(angle, d, total);
       const { label, values } = d;
       const radius = (values[0] / total) * Math.PI * 2;
       const rotate = (values[0] / total) * 360;
@@ -106,20 +105,18 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
         `rgba(${Math.random() * 255}, 0, 0, `,
         i,
         (obj: any) => {
-          setTooltip({ ...obj, label });
+          setTooltip({ ...obj, label, values });
         },
       );
       return (angle = angle + rotate);
     }, -90);
-  }, []);
+  }, [data]);
 
   return (
     <>
       <div id="cloud" className="mx-auto flex max-w-2xl p-4">
         <svg id="cloud-svg">
-          <defs id="defs">
-
-          </defs>
+          <defs id="defs"></defs>
           {/* <div id="cloud-background"></div> */}
         </svg>
       </div>
@@ -129,16 +126,12 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
           <table className="tooltip__table">
             <thead>
               <tr>
-                <td>CO2</td>
-                <td>Ammonia</td>
-                <td>Methane</td>
+                <td>Total Emission per Kg</td>
               </tr>
             </thead>
             <tbody>
               <tr>
-                {data.map((d, key) => (
-                  <td key={key}>{d.values[key]}</td>
-                ))}
+                <td>{tooltip.values[0]}</td>
               </tr>
             </tbody>
           </table>
