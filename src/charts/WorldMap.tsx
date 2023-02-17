@@ -1,6 +1,7 @@
 import React, { type ReactElement, useEffect, useState } from 'react';
 import { geoMercator, geoPath } from 'd3-geo';
 import { feature } from 'topojson-client';
+import colors from './colors.json';
 
 interface Props {
   countries: string[];
@@ -40,7 +41,7 @@ export function WorldMap({ countries, onChange} : Props): ReactElement<SVGSVGEle
 
   return (
     <div>
-      <svg width={1000} height={450} viewBox="0 -100 1000 600">
+      <svg width={window.innerWidth * 0.5} height={450} viewBox="0 -100 1000 600">
         <g className="countries">
           {worldData.map((d: any, i) => {
             const { id } = d;
@@ -49,8 +50,8 @@ export function WorldMap({ countries, onChange} : Props): ReactElement<SVGSVGEle
               <path
                 key={`path-${i}`}
                 d={geoPath().projection(projection())(d) ?? 'undefined'}
-                fill={selected.includes(id) ? 'black' : 'white'}
-                stroke={'red'}
+                fill={selected.includes(id) ? `rgb(${colors['warning']})` : `rgb(${colors['accent']})`}
+                stroke={`rgb(${colors['primary']})`}
                 strokeWidth={1}
                 onClick={() => {
                   if (selected.includes(id))

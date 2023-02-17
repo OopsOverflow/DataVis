@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
 import React, { type ReactElement, useEffect, useState } from 'react';
+import colors from './colors.json';
 import '@styles/globals.css';
 import * as svg from './svgpath.json';
 import { type IGroupedData } from '@type/index';
@@ -42,7 +43,7 @@ const addClipPath = (
     .attr('id', `arc${key}`)
     .attr('d', arc)
     .attr('transform', `translate(${1200}, ${1000})rotate(${angle})`)
-    .attr('fill', `${color}${0.4})`)
+    .attr('fill', `${color}${0.5})`)
     .on('mouseover', (event: any) => {
       console.log('', key);
       d3.select(`#arc${key}`).attr('fill', `${color} ${0})`);
@@ -53,7 +54,7 @@ const addClipPath = (
       });
     })
     .on('mouseleave', () => {
-      d3.select(`#arc${key}`).attr('fill', `${color} ${0.4})`);
+      d3.select(`#arc${key}`).attr('fill', `${color} ${0.5})`);
       callback(null);
     });
 };
@@ -74,7 +75,12 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
       .attr('width', 500)
       .attr('viewBox', `0 0 2800 1800`);
 
+    svg.html("<defs id='defs'></defs>")
+
     const defs = d3.select('#defs');
+
+    // svg.selectAll("*").remove();
+  
     // the clipPath, whatever shape you want to be the mask
     defs
       .append('clipPath')
@@ -95,6 +101,8 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
     temp.reduce((angle, d, i) => {
       console.log(angle, d, total);
       const { label, values } = d;
+      const color = colors[Object.keys(colors)[i%6]];
+      // console.log(color)
       const radius = (values[0] / total) * Math.PI * 2;
       const rotate = (values[0] / total) * 360;
       addClipPath(
@@ -102,7 +110,7 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
         angle,
         radius,
         2000,
-        `rgba(${Math.random() * 255}, 0, 0, `,
+        `rgba(${color[0]}, ${color[1]}, ${color[2]},`,
         i,
         (obj: any) => {
           setTooltip({ ...obj, label, values });

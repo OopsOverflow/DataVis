@@ -36,7 +36,7 @@ const stats = [
 function App(): React.ReactElement {
   const [barChartData, setBarChart] = useState<IGroupedData[]>([]);
   const [pieChartData, setPieChart] = useState<IGroupedData[]>([]);
-  const [year, setYear] = useState<string>('2019');
+  const [year, setYear] = useState<string>('2015');
   const [dataLoaded, setDataLoaded] = useState<boolean>(false);
   const [countries, setCountries] = useState<string[]>([
     'GBR',
@@ -49,8 +49,6 @@ function App(): React.ReactElement {
   ]);
 
   useEffect(() => {
-    // window.countries = ['GBR', 'USA', 'FRA', 'CHN','TCD', 'AUS', 'RUS'];
-
     void (async () => {
       console.log('loading data...');
       await loadData();
@@ -119,7 +117,13 @@ function App(): React.ReactElement {
           <CloudPieChart data={pieChartData} />
         </div>
 
-        <div className="flex h-full w-full flex-col items-center justify-center p-10 text-center md:p-20">
+
+        <div className="flex h-full w-full flex-row items-center  justify-center">
+          <StackedBarChart data={barChartData} />
+          <WorldMap countries={countries} onChange={HandleCountryChange} />
+        </div>
+
+        <div className="flex h-full w-full flex-col items-center justify-center text-center md:p-10">
           <input
             type="range"
             min="2010"
@@ -128,23 +132,13 @@ function App(): React.ReactElement {
             onChange={(event) => {
               setYear(event.target.value)
             }}
-            className="range"
+            className="range range-warning range-xs"
           />
           <div className="w-full flex justify-between text-xs px-2">
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
+            {Array.from({length: 10}, (v, i) => i).map(y => <span>|{2010+y}</span>)}
           </div>
         </div>
-        <StackedBarChart data={barChartData} />
-        <WorldMap countries={countries} onChange={HandleCountryChange} />
+
         {/* <p>Hover over the bars to see the values</p> */}
       </div>
 

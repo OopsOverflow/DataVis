@@ -6,6 +6,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import colors from './colors.json';
 import '@styles/globals.css';
 import { type IGroupedData } from '@type/index';
 
@@ -61,7 +62,7 @@ function Bar({
   );
 }
 
-const parseData = (data : IGroupedData[]) => {
+const parseData = (data: IGroupedData[]) => {
   return data.map(({ label, values }) => {
     return {
       label,
@@ -72,11 +73,10 @@ const parseData = (data : IGroupedData[]) => {
           v.label !== 'Camel | tonnes',
       ),
     };
-  })
-}
+  });
+};
 
 export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
-
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
   const [curData, setCur] = useState(data);
   const [mouseBar, setMouseBar] = useState<number>(-1);
@@ -86,7 +86,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
   // console.log(data)
 
   const margin = { top: 10, right: 0, bottom: 10, left: 30 };
-  const width = window.innerWidth * 0.8 - margin.left - margin.right;
+  const width = window.innerWidth * 0.5 - margin.left - margin.right;
   const height = 400 - margin.top - margin.bottom;
 
   const labels = curData.map(({ label }) => label);
@@ -94,8 +94,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
   const subvalues = curData.map(({ values }) =>
     values.filter(
       (v: any) =>
-        v.label !== 'Meat, Total | tonnes' &&
-        v.label !== 'Horse | tonnes'
+        v.label !== 'Meat, Total | tonnes' && v.label !== 'Horse | tonnes',
     ),
   );
 
@@ -139,7 +138,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
   useEffect(() => {
     setCur(parseData(data));
     // console.log(data)
-  }, [data])
+  }, [data]);
 
   return (
     <div>
@@ -163,12 +162,20 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
                   key={`rect-${barIndex}`}
                   x={0}
                   // need to accumulate
-                  y={height - calcY(barIndex, [...values]) + (1 - sums[groupIndex]/Math.max(...sums)) * height}
+                  // calculate y for different kinds
+                  // inversed
+                  y={
+                    height -
+                    calcY(barIndex, [...values]) +
+                    (1 - sums[groupIndex] / Math.max(...sums)) * height
+                  }
                   width={scaleX.bandwidth()}
                   height={height - scaleY(tup.value)}
                   color={`rgb(${
-                    tup.value === mouseBar ? 255 : barIndex * 30
-                  }, 0, 0)`}
+                    tup.value === mouseBar
+                      ? colors['accent']
+                      : colors[Object.keys(colors)[barIndex % 6 + 1]]
+                  })`}
                   onMouseEnter={(event) => {
                     setMouseBar(tup.value);
                     setTooltip({
