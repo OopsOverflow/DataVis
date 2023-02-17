@@ -11,68 +11,39 @@ async function loadData() {
     const db = (event.target as IDBOpenDBRequest).result;
     db.createObjectStore('jsonData', { keyPath: 'id' });
   };
+  // load the production data in on request success
+  request.onsuccess = (event: Event) => {
+    const db = (event.target as IDBOpenDBRequest).result;
+    const transaction = db.transaction(['jsonData'], 'readwrite');
+    const objectStore = transaction.objectStore('jsonData');
 
-  d3.json('./data/meat_tonnes_10_last_years.json').then((data: any) => {
-    const keys: string[] = Object.keys(data);
-    const values: any[] = Object.values(data);
-    const countries: string[] = Object.keys(values[0]);
 
-    const dataset: any = {};
-    countries.forEach((c) => {
-      // console.log(values[ind])
-      keys.forEach((k, i) => {
-        dataset[c] = { ...dataset[c], [k]: values[i][c] };
-      });
-    })
+    d3.json('./data/meat_tonnes_10_last_years.json').then((data: any) => {
+      const keys: string[] = Object.keys(data);
+      const values: any[] = Object.values(data);
+      const countries: string[] = Object.keys(values[0]);
+  
+      const dataset: any = {};
 
-    // load the production data in on request success
-    request.onsuccess = (event: Event) => {
-      const db = (event.target as IDBOpenDBRequest).result;
-      const transaction = db.transaction(['jsonData'], 'readwrite');
-      const objectStore = transaction.objectStore('jsonData');
-
+      countries.forEach((c) => {
+        // console.log(values[ind])
+        keys.forEach((k, i) => {
+          dataset[c] = { ...dataset[c], [k]: values[i][c] };
+        });
+      })
       for (const c of countries) {
         // const c = countries[ind];
-        objectStore.add({ id: c, data: dataset[c] });
+        const addrequest = objectStore.add({ id: c, data: dataset[c] })
+        addrequest.onsuccess = (event: Event) => {}
+        addrequest.onerror = (e: Event) => {
+          console.log("???")
+        }
       }
-    };
-  }).catch(err => { alert(err); });
-
-
-    // // Open the database
-    // const request = window.indexedDB.open('countryMeatData', 1);
-
-    // // Create the database if it doesn't exist
-    // request.onupgradeneeded = (event: IDBVersionChangeEvent) => {
-    //   const db = (event.target as IDBOpenDBRequest).result;
-    //   db.createObjectStore('jsonData', { keyPath: 'id' });
-    // };
-    
   
-    // // load the production emission in on request success
-    // request.onsuccess = (event: Event) => {
-    //   const db = (event.target as IDBOpenDBRequest).result;
-    //   const transaction = db.transaction(['jsonData'], 'readwrite');
-    //   const objectStore = transaction.objectStore('jsonData');
-  
-    //   const countRequest = objectStore.count();
-    //   countRequest.onsuccess = () => {
-    //     if(countRequest.result <= 0) {
-    //       d3.csv('./data/Datasets/meat_prod.csv').then((data: any) => {
-    //         transaction.oncomplete = () => {
-    //           console.log('Data added successfully!');
-    //         };
-    //         transaction.onerror = (event : any) => {
-    //           console.log('Error adding data:', event.target.error);
-    //         };
-  
-    //         for (const ind in data) {
-    //           objectStore.add({ id: data[ind]['Entity'] && 'null', ...data[ind] });
-    //         }
-    //       }).catch(err => { console.log(err); });
-    //     }
-    //   };
-    // }
+    }).catch(err => { alert(err); });
+
+  };
+
 
   const requestFood = window.indexedDB.open('foodEmiData', 1);
 
@@ -88,17 +59,24 @@ async function loadData() {
     const transaction = db.transaction(['jsonData'], 'readwrite');
     const objectStore = transaction.objectStore('jsonData');
 
-    const countRequest = objectStore.count();
-    countRequest.onsuccess = () => {
-      if(countRequest.result <= 0) {
-        d3.csv('./data/Datasets/Food_Product_Emissions.csv').then((data: any) => {
+    // console.log(objectStore.getAll())
+    d3.csv('./data/Datasets/Food_Product_Emissions.csv').then((data: any) => {
 
-          for (const ind in data) {
-            objectStore.add({ id: data[ind]['Food product'] && 'null', ...data[ind] });
-          }
-          }).catch(err => { alert(err); });
+      for (const d of data) {
+        // console.log(d)
+        const addrequest = objectStore.add({ id: d['Food product'] })
+        addrequest.onsuccess = (event: Event) => {}
+
+        // objectStore.add({ id: d['Food product'] });
       }
-    };
+      }).catch(err => { alert(err); });
+    // const countRequest = objectStore.count();
+    // countRequest.onsuccess = () => {
+    //   console.log(countRequest.result)
+    //   if(countRequest.result <= 0) {
+
+    //   }
+    // };
   };
 
 }
@@ -106,6 +84,7 @@ async function loadData() {
 async function fetchData(
   dbname: string,
   id: string,
+  year: string,
   cols: string[] =[],
 ): Promise<IGroupedData> {
   return await new Promise((resolve, reject) => {
@@ -115,18 +94,20 @@ async function fetchData(
       const transaction = db.transaction(['jsonData'], 'readwrite');
       const objectStore = transaction.objectStore('jsonData');
 
-      const countryReq = objectStore.get(id);
+      const countryReq = objectStore.get(year);
 
       // fetch the required on request success
       countryReq.onsuccess = () => {
         // console.log(countryReq.result)
+        const data = countryReq.result.data[id];
         if (!countryReq.result) reject(new Error());
+        console.log(data)
         resolve({
           label: id,
-          values: Object.keys(countryReq.result.data).reduce(
+          values: Object.keys(data).reduce(
             (arr: any[], k: string) => {
-              if(k.includes('tonnes') && countryReq.result.data[k])
-                arr.push({label: k, value: countryReq.result.data[k]})
+              if(k.includes('tonnes') && data[k])
+                arr.push({label: k, value: data[k]})
               return arr;
             },
             [],

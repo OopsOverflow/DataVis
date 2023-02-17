@@ -8,7 +8,7 @@ import { type IGroupedData } from './type';
 import Hero from '@components/Hero';
 import StatsBlock from '@components/StatsBlock';
 import AnimalsKilledList from '@components/AnimalsKilledList';
-import { fetchData, loadData } from './loadData';
+import { fetchData, loadData } from './loadDataRaw';
 import { getCountryName } from './helpers';
 
 // const GROUPED_BAR_CHART_DATA: IGroupedData[] = selectData;
@@ -53,8 +53,8 @@ function App(): React.ReactElement {
 
       for (const c of countries) {
         const d: IGroupedData = await fetchData(
-          'countryProdData',
           getCountryName(c),
+          '2019'
         );
         temp.push(d);
       }
