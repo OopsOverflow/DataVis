@@ -41,50 +41,55 @@ const stats = [
 
 function App(): React.ReactElement {
   const [barChartData, setBarChart] = useState<IGroupedData[]>([]);
+  const [year, setYear] = useState<string>('2019');
   const [dataLoaded, setDataLoaded] = useState<boolean>(false);
-  const [countries, setCountries] = useState<string[]>(['GBR', 'USA', 'FRA', 'CHN','TCD', 'AUS', 'RUS']);
+  const [countries, setCountries] = useState<string[]>([
+    'GBR',
+    'USA',
+    'FRA',
+    'CHN',
+    'TCD',
+    'AUS',
+    'RUS',
+  ]);
 
   useEffect(() => {
     // window.countries = ['GBR', 'USA', 'FRA', 'CHN','TCD', 'AUS', 'RUS'];
 
-
     void (async () => {
-      console.log("loading data...")
+      console.log('loading data...');
       await loadData();
     })();
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if(checkDataLoaded('meat_prod')) setDataLoaded(true);
+      if (checkDataLoaded('meat_prod')) setDataLoaded(true);
     }, 1000);
-  
-    return () => { clearInterval(interval)};
-  })
+
+    return () => {
+      clearInterval(interval);
+    };
+  });
 
   useEffect(() => {
-    console.log("fetching data...")
+    console.log('fetching data...');
     // const { countries } = window;
 
     const temp: IGroupedData[] = [];
     void (async () => {
-      
       for (const c of countries) {
-        const d: IGroupedData = await fetchData(
-          getCountryName(c),
-          '2019'
-        );
+        const d: IGroupedData = await fetchData(getCountryName(c), year);
         temp.push(d);
       }
       setBarChart([...temp]);
       console.log(barChartData);
-
     })();
-  }, [dataLoaded, countries]);
+  }, [dataLoaded, countries, year]);
 
   const HandleCountryChange = (changed: string[]) => {
     setCountries([...changed]);
-  }
+  };
 
   return (
     <>
@@ -104,13 +109,37 @@ function App(): React.ReactElement {
         </p>
       </div>
       <div className="flex h-full w-full flex-col items-center  justify-center">
-        <div className='flex flex-row'>
+        <div className="flex flex-row">
           <Info />
           <CloudPieChart data={GROUPED_PIE_CHART_DATA} />
         </div>
 
+        <div className="flex h-full w-full flex-col items-center justify-center p-10 text-center md:p-20">
+          <input
+            type="range"
+            min="2010"
+            max="2019"
+            value={year}
+            onChange={(event) => {
+              setYear(event.target.value)
+            }}
+            className="range"
+          />
+          <div className="w-full flex justify-between text-xs px-2">
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+          </div>
+        </div>
         <StackedBarChart data={barChartData} />
-        <WorldMap countries={countries} onChange={HandleCountryChange}/>
+        <WorldMap countries={countries} onChange={HandleCountryChange} />
         {/* <p>Hover over the bars to see the values</p> */}
       </div>
 

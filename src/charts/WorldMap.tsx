@@ -40,7 +40,7 @@ export function WorldMap({ countries, onChange} : Props): ReactElement<SVGSVGEle
 
   return (
     <div>
-      <svg width={800} height={450} viewBox="0 -100 800 600">
+      <svg width={1000} height={450} viewBox="0 -100 1000 600">
         <g className="countries">
           {worldData.map((d: any, i) => {
             const { id } = d;
