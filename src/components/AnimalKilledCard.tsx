@@ -16,7 +16,7 @@ const FrontCard = ({
   rate,
 }: AnimalKilledCardProps): React.ReactElement => {
   return (
-    <div className="h-30 flex w-64 min-w-full flex-row items-center justify-center space-x-5 rounded bg-white p-6 shadow-sm backface-hidden hover:shadow-md">
+    <div className="h-30 flex w-72 min-w-full flex-row items-center justify-center space-x-5 rounded bg-white p-6 shadow-sm backface-hidden hover:shadow-md">
       <img src={image} alt={name} className="h-14 w-14 opacity-70" />
       <div className="flex h-full w-full flex-col justify-center space-y-1 text-left">
         <h3 className="text-md font-bold">
@@ -47,7 +47,7 @@ const BackCard = ({
   }, [counter, isHover]);
   return (
     <div
-      className="absolute top-0 flex w-64 min-w-full flex-row items-center justify-center space-x-5 overflow-hidden rounded bg-white p-5 my-rotate-y-180 backface-hidden hover:shadow-md"
+      className="absolute top-0 flex w-72 min-w-full flex-row items-center justify-center space-x-5 overflow-hidden rounded bg-white p-5 my-rotate-y-180 backface-hidden hover:shadow-md"
       onMouseEnter={() => {
         setIsHover(true);
         console.log('hover');
@@ -59,7 +59,7 @@ const BackCard = ({
       }}
     >
       <div
-        className="border-1 radial-progress absolute left-1.5 border-primary border-primary bg-base-200 text-primary"
+        className="border-1 radial-progress absolute left-1.5 border-primary border-primary bg-gray-300 text-primary"
         style={{
           // @ts-expect-error  --value is a custom property
           '--value': counter,
@@ -67,17 +67,23 @@ const BackCard = ({
           '--thickness': '0.5rem',
         }}
       >
-        <span className="z-10 text-primary">{counter}%</span>
+        <span className="z-10 font-bold text-white">{counter}%</span>
       </div>
       <img
         src={image}
         alt={name}
-        className="relative -left-4 h-12 w-12 opacity-50"
+        className="relative -left-4 h-12 w-12 opacity-80"
       />
 
       <div className="flex h-full w-full flex-col justify-center text-left">
-        <h3 className="text-md font-bold text-primary">{lifeSpan}</h3>
-        <h4 className="mb-1 text-sm font-bold text-neutral">
+        <h3 className="text-md font-bold text-primary">
+          <span className="text-sm font-normal">LIFESPAN - </span>
+          {lifeSpan}
+        </h3>
+        <h4 className="mb-1 text-[0.8rem] font-bold text-neutral">
+          <span className="text-[0.65rem] font-normal">
+            NATURAL LIFESPAN -{' '}
+          </span>{' '}
           {naturalLifeSpan}
         </h4>
         <p className="text-sm text-neutral">{name}</p>
