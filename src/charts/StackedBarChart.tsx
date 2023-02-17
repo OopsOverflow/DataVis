@@ -121,9 +121,9 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
     return y;
   }
 
-  useEffect (() => {
-    setCur(parseData(data));
-  },[])
+  // useEffect (() => {
+  //   setCur(parseData(data));
+  // },[])
 
   useEffect(() => {
     if (axisBottomRef.current != null) {
@@ -138,7 +138,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
 
   useEffect(() => {
     setCur(parseData(data));
-    console.log(data)
+    // console.log(data)
   }, [data])
 
   return (

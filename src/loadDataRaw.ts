@@ -38,7 +38,7 @@ async function fetchData(
 
     const raw = localStorage.getItem("meat_prod") as string;
     const data = JSON.parse(raw)[id][year];
-    console.log(data)
+    // console.log(data)
     resolve({
       label: id,
       // values: [0]

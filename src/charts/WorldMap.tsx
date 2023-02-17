@@ -2,10 +2,15 @@ import React, { type ReactElement, useEffect, useState } from 'react';
 import { geoMercator, geoPath } from 'd3-geo';
 import { feature } from 'topojson-client';
 
-export function WorldMap(): ReactElement<SVGSVGElement> {
+interface Props {
+  countries: string[];
+  onChange: Function;
+}
+
+export function WorldMap({ countries, onChange} : Props): ReactElement<SVGSVGElement> {
   const [worldData, setWorldData] = useState([]);
   const projection = () => geoMercator().scale(127).translate([400, 300]);
-  const [selected, setSelect] = useState<any[]>(['GBR', 'USA', 'FRA', 'CHN']);
+  const [selected, setSelect] = useState<any[]>([]);
 
   useEffect(() => {
     fetch(
@@ -20,12 +25,18 @@ export function WorldMap(): ReactElement<SVGSVGElement> {
       })
       .then((data: any) => {
         // console.log(data)
+        setSelect([...countries]);
         setWorldData((feature(data, data.objects.countries1) as any).features);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  useEffect(() => {
+    onChange(selected);
+  }, [selected])
+
 
   return (
     <div>

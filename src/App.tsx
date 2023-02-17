@@ -42,9 +42,10 @@ const stats = [
 function App(): React.ReactElement {
   const [barChartData, setBarChart] = useState<IGroupedData[]>([]);
   const [dataLoaded, setDataLoaded] = useState<boolean>(false);
+  const [countries, setCountries] = useState<string[]>(['GBR', 'USA', 'FRA', 'CHN','TCD', 'AUS', 'RUS']);
 
   useEffect(() => {
-    window.countries = ['GBR', 'USA', 'FRA', 'CHN','TCD', 'AUS', 'RUS'];
+    // window.countries = ['GBR', 'USA', 'FRA', 'CHN','TCD', 'AUS', 'RUS'];
 
 
     void (async () => {
@@ -63,7 +64,7 @@ function App(): React.ReactElement {
 
   useEffect(() => {
     console.log("fetching data...")
-    const { countries } = window;
+    // const { countries } = window;
 
     const temp: IGroupedData[] = [];
     void (async () => {
@@ -79,9 +80,11 @@ function App(): React.ReactElement {
       console.log(barChartData);
 
     })();
+  }, [dataLoaded, countries]);
 
-
-  }, [dataLoaded]);
+  const HandleCountryChange = (changed: string[]) => {
+    setCountries([...changed]);
+  }
 
   return (
     <>
@@ -107,7 +110,7 @@ function App(): React.ReactElement {
         </div>
 
         <StackedBarChart data={barChartData} />
-        <WorldMap />
+        <WorldMap countries={countries} onChange={HandleCountryChange}/>
         {/* <p>Hover over the bars to see the values</p> */}
       </div>
 
