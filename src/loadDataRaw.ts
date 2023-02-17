@@ -69,13 +69,14 @@ function fetchPieData(): IGroupedData[] {
   );
 
   return filtered.map(
-    (d: any) =>
-      new Object({
+    (d: any) =>{
+      return {
         label: d['Food product'],
         values: Object.values(d)
           .filter((v) => v === d['Total Global Average GHG Emissions per kg'])
           .map((v) => parseFloat(v as string)),
-      }),
+      }
+    }
   );
 }
 

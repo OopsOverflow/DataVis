@@ -50,8 +50,8 @@ export function WorldMap({ countries, onChange} : Props): ReactElement<SVGSVGEle
               <path
                 key={`path-${i}`}
                 d={geoPath().projection(projection())(d) ?? 'undefined'}
-                fill={selected.includes(id) ? `rgb(${colors['warning']})` : `rgb(${colors['accent']})`}
-                stroke={`rgb(${colors['primary']})`}
+                fill={selected.includes(id) ? `rgb(${colors.warning})` : `rgb(${colors.accent})`}
+                stroke={`rgb(${colors.primary})`}
                 strokeWidth={1}
                 onClick={() => {
                   if (selected.includes(id))

@@ -111,14 +111,14 @@ function App(): React.ReactElement {
           retail weight per person.
         </p>
       </div>
-      <div className="flex h-full w-full flex-col items-center  justify-center">
+      <div className="flex h-full w-full flex-col items-center  justify-center md:p-20">
         <div className="flex flex-row">
           <Info />
           <CloudPieChart data={pieChartData} />
         </div>
 
 
-        <div className="flex h-full w-full flex-row items-center  justify-center">
+        <div className="flex h-full w-full flex-row items-center justify-center">
           <StackedBarChart data={barChartData} />
           <WorldMap countries={countries} onChange={HandleCountryChange} />
         </div>
@@ -135,7 +135,7 @@ function App(): React.ReactElement {
             className="range range-warning range-xs"
           />
           <div className="w-full flex justify-between text-xs px-2">
-            {Array.from({length: 10}, (v, i) => i).map(y => <span>|{2010+y}</span>)}
+            {Array.from({length: 10}, (v, i) => i).map(y => <span key={y}>|{2010+y}</span>)}
           </div>
         </div>
 
