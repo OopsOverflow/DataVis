@@ -12,7 +12,7 @@ async function loadData() {
     db.createObjectStore('jsonData', { keyPath: 'id' });
   };
 
-  d3.json('./data/meat_prod.json').then((data: any) => {
+  d3.json('./data/meat_tonnes_10_last_years.json').then((data: any) => {
     const keys: string[] = Object.keys(data);
     const values: any[] = Object.values(data);
     const countries: string[] = Object.keys(values[0]);
