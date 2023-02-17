@@ -43,7 +43,7 @@ function App(): React.ReactElement {
   const [barChartData, setBarChart] = useState<IGroupedData[]>([]);
 
   useEffect(() => {
-    window.countries = ['GBR', 'USA', 'FRA', 'CHN'];
+    window.countries = ['GBR', 'USA', 'FRA', 'CHN','TCD', 'AUS', 'RUS'];
     const { countries } = window;
 
     const temp: IGroupedData[] = [];
@@ -81,11 +81,14 @@ function App(): React.ReactElement {
         </p>
       </div>
       <div className="flex h-full w-full flex-col items-center  justify-center">
-        <Info />
-        <CloudPieChart data={GROUPED_PIE_CHART_DATA} />
+        <div className='flex flex-row'>
+          <Info />
+          <CloudPieChart data={GROUPED_PIE_CHART_DATA} />
+        </div>
+
         <StackedBarChart data={barChartData} />
         <WorldMap />
-        <p>Hover over the bars to see the values</p>
+        {/* <p>Hover over the bars to see the values</p> */}
       </div>
 
       <div className="flex h-full w-full flex-col items-center justify-center bg-base-200 p-10 text-center md:p-20">

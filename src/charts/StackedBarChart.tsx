@@ -86,8 +86,8 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
   // console.log(data)
 
   const margin = { top: 10, right: 0, bottom: 10, left: 30 };
-  const width = 500 - margin.left - margin.right;
-  const height = 500 - margin.top - margin.bottom;
+  const width = window.innerWidth * 0.8 - margin.left - margin.right;
+  const height = 400 - margin.top - margin.bottom;
 
   const labels = curData.map(({ label }) => label);
   // const sublabels = data[0].values.map(({ label }: any) => label);
@@ -145,9 +145,9 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
     <div>
       <svg
         width={width + margin.left + margin.right + 100}
-        height={width + margin.left + margin.right}
+        height={height + margin.left + margin.right}
         viewBox={`-50 0 ${width + margin.left + margin.right} ${
-          width + margin.left + margin.right
+          height + margin.left + margin.right
         }`}
       >
         <g transform={`translate(${margin.left}, ${margin.top})`}>

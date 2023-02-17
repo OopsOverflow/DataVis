@@ -13,7 +13,7 @@ import type { ReactElement } from 'react';
 
 function Info(): ReactElement<HTMLElement> {
   return (
-    <header>
+    <div>
       <div className="m-5 max-w-4xl text-lg">
         <p>
           This classification is meant to show meat consumers the pollution
@@ -30,16 +30,14 @@ function Info(): ReactElement<HTMLElement> {
         <p>
           &nbsp;&nbsp; On hover over one bar: The different types of meat
           produced most in the country (poultry, beef, mouton etc.)
-          <p>
-            - Pie chart Vizualisation:
-            <p>
-              &nbsp;&nbsp;Cloud on hover: All animals and the type of pollution
-              caused by their production.
-            </p>
-          </p>
+        </p>
+        <p>- Pie chart Vizualisation:</p>
+        <p>
+          &nbsp;&nbsp;Cloud on hover: All animals and the type of pollution
+          caused by their production.
         </p>
       </div>
-    </header>
+    </div>
   );
 }
 
