@@ -174,7 +174,11 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
                   color={`rgb(${
                     tup.value === mouseBar
                       ? colors.accent
-                      : colors[Object.keys(colors)[barIndex % 6 + 1]]
+                      : colors[
+                          Object.keys(colors)[
+                            (barIndex % 6) + 1
+                          ] as keyof typeof colors
+                        ]
                   })`}
                   onMouseEnter={(event) => {
                     setMouseBar(tup.value);

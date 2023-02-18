@@ -45,7 +45,7 @@ const addClipPath = (
     .attr('transform', `translate(${1200}, ${1000})rotate(${angle})`)
     .attr('fill', `${color}${0.5})`)
     .on('mouseover', (event: any) => {
-      console.log('', key);
+      console.log('key', key);
       d3.select(`#arc${key}`).attr('fill', `${color} ${0})`);
       // eslint-disable-next-line n/no-callback-literal
       callback({
@@ -75,12 +75,12 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
       .attr('width', 500)
       .attr('viewBox', `0 0 2800 1800`);
 
-    svg.html("<defs id='defs'></defs>")
+    svg.html("<defs id='defs'></defs>");
 
     const defs = d3.select('#defs');
 
     // svg.selectAll("*").remove();
-  
+
     // the clipPath, whatever shape you want to be the mask
     defs
       .append('clipPath')
@@ -99,10 +99,10 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
     const temp = [...data];
     // console.log(temp)
     temp.reduce((angle, d, i) => {
-      console.log(angle, d, total);
+      console.log('angle', angle, d, total);
       const { label, values } = d;
-      const color = colors[Object.keys(colors)[i%6]];
-      // console.log(color)
+      const color: number[] =
+        colors[Object.keys(colors)[i % 6] as keyof typeof colors];
       const radius = (values[0] / total) * Math.PI * 2;
       const rotate = (values[0] / total) * 360;
       addClipPath(
