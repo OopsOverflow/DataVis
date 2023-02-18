@@ -61,7 +61,7 @@ async function fetchData(
 }
 
 async function fetchPieData(): Promise<IGroupedData[]> {
-  return new Promise((resolve) => {
+  return await new Promise((resolve) => {
     const raw = localStorage.getItem('food_emission') as string;
     // console.log(raw)
     const data = JSON.parse(raw);

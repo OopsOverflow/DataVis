@@ -153,7 +153,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
     setCur(parseData(data));
 
     // select the svg area
-    var svg = d3
+    const svg = d3
       .select('#viz-legend')
       .html('')
       .append('svg')
@@ -161,22 +161,21 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
       .attr('height', 50)
       .attr('viewBox', `0, 100, ${window.innerWidth / 2}, 70`);
 
-
     // show legend
     Object.keys(colorLabels).reduce((len: number, l: string, i: number) => {
       const name = l.split('|')[0];
       svg
         .append('circle')
-        .attr('cx', 10 + len * 5 * 2)
+        .attr('cx', 10 + len * 8 + i * 5)
         .attr('cy', 130)
         .attr('r', 6)
         .style('fill', `rgb(${colorLabels[l]})`);
       svg
         .append('text')
-        .attr('x', 20 + len * 5 * 2)
+        .attr('x', 20 + len * 8 + i * 5)
         .attr('y', 130)
         .text(name)
-        .style('font-size', '15px')
+        .style('font-size', '12px')
         .attr('alignment-baseline', 'middle');
       return (len += name.length);
     }, 0);

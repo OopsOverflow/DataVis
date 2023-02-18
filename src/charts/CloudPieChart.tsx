@@ -46,7 +46,7 @@ const addClipPath = (
     .attr('fill', `${color}${1})`)
     .on('mouseover', (event: any) => {
       console.log('key', key);
-      d3.select(`#arc${key}`).attr('fill', `rgba(${colors['dark']}, ${0.9})`);
+      d3.select(`#arc${key}`).attr('fill', `rgba(${colors.dark}, ${0.9})`);
       // eslint-disable-next-line n/no-callback-literal
       callback({
         x: event.x,
