@@ -139,7 +139,8 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
             </thead>
             <tbody>
               <tr>
-                <td>{tooltip.values[0]}</td>
+                {/* very stupid thing to do but it works */}
+                <td key={Math.random()}>{tooltip.values[0]}</td>
               </tr>
             </tbody>
           </table>
