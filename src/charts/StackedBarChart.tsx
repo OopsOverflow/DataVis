@@ -90,7 +90,10 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
   const height = 400 - margin.top - margin.bottom;
 
   const labels = curData.map(({ label }) => label);
-  // const sublabels = data[0].values.map(({ label }: any) => label);
+
+  const sublabels = curData[0]
+    ? curData[0].values.map(({ label }: any) => label)
+    : [];
   const subvalues = curData.map(({ values }) =>
     values.filter(
       (v: any) =>
@@ -98,6 +101,18 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
     ),
   );
 
+  const colorLabels = sublabels.reduce(
+    (res, l, i) => ({
+      ...res,
+      [l]: colors[Object.keys(colors)[i % 6] as keyof typeof colors],
+    }),
+    {},
+  );
+  const getColor = (label: string) => {
+    console.log(label);
+    return colorLabels[label];
+  };
+  // console.log(colorLabels)
   // const values = Object.values(subvalues).flat().map(({value} : any) => value);
   const sums = subvalues.map((values) =>
     values.reduce(
@@ -132,16 +147,45 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
     if (axisLeftRef.current != null) {
       d3.select(axisLeftRef.current).call(d3.axisLeft(scaleY));
     }
-    // const stacks = chartRoot.selectAll(".layer").data(stackedData);
   }, [scaleX, scaleY]);
 
   useEffect(() => {
     setCur(parseData(data));
-    // console.log(data)
+
+    // select the svg area
+    var svg = d3
+      .select('#viz-legend')
+      .html('')
+      .append('svg')
+      .attr('width', window.innerWidth / 2)
+      .attr('height', 50)
+      .attr('viewBox', `0, 100, ${window.innerWidth / 2}, 70`);
+
+
+    // show legend
+    Object.keys(colorLabels).reduce((len: number, l: string, i: number) => {
+      const name = l.split('|')[0];
+      svg
+        .append('circle')
+        .attr('cx', 10 + len * 5 * 2)
+        .attr('cy', 130)
+        .attr('r', 6)
+        .style('fill', `rgb(${colorLabels[l]})`);
+      svg
+        .append('text')
+        .attr('x', 20 + len * 5 * 2)
+        .attr('y', 130)
+        .text(name)
+        .style('font-size', '15px')
+        .attr('alignment-baseline', 'middle');
+      return (len += name.length);
+    }, 0);
+
   }, [data]);
 
   return (
     <div>
+      <div id="viz-legend"></div>
       <svg
         width={width + margin.left + margin.right + 100}
         height={height + margin.left + margin.right}
@@ -172,13 +216,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
                   width={scaleX.bandwidth()}
                   height={height - scaleY(tup.value)}
                   color={`rgb(${
-                    tup.value === mouseBar
-                      ? colors.accent
-                      : colors[
-                          Object.keys(colors)[
-                            (barIndex % 6) + 1
-                          ] as keyof typeof colors
-                        ]
+                    tup.value === mouseBar ? colors.accent : getColor(tup.label)
                   })`}
                   onMouseEnter={(event) => {
                     setMouseBar(tup.value);

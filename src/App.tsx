@@ -57,7 +57,7 @@ function App(): React.ReactElement {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (checkDataLoaded('meat_prod')) setDataLoaded(true);
+      if (checkDataLoaded('meat_prod') && checkDataLoaded('food_emission')) setDataLoaded(true);
     }, 1000);
 
     return () => {
@@ -83,10 +83,13 @@ function App(): React.ReactElement {
 
   useEffect(() => {
 
-    console.log(fetchPieData())
+    // console.log(fetchPieData())
+    void (async () => {
+      setPieChart([...await fetchPieData()]);
+      console.log("set pie")
+    })();
 
-    setPieChart([...fetchPieData()]);
-    console.log("set pie")
+
 
   }, [dataLoaded])
 
@@ -132,7 +135,7 @@ function App(): React.ReactElement {
             onChange={(event) => {
               setYear(event.target.value)
             }}
-            className="range range-warning range-xs"
+            className="range range-primary range-xs"
           />
           <div className="w-full flex justify-between text-xs px-2">
             {Array.from({length: 10}, (v, i) => i).map(y => <span key={y}>|{2010+y}</span>)}

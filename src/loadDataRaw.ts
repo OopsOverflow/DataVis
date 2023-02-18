@@ -28,6 +28,7 @@ async function loadData() {
 }
 
 function checkDataLoaded(id: string) {
+  // console.log(localStorage.getItem(id))
   return localStorage.getItem(id);
 }
 
@@ -59,25 +60,28 @@ async function fetchData(
   });
 }
 
-function fetchPieData(): IGroupedData[] {
-  const raw = localStorage.getItem('food_emission') as string;
-  // console.log(raw)
-  const data = JSON.parse(raw);
-  console.log(Object.keys(kinds));
-  const filtered = data.filter((d: any) =>
-    Object.keys(kinds).includes(d['Food product']),
-  );
-
-  return filtered.map(
-    (d: any) =>{
-      return {
-        label: d['Food product'],
-        values: Object.values(d)
-          .filter((v) => v === d['Total Global Average GHG Emissions per kg'])
-          .map((v) => parseFloat(v as string)),
+async function fetchPieData(): Promise<IGroupedData[]> {
+  return new Promise((resolve) => {
+    const raw = localStorage.getItem('food_emission') as string;
+    // console.log(raw)
+    const data = JSON.parse(raw);
+    if(!data) resolve([])
+    const filtered = data.filter((d: any) =>
+      Object.keys(kinds).includes(d['Food product']),
+    );
+  
+    resolve(filtered.map(
+      (d: any) =>{
+        return {
+          label: d['Food product'],
+          values: Object.values(d)
+            .filter((v) => v === d['Total Global Average GHG Emissions per kg'])
+            .map((v) => parseFloat(v as string)),
+        }
       }
-    }
-  );
+    ));
+  })
+
 }
 
 export { loadData, fetchData, fetchPieData, checkDataLoaded };

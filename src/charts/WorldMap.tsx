@@ -8,9 +8,16 @@ interface Props {
   onChange: any;
 }
 
+interface Tooltip {
+  x: number;
+  y: number;
+  info: any;
+}
+
 export function WorldMap({ countries, onChange} : Props): ReactElement<SVGSVGElement> {
   const [worldData, setWorldData] = useState([]);
   const projection = () => geoMercator().scale(127).translate([400, 300]);
+  const [tooltip, setTooltip] = useState<Tooltip | null>(null);
   const [selected, setSelect] = useState<any[]>([]);
 
   useEffect(() => {
@@ -58,11 +65,36 @@ export function WorldMap({ countries, onChange} : Props): ReactElement<SVGSVGEle
                     setSelect(selected.filter((s: any) => s !== id));
                   else setSelect([...selected, id]);
                 }}
+                onMouseEnter={(event) => {
+                  setTooltip({
+                    x: event.clientX,
+                    y: event.clientY,
+                    info: id,
+                  });
+                }}
+                onMouseLeave={() => {
+                  setTooltip(null);
+                }}
               />
             );
           })}
         </g>
       </svg>
+      {tooltip !== null ? (
+        <div className="tooltip" style={{ top: tooltip.y, left: tooltip.x }}>
+          <span className="tooltip__title">{tooltip.info}</span>
+          <table className="tooltip__table">
+            {/* <thead>
+              <tr>
+                <td>{tooltip.info.label}</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>{tooltip.info.value}</tr>
+            </tbody> */}
+          </table>
+        </div>
+      ) : null}
     </div>
   );
 }

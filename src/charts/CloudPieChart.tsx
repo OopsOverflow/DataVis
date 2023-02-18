@@ -43,10 +43,10 @@ const addClipPath = (
     .attr('id', `arc${key}`)
     .attr('d', arc)
     .attr('transform', `translate(${1200}, ${1000})rotate(${angle})`)
-    .attr('fill', `${color}${0.5})`)
+    .attr('fill', `${color}${1})`)
     .on('mouseover', (event: any) => {
       console.log('key', key);
-      d3.select(`#arc${key}`).attr('fill', `${color} ${0})`);
+      d3.select(`#arc${key}`).attr('fill', `rgba(${colors['dark']}, ${0.9})`);
       // eslint-disable-next-line n/no-callback-literal
       callback({
         x: event.x,
@@ -54,7 +54,7 @@ const addClipPath = (
       });
     })
     .on('mouseleave', () => {
-      d3.select(`#arc${key}`).attr('fill', `${color} ${0.5})`);
+      d3.select(`#arc${key}`).attr('fill', `${color} ${1})`);
       callback(null);
     });
 };
@@ -102,7 +102,7 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
       console.log('angle', angle, d, total);
       const { label, values } = d;
       const color: number[] =
-        colors[Object.keys(colors)[i % 6] as keyof typeof colors];
+        colors[Object.keys(colors)[i % 4 + 2] as keyof typeof colors];
       const radius = (values[0] / total) * Math.PI * 2;
       const rotate = (values[0] / total) * 360;
       addClipPath(
@@ -118,6 +118,25 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
       );
       return (angle = angle + rotate);
     }, -90);
+
+    svg
+      .append('svg')
+      .attr('id', 'sub-cloud')
+      .attr('width', 2000)
+      .attr('viewBox', '-500 700 2800 500').html(`<defs id="defs">
+      <clipPath id="myClipV2">
+        <path
+          width="100%"
+          d="M2129.067,830.128c42.644-59.107,67.786-131.679,67.786-210.131c0-259.61-266.858-432.555-502.906-329.817 c-75.747-54.693-169.528-76.742-261.851-61.949c-21.234-116.703-123.389-205.189-246.219-205.189 c-122.181,0-223.895,87.557-245.866,203.344c-229.544-191.489-581.348-2.784-541.762,298.727 C200.735,506.486,31.918,661.707,31.918,858.132c0,171.537,129.116,312.894,295.46,332.247 c-53.444,345.443,370.186,547.453,606.966,299.698c138.459,114.259,346.778,91.73,456.524-55.185 c87.232,114.345,224.895,188.151,379.818,188.151C2183.791,1623.043,2397.584,1134.949,2129.067,830.128z"
+        ></path>
+      </clipPath>
+    </defs>
+    <image
+      href="./pollution.png"
+      width="90%"
+      clip-path="url(#myClipV2)"
+    ></image>`);
+    // .append(defs);
   }, [data]);
 
   return (
@@ -126,12 +145,27 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
         <svg id="cloud-svg">
           <defs id="defs"></defs>
           {/* <div id="cloud-background"></div> */}
+          {/* <svg width="2000" viewBox="-500 700 2800 500">
+            <defs id="defs">
+              <clipPath id="myClipV2">
+                <path
+                  width="80%"
+                  d="M2129.067,830.128c42.644-59.107,67.786-131.679,67.786-210.131c0-259.61-266.858-432.555-502.906-329.817 c-75.747-54.693-169.528-76.742-261.851-61.949c-21.234-116.703-123.389-205.189-246.219-205.189 c-122.181,0-223.895,87.557-245.866,203.344c-229.544-191.489-581.348-2.784-541.762,298.727 C200.735,506.486,31.918,661.707,31.918,858.132c0,171.537,129.116,312.894,295.46,332.247 c-53.444,345.443,370.186,547.453,606.966,299.698c138.459,114.259,346.778,91.73,456.524-55.185 c87.232,114.345,224.895,188.151,379.818,188.151C2183.791,1623.043,2397.584,1134.949,2129.067,830.128z"
+                ></path>
+              </clipPath>
+            </defs>
+            <image
+              href="./pollution.png"
+              width="100%"
+              clip-path="url(#myClipV2)"
+            ></image>
+          </svg> */}
         </svg>
       </div>
       {tooltip !== null ? (
         <div className="tooltip" style={{ top: tooltip.y, left: tooltip.x }}>
           <span className="tooltip__title">{tooltip.label}</span>
-          <table className="tooltip__table">
+          {/* <table className="tooltip__table">
             <thead>
               <tr>
                 <td>Total Emission per Kg</td>
@@ -139,11 +173,10 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
             </thead>
             <tbody>
               <tr>
-                {/* very stupid thing to do but it works */}
                 <td key={Math.random()}>{tooltip.values[0]}</td>
               </tr>
             </tbody>
-          </table>
+          </table> */}
         </div>
       ) : null}
     </>
