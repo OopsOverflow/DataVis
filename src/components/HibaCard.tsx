@@ -2,11 +2,15 @@ import { useEffect, useState } from 'react';
 
 const now = new Date();
 const startOfYear = new Date(now.getFullYear(), 0, 1);
-const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay()));
+const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1); // month is zero-based
+const startOfWeek = new Date(
+  now.getFullYear(),
+  now.getMonth(),
+  now.getDate() - now.getDay(),
+);
 const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-const rate = 0.7;
+const rate = 11;
 
 const tabs: Record<
   string,
@@ -69,7 +73,10 @@ const HibaCard = () => {
     <div className="flex h-full w-full flex-col items-center justify-center p-10 text-center md:p-20">
       <div className="m-2 text-lg md:m-5 md:max-w-4xl">
         <p className="mt-5 text-6xl font-medium">
-          {counters[activeTab].value.toFixed()}
+          {
+            // drop the fraction
+            counters[activeTab].value.toLocaleString().split('.')[0]
+          }
         </p>
         <p className="mt-5 text-6xl font-extrabold">
           <span className="font-bold">Tons</span> of meat consumed
