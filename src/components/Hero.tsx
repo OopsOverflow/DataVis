@@ -11,9 +11,9 @@ const Hero = (): React.ReactElement => {
       <div className="hero-overlay bg-opacity-40"></div>
       <div className="hero-content text-center text-white">
         <div className="max-w-xl">
-          <h1 className="mb-5 text-6xl font-bold">Meat Consumption</h1>
+          <h1 className="mb-5 text-6xl font-bold">Meat Production</h1>
           <h2 className="mb-5 text-2xl font-bold">
-            ... and its effects on society and the environment
+            ... and its impact on the environment and animals
           </h2>
           <p className="mb-5">
             Biting into a burger 🍔? Find out what&apos;s on the menu for the
