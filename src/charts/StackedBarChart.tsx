@@ -91,9 +91,14 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
 
   const labels = curData.map(({ label }) => label);
 
-  const sublabels = curData[0]
-    ? curData[0].values.map(({ label }: any) => label)
-    : [];
+  const sublabels = [
+    'Duck | tonnes',
+    'Goose and guinea fowl | tonnes',
+    'Sheep and goat | tonnes',
+    'Beef and buffalo | tonnes',
+    'Pig | tonnes',
+    'Chicken | tonnes ',
+  ];
   const subvalues = curData.map(({ values }) =>
     values.filter(
       (v: any) =>
@@ -109,8 +114,8 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
     {},
   );
   const getColor = (label: string) => {
-    // console.log(label, "/????");
-    return colorLabels[label];
+    // console.log(label, sublabels, colorLabels[label as keyof typeof colorLabels], '/????');
+    return colorLabels[label as keyof typeof colorLabels];
   };
   // console.log(colorLabels)
   // const values = Object.values(subvalues).flat().map(({value} : any) => value);

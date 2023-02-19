@@ -67,7 +67,7 @@ function App(): React.ReactElement {
         }
       }
       setBarChart([...temp]);
-      // console.log(barChartData);
+      console.log(barChartData);
     })();
   }, [dataLoaded, countries, year]);
 
