@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import React, { type ReactElement, useEffect, useState } from 'react';
-import colors from './colors.json';
+import colors from './colorsCloud.json';
 import '@styles/globals.css';
 import * as svg from './svgpath.json';
 import { type IGroupedData } from '@type/index';
@@ -102,7 +102,7 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
       console.log('angle', angle, d, total);
       const { label, values } = d;
       const color: number[] =
-        colors[Object.keys(colors)[(i % 4) + 2] as keyof typeof colors];
+        colors[Object.keys(colors)[i] as keyof typeof colors];
       const radius = (values[0] / total) * Math.PI * 2;
       const rotate = (values[0] / total) * 360;
       addClipPath(
