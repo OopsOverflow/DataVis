@@ -5,37 +5,20 @@ import { WorldMap } from '@charts/WorldMap';
 import { Info } from '@charts/Info';
 import { type IGroupedData } from './type';
 import Hero from '@components/Hero';
-import StatsBlock from '@components/StatsBlock';
 import AnimalsKilledList from '@components/AnimalsKilledList';
 import {
+  checkDataLoaded,
   fetchData,
   fetchPieData,
   loadData,
-  checkDataLoaded,
 } from './loadDataRaw';
 import { getCountryName } from './helpers';
+import AnimalStats from '@components/AnimalStats';
+import HibaCard from '@components/HibaCard';
 
 // const GROUPED_BAR_CHART_DATA: IGroupedData[] = selectData;
 // console.log(selectData[0])
 // Mock Data
-
-const stats = [
-  {
-    title: 'Tons Produced',
-    value: '360000000',
-    desc: 'of meat only in 2022',
-  },
-  {
-    title: 'Animals Slaughtered',
-    value: '80000000000',
-    desc: '↗︎ (35.7%) 2010 - 2020',
-  },
-  {
-    title: 'Greenhouse Gas Emissions',
-    value: '57',
-    desc: '% of food-related emissions (GHG, 2021)',
-  },
-];
 
 function App(): React.ReactElement {
   const [barChartData, setBarChart] = useState<IGroupedData[]>([]);
@@ -102,24 +85,13 @@ function App(): React.ReactElement {
   return (
     <>
       <Hero />
-      <div className="flex h-full w-full flex-col items-center justify-center bg-base-200 p-10 text-center md:p-20">
-        <p className="m-2 text-lg md:m-5 md:max-w-4xl">
-          The meat on your plate carries a heavy burden - from ethical concerns
-          about animal cruelty, to environmental pollution and financial costs.
-          Be informed about the true impact of meat consumption and make
-          informed choices based on the facts.
-        </p>
-        <StatsBlock stats={stats} />
-        <p className="m-2 w-full text-lg md:m-5 md:max-w-4xl">
-          The OECD countries recorded the highest per capita meat consumption in
-          the period from 2019 to 2021, with an average of 69.5 kilograms of
-          retail weight per person.
-        </p>
-      </div>
-      <div className="flex h-full w-full flex-col items-center  justify-center md:p-20">
-        <div className="flex flex-row">
+
+      <div className="flex h-full w-screen flex-col  items-center justify-center md:p-20">
+        <div className="flex w-full flex-initial flex-row">
           <Info />
-          <CloudPieChart data={pieChartData} />
+          <div className="ml-auto">
+            <CloudPieChart data={pieChartData} />
+          </div>
         </div>
 
         <div className="flex h-full w-full flex-row items-center justify-center">
@@ -148,9 +120,13 @@ function App(): React.ReactElement {
         {/* <p>Hover over the bars to see the values</p> */}
       </div>
 
+      <AnimalStats />
+
       <div className="flex h-full w-full flex-col items-center justify-center bg-base-200 p-10 text-center md:p-20">
         <AnimalsKilledList />
       </div>
+
+      <HibaCard />
     </>
   );
 }
