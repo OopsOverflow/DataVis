@@ -2,26 +2,36 @@ import React, { type ReactElement, useEffect, useState } from 'react';
 import { geoMercator, geoPath } from 'd3-geo';
 import { feature } from 'topojson-client';
 import colors from './colors.json';
+import { fetchData, fetchPieData } from '../loadDataRaw';
+import { getCountryName } from '../helpers';
+import { IGroupedData } from '@type/index';
+import kinds from '../../public/data/kinds.json';
 
 interface Props {
   countries: string[];
   onChange: any;
+  year: string;
+  emission: IGroupedData[];
 }
 
 interface Tooltip {
   x: number;
   y: number;
   info: any;
+  value: number;
 }
 
 export function WorldMap({
   countries,
   onChange,
+  year,
+  emission,
 }: Props): ReactElement<SVGSVGElement> {
   const [worldData, setWorldData] = useState([]);
   const projection = () => geoMercator().scale(127).translate([400, 300]);
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
   const [selected, setSelect] = useState<any[]>([]);
+  const [emissionData, setEmission] = useState<any>({});
 
   useEffect(() => {
     fetch(
@@ -34,7 +44,7 @@ export function WorldMap({
         }
         return response.json();
       })
-      .then((data: any) => {
+      .then(async (data: any) => {
         // console.log(data)
         setSelect([...countries]);
         setWorldData((feature(data, data.objects.countries1) as any).features);
@@ -45,15 +55,48 @@ export function WorldMap({
   }, []);
 
   useEffect(() => {
+    // console.log(worldData)
+    (async() =>{
+      const labels = Object.keys(kinds);
+      const emData : any = {};
+      for (const c of worldData) {
+        const id = (c as any).id;
+        let sum = 0;
+
+        if (getCountryName(id)) {
+          const d: IGroupedData = await fetchData(getCountryName(id), year);
+          // console.log(d);
+          // setEmission()
+          d.values.forEach((v: any) => {
+            if (v.label === 'Meat, Total | tonnes') return;
+            const l: any = labels.find((key) =>
+              kinds[key as keyof typeof kinds].includes(v.label),
+            );
+            // console.log(v.value)
+            const emD: IGroupedData = emission.find((e) => e.label === l);
+            sum += Math.floor(emD.values[0] * v.value * 1000);
+
+          });
+        }
+        emData[id] = sum;
+      }
+
+      setEmission(emData)
+    })()
+
+  }, [worldData]);
+
+  useEffect(() => {
     onChange(selected);
+    // console.log(emissionData)
   }, [selected]);
 
   return (
     <div>
       <svg
-        width={window.innerWidth * 0.44}
+        width={window.innerWidth * 0.5}
         height={450}
-        viewBox="0 -100 1000 600"
+        viewBox={`100 -100 ${window.innerWidth * 0.5} 600`}
       >
         <g className="countries">
           {worldData.map((d: any, i) => {
@@ -68,8 +111,8 @@ export function WorldMap({
                     ? `rgb(${colors.warning})`
                     : `rgb(${colors.accent})`
                 }
-                stroke={`rgb(${colors.primary})`}
-                strokeWidth={1}
+                stroke={`rgb(${colors.dark})`}
+                strokeWidth={emissionData[id]/250000000000}
                 onClick={() => {
                   if (selected.includes(id))
                     setSelect(selected.filter((s: any) => s !== id));
@@ -80,6 +123,7 @@ export function WorldMap({
                     x: event.clientX,
                     y: event.clientY,
                     info: id,
+                    value: emissionData[id]
                   });
                 }}
                 onMouseLeave={() => {
@@ -94,14 +138,14 @@ export function WorldMap({
         <div className="tooltip" style={{ top: tooltip.y, left: tooltip.x }}>
           <span className="tooltip__title">{tooltip.info}</span>
           <table className="tooltip__table">
-            {/* <thead>
+            <thead>
               <tr>
-                <td>{tooltip.info.label}</td>
+                <td>GHG Emission</td>
               </tr>
             </thead>
             <tbody>
-              <tr>{tooltip.info.value}</tr>
-            </tbody> */}
+              <tr>{tooltip.value}</tr>
+            </tbody>
           </table>
         </div>
       ) : null}

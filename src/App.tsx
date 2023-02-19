@@ -96,7 +96,7 @@ function App(): React.ReactElement {
 
         <div className="my-10 flex h-full w-full flex-row items-center justify-center">
           <StackedBarChart data={barChartData} />
-          <WorldMap countries={countries} onChange={HandleCountryChange} />
+          <WorldMap countries={countries} onChange={HandleCountryChange} year={year} emission={pieChartData} />
         </div>
 
         <div className="flex h-full w-full flex-col items-center justify-center text-center md:p-10">
