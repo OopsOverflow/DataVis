@@ -7,13 +7,17 @@ import { type IGroupedData } from './type';
 import Hero from '@components/Hero';
 import StatsBlock from '@components/StatsBlock';
 import AnimalsKilledList from '@components/AnimalsKilledList';
-import { fetchData, fetchPieData, loadData, checkDataLoaded } from './loadDataRaw';
+import {
+  fetchData,
+  fetchPieData,
+  loadData,
+  checkDataLoaded,
+} from './loadDataRaw';
 import { getCountryName } from './helpers';
 
 // const GROUPED_BAR_CHART_DATA: IGroupedData[] = selectData;
 // console.log(selectData[0])
 // Mock Data
-
 
 const stats = [
   {
@@ -57,7 +61,8 @@ function App(): React.ReactElement {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (checkDataLoaded('meat_prod') && checkDataLoaded('food_emission')) setDataLoaded(true);
+      if (checkDataLoaded('meat_prod') && checkDataLoaded('food_emission'))
+        setDataLoaded(true);
     }, 1000);
 
     return () => {
@@ -72,26 +77,23 @@ function App(): React.ReactElement {
     const temp: IGroupedData[] = [];
     void (async () => {
       for (const c of countries) {
-        const d: IGroupedData = await fetchData(getCountryName(c), year);
-        temp.push(d);
+        if (getCountryName(c)) {
+          const d: IGroupedData = await fetchData(getCountryName(c), year);
+          temp.push(d);
+        }
       }
       setBarChart([...temp]);
-      console.log(barChartData);
+      // console.log(barChartData);
     })();
   }, [dataLoaded, countries, year]);
 
-
   useEffect(() => {
-
     // console.log(fetchPieData())
     void (async () => {
-      setPieChart([...await fetchPieData()]);
-      console.log("set pie")
+      setPieChart([...(await fetchPieData())]);
+      console.log('set pie');
     })();
-
-
-
-  }, [dataLoaded])
+  }, [dataLoaded]);
 
   const HandleCountryChange = (changed: string[]) => {
     setCountries([...changed]);
@@ -120,7 +122,6 @@ function App(): React.ReactElement {
           <CloudPieChart data={pieChartData} />
         </div>
 
-
         <div className="flex h-full w-full flex-row items-center justify-center">
           <StackedBarChart data={barChartData} />
           <WorldMap countries={countries} onChange={HandleCountryChange} />
@@ -133,12 +134,14 @@ function App(): React.ReactElement {
             max="2019"
             value={year}
             onChange={(event) => {
-              setYear(event.target.value)
+              setYear(event.target.value);
             }}
             className="range range-primary range-xs"
           />
-          <div className="w-full flex justify-between text-xs px-2">
-            {Array.from({length: 10}, (v, i) => i).map(y => <span key={y}>|{2010+y}</span>)}
+          <div className="flex w-full justify-between px-2 text-xs">
+            {Array.from({ length: 10 }, (v, i) => i).map((y) => (
+              <span key={y}>|{2010 + y}</span>
+            ))}
           </div>
         </div>
 

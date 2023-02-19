@@ -109,7 +109,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
     {},
   );
   const getColor = (label: string) => {
-    console.log(label);
+    // console.log(label, "/????");
     return colorLabels[label];
   };
   // console.log(colorLabels)
