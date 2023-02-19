@@ -94,7 +94,7 @@ function App(): React.ReactElement {
           </div>
         </div>
 
-        <div className="flex h-full w-full flex-row items-center justify-center">
+        <div className="my-10 flex h-full w-full flex-row items-center justify-center">
           <StackedBarChart data={barChartData} />
           <WorldMap countries={countries} onChange={HandleCountryChange} />
         </div>

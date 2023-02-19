@@ -179,7 +179,6 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
         .attr('alignment-baseline', 'middle');
       return (len += name.length);
     }, 0);
-
   }, [data]);
 
   return (
@@ -236,6 +235,11 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
           ))}
         </g>
       </svg>
+      <p className="text-center text-xs">
+        The production rate of meat in different countries of the world,
+        classified by the different types of animals that are the most consumed,
+        on hover over one bar.
+      </p>
       {tooltip !== null ? (
         <div className="tooltip" style={{ top: tooltip.y, left: tooltip.x }}>
           {/* <span className="tooltip__title">{tooltip.label}</span> */}

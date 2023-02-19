@@ -102,7 +102,7 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
       console.log('angle', angle, d, total);
       const { label, values } = d;
       const color: number[] =
-        colors[Object.keys(colors)[i % 4 + 2] as keyof typeof colors];
+        colors[Object.keys(colors)[(i % 4) + 2] as keyof typeof colors];
       const radius = (values[0] / total) * Math.PI * 2;
       const rotate = (values[0] / total) * 360;
       addClipPath(
@@ -141,10 +141,17 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
 
   return (
     <>
-      <div id="cloud" className="mx-auto flex max-w-2xl p-4">
+      <div
+        id="cloud"
+        className="mx-auto flex max-w-2xl flex-col items-center justify-center p-4 text-center"
+      >
         <svg id="cloud-svg">
           <defs id="defs"></defs>
         </svg>
+        <p className="max-w-md text-sm">
+          A “cloud” doughnut chart going into more detail about the CO2
+          emissions of each animal’s production.
+        </p>
       </div>
       {tooltip !== null ? (
         <div className="tooltip" style={{ top: tooltip.y, left: tooltip.x }}>
