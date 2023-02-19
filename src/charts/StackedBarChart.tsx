@@ -184,62 +184,66 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
   return (
     <div>
       <div id="viz-legend"></div>
-      <svg
-        width={width + margin.left + margin.right + 100}
-        height={height + margin.left + margin.right}
-        viewBox={`-50 0 ${width + margin.left + margin.right} ${
-          height + margin.left + margin.right
-        }`}
-      >
-        <g transform={`translate(${margin.left}, ${margin.top})`}>
-          <g ref={axisBottomRef} transform={`translate(0, ${height})`} />
-          <g ref={axisLeftRef} />
-          {curData.map(({ label, values }, groupIndex) => (
-            <g
-              key={`rect-group-${groupIndex}`}
-              transform={`translate(${scaleX(label)}, 0)`}
-            >
-              {values.map((tup: any, barIndex) => (
-                <Bar
-                  key={`rect-${barIndex}`}
-                  x={0}
-                  // need to accumulate
-                  // calculate y for different kinds
-                  // inversed
-                  y={
-                    height -
-                    calcY(barIndex, [...values]) +
-                    (1 - sums[groupIndex] / Math.max(...sums)) * height
-                  }
-                  width={scaleX.bandwidth()}
-                  height={height - scaleY(tup.value)}
-                  color={`rgb(${
-                    tup.value === mouseBar ? colors.accent : getColor(tup.label)
-                  })`}
-                  onMouseEnter={(event) => {
-                    setMouseBar(tup.value);
-                    setTooltip({
-                      x: event.clientX,
-                      y: event.clientY,
-                      info: tup,
-                    });
-                  }}
-                  onMouseLeave={() => {
-                    setMouseBar(-1);
+      <div className="flex flex-col items-center justify-center">
+        <svg
+          width={width + margin.left + margin.right + 100}
+          height={height + margin.left + margin.right}
+          viewBox={`-50 0 ${width + margin.left + margin.right} ${
+            height + margin.left + margin.right
+          }`}
+        >
+          <g transform={`translate(${margin.left}, ${margin.top})`}>
+            <g ref={axisBottomRef} transform={`translate(0, ${height})`} />
+            <g ref={axisLeftRef} />
+            {curData.map(({ label, values }, groupIndex) => (
+              <g
+                key={`rect-group-${groupIndex}`}
+                transform={`translate(${scaleX(label)}, 0)`}
+              >
+                {values.map((tup: any, barIndex) => (
+                  <Bar
+                    key={`rect-${barIndex}`}
+                    x={0}
+                    // need to accumulate
+                    // calculate y for different kinds
+                    // inversed
+                    y={
+                      height -
+                      calcY(barIndex, [...values]) +
+                      (1 - sums[groupIndex] / Math.max(...sums)) * height
+                    }
+                    width={scaleX.bandwidth()}
+                    height={height - scaleY(tup.value)}
+                    color={`rgb(${
+                      tup.value === mouseBar
+                        ? colors.accent
+                        : getColor(tup.label)
+                    })`}
+                    onMouseEnter={(event) => {
+                      setMouseBar(tup.value);
+                      setTooltip({
+                        x: event.clientX,
+                        y: event.clientY,
+                        info: tup,
+                      });
+                    }}
+                    onMouseLeave={() => {
+                      setMouseBar(-1);
 
-                    setTooltip(null);
-                  }}
-                />
-              ))}
-            </g>
-          ))}
-        </g>
-      </svg>
-      <p className="text-center text-xs">
-        The production rate of meat in different countries of the world,
-        classified by the different types of animals that are the most consumed,
-        on hover over one bar.
-      </p>
+                      setTooltip(null);
+                    }}
+                  />
+                ))}
+              </g>
+            ))}
+          </g>
+        </svg>
+        <p className="mt-4 max-w-xl text-center text-xs">
+          The production rate of meat in different countries of the world,
+          classified by the different types of animals that are the most
+          consumed, on hover over one bar.
+        </p>
+      </div>
       {tooltip !== null ? (
         <div className="tooltip" style={{ top: tooltip.y, left: tooltip.x }}>
           {/* <span className="tooltip__title">{tooltip.label}</span> */}
