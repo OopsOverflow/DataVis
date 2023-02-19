@@ -16,7 +16,7 @@ function Info(): ReactElement<HTMLElement> {
     <div>
       <div className="m-5 max-w-2xl text-lg">
         <h3 className="ml-auto text-2xl font-bold">Introduction:</h3>
-        <p>
+        <p className="mt-3">
           For as long as we’ve known, meat has been a key component in the human
           diet. While it would be debated that meat brings important nutritional
           values and is necessary for a healthy lifestyle, the ways meat
@@ -24,7 +24,7 @@ function Info(): ReactElement<HTMLElement> {
           ecosystem is a non-negligible reality that we need to face sooner
           rather than later.
         </p>
-        <p>
+        <p className="mt-2">
           As of today, meat and dairy production partake in the environmental
           crisis by using 83% of all agricultural land use and taking up 30 per
           cent of the planet’s land surface. In the meantime the process of its
