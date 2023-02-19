@@ -15,6 +15,7 @@ import {
 import { getCountryName } from './helpers';
 import AnimalStats from '@components/AnimalStats';
 import HibaCard from '@components/HibaCard';
+import Footer from '@components/Footer';
 
 // const GROUPED_BAR_CHART_DATA: IGroupedData[] = selectData;
 // console.log(selectData[0])
@@ -127,6 +128,8 @@ function App(): React.ReactElement {
       </div>
 
       <HibaCard />
+
+      <Footer />
     </>
   );
 }

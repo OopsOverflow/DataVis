@@ -28,7 +28,9 @@ const tabs: Record<
     sub: 'Growth, so far in February',
   },
   'THIS WEEK': {
-    value: ((now.getTime() - startOfWeek.getTime()) / 1000) * rate,
+    value:
+      ((now.getTime() - startOfWeek.getTime() + startOfDay.getDay()) / 1000) *
+      rate,
     sub: 'Since the beginning of this week',
   },
   TODAY: {
@@ -88,7 +90,9 @@ const HibaCard = () => {
           <a
             key={tab}
             className={`tab rounded-md ${
-              tab === activeTab ? 'tab-active' : 'text-gray-600 hover:bg-accent'
+              tab === activeTab
+                ? 'tab-active'
+                : 'text-gray-500 hover:bg-red-600 hover:text-white'
             }`}
             onClick={handleClick}
           >
