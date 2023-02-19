@@ -144,28 +144,12 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
       <div id="cloud" className="mx-auto flex max-w-2xl p-4">
         <svg id="cloud-svg">
           <defs id="defs"></defs>
-          {/* <div id="cloud-background"></div> */}
-          {/* <svg width="2000" viewBox="-500 700 2800 500">
-            <defs id="defs">
-              <clipPath id="myClipV2">
-                <path
-                  width="80%"
-                  d="M2129.067,830.128c42.644-59.107,67.786-131.679,67.786-210.131c0-259.61-266.858-432.555-502.906-329.817 c-75.747-54.693-169.528-76.742-261.851-61.949c-21.234-116.703-123.389-205.189-246.219-205.189 c-122.181,0-223.895,87.557-245.866,203.344c-229.544-191.489-581.348-2.784-541.762,298.727 C200.735,506.486,31.918,661.707,31.918,858.132c0,171.537,129.116,312.894,295.46,332.247 c-53.444,345.443,370.186,547.453,606.966,299.698c138.459,114.259,346.778,91.73,456.524-55.185 c87.232,114.345,224.895,188.151,379.818,188.151C2183.791,1623.043,2397.584,1134.949,2129.067,830.128z"
-                ></path>
-              </clipPath>
-            </defs>
-            <image
-              href="./pollution.png"
-              width="100%"
-              clip-path="url(#myClipV2)"
-            ></image>
-          </svg> */}
         </svg>
       </div>
       {tooltip !== null ? (
         <div className="tooltip" style={{ top: tooltip.y, left: tooltip.x }}>
           <span className="tooltip__title">{tooltip.label}</span>
-          {/* <table className="tooltip__table">
+          <table className="tooltip__table">
             <thead>
               <tr>
                 <td>Total Emission per Kg</td>
@@ -176,7 +160,7 @@ export function CloudPieChart({ data }: Props): ReactElement<SVGSVGElement> {
                 <td key={Math.random()}>{tooltip.values[0]}</td>
               </tr>
             </tbody>
-          </table> */}
+          </table>
         </div>
       ) : null}
     </>
