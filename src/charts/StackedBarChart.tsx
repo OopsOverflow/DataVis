@@ -174,7 +174,7 @@ export function StackedBarChart({ data }: Props): ReactElement<SVGSVGElement> {
         .attr('cx', 10 + len * 8 + i * 5)
         .attr('cy', 130)
         .attr('r', 6)
-        .style('fill', `rgb(${colorLabels[l]})`);
+        .style('fill', `rgb(${colorLabels[l as keyof typeof colorLabels]})`);
       svg
         .append('text')
         .attr('x', 20 + len * 8 + i * 5)
