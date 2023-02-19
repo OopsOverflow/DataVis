@@ -14,7 +14,10 @@ interface Tooltip {
   info: any;
 }
 
-export function WorldMap({ countries, onChange} : Props): ReactElement<SVGSVGElement> {
+export function WorldMap({
+  countries,
+  onChange,
+}: Props): ReactElement<SVGSVGElement> {
   const [worldData, setWorldData] = useState([]);
   const projection = () => geoMercator().scale(127).translate([400, 300]);
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
@@ -43,12 +46,15 @@ export function WorldMap({ countries, onChange} : Props): ReactElement<SVGSVGEle
 
   useEffect(() => {
     onChange(selected);
-  }, [selected])
-
+  }, [selected]);
 
   return (
     <div>
-      <svg width={window.innerWidth * 0.5} height={450} viewBox="0 -100 1000 600">
+      <svg
+        width={window.innerWidth * 0.44}
+        height={450}
+        viewBox="0 -100 1000 600"
+      >
         <g className="countries">
           {worldData.map((d: any, i) => {
             const { id } = d;
@@ -57,7 +63,11 @@ export function WorldMap({ countries, onChange} : Props): ReactElement<SVGSVGEle
               <path
                 key={`path-${i}`}
                 d={geoPath().projection(projection())(d) ?? 'undefined'}
-                fill={selected.includes(id) ? `rgb(${colors.warning})` : `rgb(${colors.accent})`}
+                fill={
+                  selected.includes(id)
+                    ? `rgb(${colors.warning})`
+                    : `rgb(${colors.accent})`
+                }
                 stroke={`rgb(${colors.primary})`}
                 strokeWidth={1}
                 onClick={() => {
