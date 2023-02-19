@@ -70,21 +70,21 @@ export function WorldMap({
           d.values.forEach((v: any) => {
             if (v.label === 'Meat, Total | tonnes') return;
             const l: any = labels.find((key) =>
-              kinds[key as keyof typeof kinds].includes(v.label),
+              kinds[key as keyof typeof kinds].includes(v.label as never),
             );
             // console.log(v.value)
-            const emD: IGroupedData = emission.find((e) => e.label === l);
-            sum += Math.floor(emD.values[0] * v.value * 1000);
+            const emD: IGroupedData | undefined = emission.find((e) => e.label === l);
+            if(emD) sum += Math.floor(emD.values[0] * v.value * 1000);
 
           });
         }
-        emData[id] = sum;
+        emData[id] = Math.floor(sum/1000000000);
       }
 
       setEmission(emData)
     })()
 
-  }, [worldData]);
+  }, [worldData, year]);
 
   useEffect(() => {
     onChange(selected);
@@ -112,7 +112,7 @@ export function WorldMap({
                     : `rgb(${colors.accent})`
                 }
                 stroke={`rgb(${colors.dark})`}
-                strokeWidth={emissionData[id]/250000000000}
+                strokeWidth={emissionData[id]/250}
                 onClick={() => {
                   if (selected.includes(id))
                     setSelect(selected.filter((s: any) => s !== id));
@@ -144,7 +144,7 @@ export function WorldMap({
               </tr>
             </thead>
             <tbody>
-              <tr>{tooltip.value}</tr>
+              <tr>{tooltip.value}B</tr>
             </tbody>
           </table>
         </div>
