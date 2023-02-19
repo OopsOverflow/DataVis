@@ -120,8 +120,10 @@ const AnimalsKilledList = (): React.ReactElement => {
       </h1>
       <div className="text-md mt-5 max-w-3xl text-center">
         <p>
-          Meat production demands a high price, paid by animals every day. See
-          the toll in real-time and reflect on the impact of your food choices.{' '}
+          Billions of animals are slaughtered each year to meet the demand for
+          meat. This section shows the number of animals killed in real-time,
+          providing a visual representation of the scale of the industry&apos;s
+          impact on animal lives.{' '}
         </p>
         <p className="mt-2">
           Since you started Reading this page, this is how many animals have
