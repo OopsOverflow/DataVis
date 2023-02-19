@@ -2,9 +2,9 @@ import React, { type ReactElement, useEffect, useState } from 'react';
 import { geoMercator, geoPath } from 'd3-geo';
 import { feature } from 'topojson-client';
 import colors from './colors.json';
-import { fetchData, fetchPieData } from '../loadDataRaw';
+import { fetchData } from '../loadDataRaw';
 import { getCountryName } from '../helpers';
-import { IGroupedData } from '@type/index';
+import { type IGroupedData } from '@type/index';
 import kinds from '../../public/data/kinds.json';
 
 interface Props {
@@ -56,7 +56,7 @@ export function WorldMap({
 
   useEffect(() => {
     // console.log(worldData)
-    (async() =>{
+    void (async() =>{
       const labels = Object.keys(kinds);
       const emData : any = {};
       for (const c of worldData) {

@@ -51,7 +51,7 @@ const HibaCard = () => {
           }
         > = {};
         for (const [key, value] of Object.entries(prevCounters)) {
-          // @ts-ignore
+          // @ts-expect-error
           // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
           newCounters[key] = { ...value, value: value.value + rate };
         }
