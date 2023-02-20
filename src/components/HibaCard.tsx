@@ -65,7 +65,7 @@ const HibaCard = () => {
     };
   }, []);
 
-  const [activeTab, setActiveTab] = useState('THIS MONTH');
+  const [activeTab, setActiveTab] = useState('IN 2023');
 
   const handleClick = (e: any) => {
     setActiveTab(e.target.text);
