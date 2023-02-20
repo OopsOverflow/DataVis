@@ -87,6 +87,8 @@ function App(): React.ReactElement {
     <>
       <Hero />
 
+      <HibaCard />
+
       <div className="flex h-full w-screen flex-col  items-center justify-center md:p-20">
         <div className="flex w-full flex-initial flex-row">
           <Info />
@@ -126,8 +128,6 @@ function App(): React.ReactElement {
       <div className="flex h-full w-full flex-col items-center justify-center bg-base-200 p-10 text-center md:p-20">
         <AnimalsKilledList />
       </div>
-
-      <HibaCard />
 
       <Footer />
     </>

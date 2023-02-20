@@ -72,7 +72,7 @@ const HibaCard = () => {
   };
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center p-10 text-center md:p-20">
+    <div className="flex h-full w-full flex-col items-center justify-center p-10 text-center md:p-20 bg-base-200">
       <div className="m-2 text-lg md:m-5 md:max-w-4xl">
         <p className="mt-5 text-6xl font-medium">
           {
@@ -85,14 +85,14 @@ const HibaCard = () => {
         </p>
         <p className="mt-5 text-2xl font-light">{tabs[activeTab].sub}</p>
       </div>
-      <div className="tabs tabs-boxed mt-6 gap-5 bg-white">
+      <div className="tabs tabs-boxed mt-6 gap-5 bg-base-200">
         {Object.keys(tabs).map((tab) => (
           <a
             key={tab}
             className={`tab rounded-md ${
               tab === activeTab
                 ? 'tab-active'
-                : 'text-gray-500 hover:bg-red-600 hover:text-white'
+                : 'text-gray-800 hover:bg-red-600 hover:text-white'
             }`}
             onClick={handleClick}
           >

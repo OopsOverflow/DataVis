@@ -94,9 +94,9 @@ export function WorldMap({
   return (
     <div>
       <svg
-        width={window.innerWidth * 0.5}
+        width={window.innerWidth * 0.43}
         height={450}
-        viewBox={`100 -100 ${window.innerWidth * 0.5} 600`}
+        viewBox={`100 -100 ${window.innerWidth * 0.43} 600`}
       >
         <g className="countries">
           {worldData.map((d: any, i) => {
