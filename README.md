@@ -1,5 +1,22 @@
-
 # DataVis
+
+## Running the project
+To run a development server locally, follow the steps below:
+Feel free to use npm instead of yarn if you prefer or if you don't have yarn installed.
+1. Clone the repo
+```bash
+git clone https://github.com/OopsOverflow/DataVis.git
+```
+2. Install the dependencies withing the project directory
+```bash
+yarn install
+```
+3. Run the project
+```bash
+yarn dev
+```
+
+## Project structure
 
 This project includes:
 
@@ -11,19 +28,6 @@ This project includes:
 - [x] GitHub action for linting and formatting on push
 - [x] Tailwind CSS for styling
 
-## Running the project
-1. Clone the repo
-```bash
-git clone https://github.com/OopsOverflow/DataVis.git
-```
-2. Install the dependencies
-```bash
-yarn install
-```
-3. Run the project
-```bash
-yarn dev
-```
 
 ## Recommended VSCode extensions
 If you are using VSCode, for a better developer experience, I recommend installing the following extensions in VSCode.
